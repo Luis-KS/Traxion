@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Simple_Classification__c</fullName>
+    <externalId>false</externalId>
+    <label>Simple Classification</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>MEDICINE</fullName>
+                <default>false</default>
+                <label>MEDICINE</label>
+            </value>
+            <value>
+                <fullName>HEALING MATERIAL</fullName>
+                <default>false</default>
+                <label>HEALING MATERIAL</label>
+            </value>
+            <value>
+                <fullName>HEALING_MATERIAL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>HEALING_MATERIAL</label>
+            </value>
+            <value>
+                <fullName>HIGH VALUE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>HIGH VALUE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

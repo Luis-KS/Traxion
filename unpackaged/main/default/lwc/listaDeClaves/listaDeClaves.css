@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    padding: 10px;
+}
+
+.lista-productos{
+    padding: 12px;
+    margin-top: 10px;
+}
+.apartado-button{
+    margin-top: 10px;
+    display: flex;
+}
+
+:host {
+    --slds-c-accordion-summary-color-background: var(--slds-g-color-neutral-base-95, var(--lwc-colorBackground,rgb(243, 243, 243)));
+  }

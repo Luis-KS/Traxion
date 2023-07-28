@@ -1,0 +1,349 @@
+<aura:component controller="MisPedidosClass">
+
+    <!-- SELF ATTRIBUTES --> 
+    <aura:attribute name="data" type="Object" /> 
+    <aura:attribute name="nombreDireccion" type="String" /> 
+    <aura:attribute name="nombreUMU" type="String" /> 
+    <aura:attribute name="estatusOrden" type="Object" /> 
+    <aura:attribute name="detallesDePedido" type="List" />  
+    <aura:attribute name="orderLineItemDetails" type="List" /> 
+    <aura:attribute name="filteredOrderLineItemDetails" type="Object" />  
+    <aura:attribute name="activeSections" type="List" default="['A']" /> 
+    <aura:attribute name="body" type="Aura.Component[]"/>
+    <aura:attribute name="instanceURL" type="String" />
+    <aura:attribute name="prefixURL" type="String" default="/sfc/servlet.shepherd/version/download/"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="isModalLoading" type="Boolean" default="false" />
+    <aura:attribute name="pedidoId" type="String" />
+
+    <!-- HANDLERS -->
+    <aura:handler event="c:mostrarDetallesEspecificos" action="{!c.handleUpdateDetails}"/>  
+
+    <!-- MARKUP -->
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading" />
+    </aura:if>
+
+    <div class="slds-size_12-of-12 mc-card slds-p-around_small">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="12"> 
+                <div class="slds-float_left">
+                    <div style="font-size:large; font-weight: bold;">{!v.nombreUMU}</div>
+                </div>  
+                <div class="slds-float_right">
+                    <lightning:badge label="{!v.estatusOrden.label}" class="{!v.estatusOrden.theme}" iconName="{!v.estatusOrden.icon}"/>
+                </div>    
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-vertical_small" size="12" flexibility="auto" >
+                <div style="font-size:large; font-weight: bold;">{!v.data.Tipo_de_Pedido__c}</div> 
+                <!-- <div class="slds-text-heading_small">{!v.nombreUMU}</div> -->
+                <div class="slds-text-heading_small slds-p-bottom_x-small">{!v.nombreDireccion}</div>
+                <lightning:button variant="brand" label="VER MÁS DETALLES" title="Brand action" onclick="{!c.handleClick}" />
+            </lightning:layoutItem> 
+
+            <lightning:layoutItem size="12" flexibility="auto" >
+                <lightning:accordion allowMultipleSectionsOpen="true" activeSectionName="{!v.activeSections}">
+                    <aura:renderIf isTrue="{!not(empty(v.orderLineItemDetails))}">  
+                        <lightning:accordionSection name="A" label="Detalles de Pedido">
+                            <lightning:layout multipleRows="true">   
+                                <aura:iteration items="{!v.detallesDePedido}" var="item"> 
+                                    <aura:renderIf isTrue="{!item.mostrar}">
+                                        <lightning:layoutItem size="6" class="slds-p-bottom_small slds-p-right_small">
+                                            <strong>{!item.titulo}</strong> 
+                                            <p>{!item.valor}</p>
+                                        </lightning:layoutItem>
+                                    </aura:renderIf>
+                                </aura:iteration>
+                            </lightning:layout>
+                        </lightning:accordionSection>
+                    </aura:renderIf>
+
+                    <aura:renderIf isTrue="{!not(empty(v.orderLineItemDetails))}">    
+                        <lightning:accordionSection name="B" label="Detalles de Insumos">  
+                            <aura:iteration items="{!v.orderLineItemDetails}" var="item"> 
+                                <aura:renderIf isTrue="{!item}">   
+                                    <lightning:layout multipleRows="true" class="slds-border_top">  
+                                        <lightning:layoutItem size="12" class="slds-p-vertical_small slds-p-right_small">
+                                            <strong>{!item.itemId}</strong> 
+                                            <p>{!item.itemNombre}</p>
+                                        </lightning:layoutItem>
+                                        <lightning:layoutItem size="6" class="slds-p-bottom_small slds-p-right_small"> 
+                                            <strong>Piezas</strong>
+                                            <p>{!item.piezasEntregadas}</p> 
+                                        </lightning:layoutItem>
+                                        <lightning:layoutItem size="6" class="slds-p-bottom_small slds-p-right_small"> 
+                                            <strong>Costo Promedio</strong>
+                                            <p>{!item.costoPromedio}</p>
+                                        </lightning:layoutItem>
+                                        <lightning:layoutItem size="12" class="slds-p-bottom_small slds-p-right_small"> 
+                                            <strong>Subtotal:</strong>
+                                            {!item.costoPromedio} 
+                                        </lightning:layoutItem> 
+                                    </lightning:layout>  
+                                </aura:renderIf>
+                            </aura:iteration>    
+                        </lightning:accordionSection>
+                    </aura:renderIf> 
+                </lightning:accordion>
+            </lightning:layoutItem> 
+        </lightning:layout> 
+    </div>
+    
+    <!-- MODALS -->
+    <div class="slds-hide" aura:id="detallesOrden" id="detallesOrden">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_full" aria-modal="true" >
+            <div class="slds-modal__container">
+                <div class="slds-modal__content">
+                    <div class="mc-container"> 
+                        <aura:if isTrue="{!v.isModalLoading}">
+                            <lightning:spinner alternativeText="Loading" />
+                        </aura:if> 
+                        <div class="mc-header">
+                            <lightning:layout multipleRows="false">
+                                <lightning:layoutItem size="7">
+                                    <strong>{!v.data.Tipo_de_Pedido__c} | {!v.nombreDireccion}</strong> 
+                                </lightning:layoutItem>
+                                <lightning:layoutItem size="5" class="slds-float_right">
+                                    <strong onclick="{!c.killDetallesModal}" class="slds-float_right" style="cursor: pointer;" >Cerrar&nbsp;<i class="fa fa-times" aria-hidden="true"></i></strong>
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                        </div>
+                        <div class="mc-content">
+                            <ui:scrollerWrapper class="maxScroll slds-size_1-of-1"> 
+                                <lightning:layout multipleRows="true"> 
+                                    <lightning:layoutItem size="12"> 
+                                        <div style="font-size:large; font-weight: bold;">{!v.data.Tipo_de_Pedido__c}</div> 
+                                        <div class="slds-text-heading_small slds-p-bottom_x-small">{!v.nombreDireccion}</div>
+
+                                        <lightning:layout multipleRows="true" class="slds-p-bottom_small"> 
+                                            
+                                            <lightning:layoutItem size="3" class="slds-p-bottom_small slds-p-right_x-small">
+                                                <strong>Fecha de Creación:</strong> 
+                                                <p>{!v.data.CreatedDate}</p>
+                                            </lightning:layoutItem> 
+
+                                            <lightning:layoutItem size="3" class="slds-p-bottom_small slds-p-right_x-small">
+                                                <strong>Fecha Máxima de Entrega:</strong> 
+                                                <p>{!v.data.Fecha_Limite_de_Entrega__c}</p>
+                                            </lightning:layoutItem> 
+
+                                            <lightning:layoutItem size="3" class="slds-p-bottom_small slds-p-right_x-small">
+                                                <strong>Tipo de Pedido:</strong> 
+                                                <p>{!v.data.Tipo_de_Pedido__c}</p>
+                                            </lightning:layoutItem> 
+
+                                            <lightning:layoutItem size="3" class="slds-p-bottom_small slds-p-right_x-small">
+                                                <strong>Generado Por:</strong> 
+                                                <p>{!v.data.Creado_Por__r.Name}</p>
+                                            </lightning:layoutItem> 
+
+                                            <lightning:layoutItem size="3" class="slds-p-bottom_small slds-p-right_x-small">
+                                                <strong>Destino:</strong> 
+                                                <p>{!v.data.UMU__r.Estado__c}, {!v.data.UMU__r.Colonia__c}</p>
+                                            </lightning:layoutItem> 
+
+                                            <aura:if isTrue="{!v.data.Aprobado_Por__r.Name}">
+                                                <lightning:layoutItem size="3" class="slds-p-bottom_small slds-p-right_x-small">
+                                                    <strong>Aprobado Por:</strong> 
+                                                    <p>{!v.data.Aprobado_Por__r.Name}</p>
+                                                </lightning:layoutItem> 
+                                            </aura:if>
+
+                                            <lightning:layoutItem size="3" class="slds-p-bottom_small slds-p-right_x-small">
+                                                <strong>Delegación:</strong> 
+                                                <p>{!v.data.UMU__r.Delegacion__c}</p>
+                                            </lightning:layoutItem> 
+                                        </lightning:layout>  
+                                    </lightning:layoutItem>  
+
+                                    <lightning:layoutItem size="12">
+                                        <lightning:layoutItem size="12" class="slds-p-bottom_small">
+                                            <div style="font-size:large; font-weight: bold;">Insumos Filtrados por Sub-Almacén</div> 
+                                        </lightning:layoutItem> 
+
+                                        <lightning:tabset variant="vertical"> 
+                                            <aura:iteration items="{!v.filteredOrderLineItemDetails}" var="item"> 
+                                                <lightning:tab label="{!item.datosDelSubalmacen.subalmacenName}">
+
+                                                    <aura:if isTrue="{!item.datoError}">
+                                                        <lightning:layoutItem size="12" class="slds-p-around_small">
+                                                            <strong style="color:red;" class="slds-align_absolute-center slds-p-bottom_small">HUBO UN ERROR AL GENERAR LA ORDEN, HAZ CLICK EN EL BOTÓN PARA INTENTAR DE NUEVO</strong> 
+                                                            <lightning:button value="{!item.datoDeOrderId}" class="slds-size_full" variant="destructive" label="REENVIAR ORDEN AL SISTEMA" title="firmaMain" onclick="{!c.handleReenviarOrden}" />
+                                                        </lightning:layoutItem> 
+                                                    </aura:if> 
+
+                                                    <aura:if isTrue="{!item.datosDelSubalmacen.buttonDisplayment.displayFirmarLlegadaTransporte}">
+                                                        <lightning:layoutItem size="12" class="slds-p-around_small">
+                                                            <lightning:button value="{!item}" class="slds-size_full" variant="brand" label="FIRMAR LLEGADA DE TRANSPORTE" title="firmaMain" onclick="{!c.handleDisplayLlegada}" />
+                                                        </lightning:layoutItem> 
+                                                    </aura:if>  
+                                                    <aura:if isTrue="{!item.datosDelSubalmacen.buttonDisplayment.displayDatosTransporte}">
+                                                        <lightning:layoutItem size="12" class="slds-p-around_small">
+                                                            <div style="font-size:large; font-weight: bold;" class="slds-text-align_center">Firmar llegada de transporte</div> 
+                                                            <div style="font-size:small;" class="slds-text-align_center">Estás a punto de firmar la llegada de un transporte con fecha:</div> 
+                                                            <div style="font-size:large; font-weight: bold;" class="slds-text-align_center">{!item.datosDelSubalmacen.fechaDeLlegadaTransporte}</div> 
+
+                                                            <aura:if isTrue="{!item.datosDelSubalmacen.evidenciaTransporte}">
+                                                                <figure class="slds-image slds-image--card">
+                                                                    <a href="javascript:void(0);" class="slds-image__crop  slds-image__crop--16-by-9">
+                                                                        <img src="{!v.prefixURL + item.datosDelSubalmacen.evidenciaTransporte}" alt="Description of the image"/>
+                                                                    </a>
+                                                                    <figcaption class="slds-image__title slds-image__title--card">
+                                                                        <span class="slds-image__text slds-truncate" title="Image Title">  
+                                                                            Evidencia
+                                                                        </span>
+                                                                    </figcaption>
+                                                                </figure>
+                                                            </aura:if> 
+
+                                                            <lightning:layoutItem size="12" class="slds-p-around_small slds-align_absolute-center">
+                                                                <lightning:button value="{!item}" variant="destructive" label="CANCELAR" title="firmaCancelar" onclick="{!c.handleDisplayLlegada}" />
+                                                                <lightning:button value="{!item}" variant="brand" label="FIRMAR LLEGADA" title="firmaContinuar" onclick="{!c.handleDisplayLlegada}" />
+                                                            </lightning:layoutItem> 
+                                                        </lightning:layoutItem>
+                                                    </aura:if>
+
+                                                    <aura:if isTrue="{!item.datosDelSubalmacen.buttonDisplayment.displayFirmarRecibirEntrega}">
+                                                        <lightning:layoutItem size="12" class="slds-p-around_small">
+                                                            <lightning:layout multipleRows="true">
+                                                                <lightning:layoutItem size="12" class="slds-p-bottom_small">
+                                                                    <lightning:button value="{!item}" class="slds-size_full" variant="brand" label="FIRMAR Y RECIBIR ENTREGA" title="Brand action" onclick="{!c.handleCertificarEntrega}" />
+                                                                </lightning:layoutItem>
+                                                                <lightning:layoutItem size="12">
+                                                                    <lightning:button value="{!item}" class="slds-size_full" variant="destructive" label="RECHAZAR ENTREGA" title="Brand action" onclick="{!c.handleRechazarEntrega}" />
+                                                                </lightning:layoutItem>
+                                                            </lightning:layout> 
+                                                        </lightning:layoutItem>
+                                                    </aura:if>
+
+                                                    <lightning:accordion allowMultipleSectionsOpen="true">
+                                                        <lightning:accordionSection name="Insumos" label="Insumos">
+                                                            <aura:iteration items="{!item.datosDeOLI}" var="oli"> 
+                                                                <lightning:layout multipleRows="true" class="slds-p-bottom_small">   
+                                                                    <lightning:layoutItem size="12" class="slds-p-vertical_xx-small">
+                                                                        <strong>{!oli.itemId}</strong> 
+                                                                        <p>{!oli.itemNombre}</p>
+                                                                    </lightning:layoutItem>
+
+                                                                    <div class="slds-size_1-of-5 slds-p-right_xx-small">
+                                                                        <strong>Piezas Solicitadas</strong> 
+                                                                        <p>{!oli.piezasSolicitadas}</p>
+                                                                    </div> 
+
+                                                                    <div class="slds-size_1-of-5 slds-p-right_xx-small">
+                                                                        <strong>Piezas Enviadas</strong> 
+                                                                        <p>{!oli.piezasEnviadas}</p>
+                                                                    </div> 
+
+                                                                    <div class="slds-size_1-of-5 slds-p-right_xx-small">
+                                                                        <strong>Piezas Entregadas</strong> 
+                                                                        <p>{!oli.piezasEntregadas}</p>
+                                                                    </div> 
+
+                                                                    <div class="slds-size_1-of-5 slds-p-right_xx-small">  
+                                                                        <strong>Costo Promedio</strong> 
+                                                                        <p>{!oli.costoPromedio}</p>
+                                                                    </div> 
+
+                                                                    <div class="slds-size_1-of-5">  
+                                                                        <strong>Costo Promedio Total</strong> 
+                                                                        <p>{!oli.costoPromedioTotal}</p>
+                                                                    </div> 
+
+                                                                </lightning:layout> 
+                                                            </aura:iteration>
+                                                        </lightning:accordionSection>
+
+                                                        <lightning:accordionSection name="Seguimiento" label="Seguimiento">
+                                                            <div class="slds-scrollable_x" style="width:37rem" tabindex="0">
+                                                                <div class="slds-text-longform">
+                                                                    <c:misPedidosProgressBar datosDeSeguimiento="{!item.datosDeSeguimiento}" /> 
+                                                                </div>
+                                                            </div>
+                                                        </lightning:accordionSection> 
+
+                                                       
+                                                        <lightning:accordionSection name="Documentos" label="Documentos Relacionados">
+                                                            <c:filesContainer orderId="{!v.pedidoId}" />
+                                                        </lightning:accordionSection> 
+
+                                                    </lightning:accordion>
+
+                                                    
+                                                </lightning:tab>
+                                            </aura:iteration>
+                                        </lightning:tabset>
+                                    </lightning:layoutItem>
+                                </lightning:layout> 
+                            </ui:scrollerWrapper>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL CONFIRMACION ENTREGA -->
+    <!-- <aura:if isTrue="{!v.showRejectionModal}">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small" aria-modal="true" >
+            <div class="slds-modal__container">
+                <div class="slds-modal__content">
+                    <div class="mc-container">
+                        <aura:if isTrue="{!v.isLoading}">
+                            <lightning:spinner alternativeText="Loading" />
+                        </aura:if>
+                        <div class="mc-header">
+                            <lightning:layout multipleRows="false">
+                                <lightning:layoutItem size="7">
+                                    <strong>RECIBIR ENTREGA</strong> 
+                                </lightning:layoutItem>
+                                <lightning:layoutItem size="5" class="slds-float_right">
+                                    <strong onclick="{!c.killModalRechazoOLI}" class="slds-float_right" style="cursor: pointer;" >Cerrar&nbsp;<i class="fa fa-times" aria-hidden="true"></i></strong>
+                                </lightning:layoutItem>
+                            </lightning:layout>
+                        </div>
+                        <div class="mc-content"> 
+                            <ui:scrollerWrapper class="maxScroll slds-size_1-of-1">  
+                                Recibir Entrega Parcial
+                                Estas a punto de recibir una entrega con fecha de llegada:
+                                03/ABR/23 - 10:15 AM
+                                Las claves modificadas son las siguientes
+                                    <lightning:layout multipleRows="true">
+                                        <lightning:layoutItem size="12" padding="around-small">
+                                            <strong>{!v.oliToReject.Product__r.Product_Code_ID__c}</strong> 
+                                            <p>{!v.oliToReject.Product__r.Name}</p> 
+                                            <p class="slds-p-top_small" style="font-size: x-small;">{!v.oliToReject.Product__r.Description__c}</p>
+                                        </lightning:layoutItem>  
+
+                                        <lightning:layoutItem padding="around-small" size="12">
+                                            <p style="color:red;">Estás rechazando una solicitud de insumo, esta acción no puede ser revertida.</p>
+                                            <p style="color:red;">Es necesario incluir una justificación o motivo de rechazo.</p>
+                                        </lightning:layoutItem>
+
+                                        <lightning:layoutItem padding="around-small" size="12">
+                                            <strong class="slds-p-top_medium">Cantidad Solicitada: </strong>{!v.oliToReject.Cantidad_Solicitada__c}
+                                        </lightning:layoutItem>
+                                        
+                                        <lightning:layoutItem padding="around-small" size="12">
+                                            <strong>Selecciona un motivo de rechazo</strong> 
+                                            <lightning:combobox name="progress" label="Selecciona un Motivo" value="{!v.selectedRejection}" placeholder="Selecciona un Motivo" options="{!v.nonApprovalReasons}" onchange="{!c.handleRejectPicklist}" required="true" variant="label-hidden"/>
+                                        </lightning:layoutItem>
+                                        
+                                        <lightning:layoutItem padding="around-small" size="6">
+                                            <lightning:button value="{!v.oliToReject.Id}" variant="brand-outline" class="slds-float_right" label="Cancelar" title="Brand action" onclick="{!c.killModalRechazoOLI}" />
+                                        </lightning:layoutItem>
+                                        <lightning:layoutItem padding="around-small" size="6">
+                                            <lightning:button value="{!v.oliToReject}" variant="destructive" class="slds-float_left" label="Rechazar" title="Brand action" onclick="{!c.handleRejectContinueClick}" disabled="{!v.disableRejectContinue}"/>
+                                        </lightning:layoutItem>
+                                    </lightning:layout> 
+                                </aura:if>   
+                            </ui:scrollerWrapper>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aura:if> -->
+
+
+</aura:component>

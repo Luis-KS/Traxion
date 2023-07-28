@@ -1,0 +1,139 @@
+<apex:page id="InvPDF" controller="InventarioPDFController" renderAs="PDF">
+    
+    <h4 style="text-align: center; font-family: sans-serif">REGISTRO DE INVENTARIO</h4>
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 20px; width:100%">
+        <tr>
+            <td style="">TIPO DE INSUMO</td>
+            <td style="padding-left: 10px; ">CLASIFICACIÓN</td>
+            <td style="padding-left: 10px; ">FOLIO</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 600">{!inventario.Tipo_de_Insumo__c}</td>
+            <td style="padding-left: 10px;  font-weight: 600">{!inventario.Clasificacion__c}</td>
+            <td style="padding-left: 10px;  font-weight: 600">{!inventario.Inventario__r.Name}</td>
+        </tr>
+    </table>
+
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 20px; width:100%">
+        <tr>
+            <td style="">REGISTRADO POR</td>
+            <td style="padding-left: 10px; ">FECHA Y HORA DE REGISTRO</td>
+            <td style="padding-left: 10px; ">FIRMADO POR</td>
+            <td style="padding-left: 10px; ">FECHA Y HORA DE FIRMA</td>
+        </tr>
+        <apex:outputText rendered="{!IF(estatusInventario ='En Firma',true,false)}">
+            <tr>
+                <td style="font-weight: 600">{!inventario.Inventario__r.Registrado_Por__c}</td>
+                <td style="padding-left: 10px;  font-weight: 600">
+                    <apex:outputText value="{0,date,d/MM/yyyy hh:mm}">
+                        <apex:param value="{!inventario.Inventario__r.Fecha_Registrado__c+offsetR}" />         
+                    </apex:outPutText>
+                </td>
+                <td style="padding-left: 10px;  font-weight: 600"></td>
+                <td style="padding-left: 10px;  font-weight: 600"></td>
+            </tr>
+        </apex:outputText>
+        <apex:outputText rendered="{!IF(estatusInventario ='Firmado',true,false)}">
+            <tr>
+                <td style="font-weight: 600">{!inventario.Inventario__r.Registrado_Por__c}</td>
+                <td style="padding-left: 10px;  font-weight: 600">
+                    <apex:outputText value="{0,date,d/MM/yyyy hh:mm}">
+                        <apex:param value="{!inventario.Inventario__r.Fecha_Registrado__c+offsetR}" />         
+                    </apex:outPutText>
+                </td>
+                <td style="padding-left: 10px;  font-weight: 600">{!inventario.Inventario__r.Firmado_Por__c}</td>
+                <td style="padding-left: 10px;  font-weight: 600">
+                    <apex:outputText value="{0,date,d/MM/yyyy hh:mm}">
+                        <apex:param value="{!inventario.Inventario__r.Signed_Date__c+offsetF}" />         
+                    </apex:outPutText>
+                </td>
+            </tr>
+        </apex:outputText>
+    </table>
+    <hr></hr>
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 10px; width:100%">
+        <tr>
+            <td style="">TIPO DE UNIDAD MÉDICA</td>
+            <td style="padding-left: 10px;">CLAVE PRESUPUESTAL</td>
+            <td style="padding-left: 10px;">NÚMERO DE UNIDAD MÉDICA</td>
+            <td style="padding-left: 10px;">NOMBRE DE UNIDAD MÉDICA</td>
+            <td style="padding-left: 10px;">DELEGACIÓN</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 600">{!inventario.Inventario__r.Tipo_UMU__c}</td>
+            <td style="padding-left: 10px; font-weight: 600">{!inventario.Inventario__r.Clave_Presupuestal__c}</td>
+            <td style="padding-left: 10px; font-weight: 600">{!inventario.Inventario__r.Codigo_UMU__c}</td>
+            <td style="padding-left: 10px; font-weight: 600">{!inventario.Nombre_UMU__c}</td>
+            <td style="padding-left: 10px; font-weight: 600">{!inventario.Inventario__r.Delegaci_n__c}</td>
+        </tr>
+    </table>
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 15px;">
+        <thead>
+            <tr style="background-color:#64a3e7">
+                <td style="padding-left: 5px; text-align: center; padding-right: 5px; width: 60px">Clave</td>
+                <td style="padding-left: 5px; text-align: center; padding-right: 5px; width: 200px">Descripción</td>
+                <td style="padding-left: 5px; text-align: center; padding-right: 5px; width: 40px">Lote</td>
+                <td style="padding-left: 5px; text-align: center; padding-right: 5px; width: 30px">Caducidad</td>
+                <td style="padding-left: 5px; text-align: center; padding-right: 5px; width: 30px">Piezas Contadas</td>
+                <td style="padding-left: 5px; text-align: center; padding-right: 5px; width: 30px">Piezas Totales</td>
+            </tr> 
+        </thead>
+        <tbody style="font-family: sans-serif; font-size: 12px; margin-top: 15px;">
+            <apex:repeat value="{!inventarioDataList}" var="invData">
+                <tr style="background-color:#9dc2e9">
+                    <td style="text-align: center; font-size: 10px;">{!invData.clave}</td>
+                    <td style="text-align: center; font-size: 8px;">{!invData.descripcion}</td>
+                    <td>
+                        <table>
+                            <apex:repeat value="{!invData.loteList}" var="lote">
+                                <tr>
+                                    <td style="padding-left: 5px; text-align: center; padding-right: 5px; font-size: 10px; width: 80px">{!lote}</td> 
+                                </tr>
+                            </apex:repeat>
+                        </table>
+                    </td> 
+                    <td>
+                        <table>
+                            <apex:repeat value="{!invData.caducidadList}" var="caducidad">
+                                <tr>
+                                    <td style="padding-left: 5px; text-align: center; padding-right: 5px; font-size: 10px; width: 65px">{!caducidad}</td> 
+                                </tr>
+                            </apex:repeat>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <apex:repeat value="{!invData.piezasList}" var="piezas">
+                                <tr>
+                                    <td style="padding-left: 5px; text-align: center; padding-right: 5px; font-size: 10px; width: 60px">{!piezas}</td> 
+                                </tr>
+                            </apex:repeat>
+                        </table>
+                    </td>
+                    <td style="text-align: center; font-size: 10px;">{!invData.conteoTotal}</td>
+                </tr> 
+            </apex:repeat>
+        </tbody>
+    </table>
+    <hr></hr>
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 10px; width:100%">
+        <tr>
+            <td style="text-align: left; padding-left: 20px; font-weight: 600; width:50%">Total de claves contadas: {!clavesContadas}</td>
+            <td style="text-align: right; padding-right: 20px; font-weight: 600; width:50%">Total de piezas contadas: {!piezasContadas}</td>
+        </tr>
+        <tr>
+            <td style="text-align: left; padding-left: 20px; font-weight: 600; width:50%">Total de lotes contados: {!lotesContados}</td>
+        </tr>
+    </table>
+    <hr></hr>
+    <apex:outputText rendered="{!IF(estatusInventario ='Firmado',true,false)}">
+        <table style="font-family: sans-serif; font-size: 12px; margin-top: 10px; width:100%">
+            <tr>
+                <td style="text-align: center; padding-left: 20px; font-weight: 600; width:100%">CADENA DE CONTENIDO</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; padding-left: 20px; width:100%">{!cadenaContenido}</td>
+            </tr>
+        </table>
+    </apex:outputText>
+</apex:page>

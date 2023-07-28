@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Esta la recibe únicamente la UMU a la que va dirigida el pedido. Contiene un PDF con el detalle de los pedidos que cargó.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Confirmacion de Solicitud de Pedido UMU</name>
+    <style>none</style>
+    <subject>Confirmación de tu solicitud de pedido {TIPO_DE_PEDIDO} folio {ID_PEDIDO}, {NOMBRE_UMU}, {CLAVE_PRESUPUESTAL}</subject>
+    <textOnly>Estimado cliente.
+
+Me permito enviarte un cordial saludo,
+
+Me comunico para informarle que nuestro equipo ha verificado la disponibilidad de insumos en CENADI, hacemos de su conocimiento que entregaremos el 100% de su pedido {TIPO_DE_PEDIDO} {ID_PEDIDO}.
+
+Anexo encontrará el detalle de los insumos confirmados.
+
+*El surtimiento de los insumos de Grupo 1 están sujetos al aviso de previsiones vigente
+
+Atentamente,
+ALMACENAJE Y DISTRIBUCIÓN AVIOR, S.A. DE C.V.
+Contáctanos de Mesa de Ayuda
+Teléfono: 55 8647 7783
+Correo electrónico: gruposidinsightlogistica@gruposid.com.mx
+maypoinsightlogistica@maypo.com</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

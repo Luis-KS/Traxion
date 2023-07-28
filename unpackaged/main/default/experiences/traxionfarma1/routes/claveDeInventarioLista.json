@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "c19b9f0e-afdd-4c52-bfa0-053e70723938",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "21e0ba6f-6932-4dac-ad88-6a68280c540a",
+  "label" : "Clave de Inventario Lista",
+  "objectApiName" : "Clave_de_Inventario__c",
+  "routeType" : "list-a0K",
+  "type" : "route",
+  "urlPrefix" : "clave-de-inventario"
+}

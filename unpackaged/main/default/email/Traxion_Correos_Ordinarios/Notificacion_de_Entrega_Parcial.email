@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <p>Estimado usuario,</p>
+  <p>Me permito informarle que la entrega {{NUMERO-DE-ENTREGA}} ha sido registrada como {{TIPO-DE-ENTREGA}}, a continuación te presentamos más información:</p>
+  <ul>
+    <li>Clave presupuestal y Nombre de la Unidad Médica: {{CLAVE-PRESUPUESTAL-Y-NOMBRE-DE-UNIDAD-MEDICA}}</li>
+    <li>Delivery: {{NUMERO-DE-DELIVERY}}</li>
+    <li>Subalmacén: {{CODIGO-DE-SUBALMACEN}}</li>
+    <li>Registrado por: {{NOMBRE-DEL-REGISTRANTE}}</li>
+    <li>Folio de desviación: {{NUMERO-DE-FOLIO}}</li>
+    <li>Motivo registrado: {{MOTIVO}}</li>
+    <li>Número de claves con desviación: {{CANTIDAD-DE-CLAVES-CON-DESVIACION}}</li>
+    <li>Número de piezas con desviación: {{CANTIDAD-DE-PIEZAS-CON-DESVIACION}}</li>
+    <li>Monto de las piezas con desviación: {{MONTO-DE-LAS-PIEZAS-CON-DESVIACION}}</li>
+  </ul>
+  <p>Fecha de remisión: {{FECHA-DE-REMISION}}</p>
+  <br>
+  <p>Atentamente,</p>
+  <p>{!$Setup.Pie_de_Firma__c.Nombre__c}<br>
+  {!$Setup.Pie_de_Firma__c.Puesto__c}</p>
+  <p>Teléfono: {!$Setup.Pie_de_Firma__c.Telefono__c}<br>
+  Correo electrónico: {!$Setup.Pie_de_Firma__c.Correo_electronico_1}</p>
+</body>
+</html>

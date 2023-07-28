@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container-product {
+    overflow-y: scroll;
+    max-height: 270px
+}
+
+.motivo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    color: #d42d2d;
+    background-color: rgb(255 15 15 / 15%);
+    font-weight: 100;
+}
+
+.text-data {
+    text-align: right;
+}
+
+.medicamento {
+    font-weight: 100;
+    font-size: 15px;
+    margin: 0px 0px 40px 12px;
+}
+
+.orden {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 7px 0px 3px 7px;
+}
+
+.grid-first-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px 20px;
+    place-items: flex-end;
+}
+
+.grid-left-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px;
+    place-items: flex-end;
+    border-bottom: 0.6px solid #cdcdcd;
+}
+
+.text-weight {
+    font-weight: 600;
+}
+
+.left-panel-data {
+    text-align: right;
+}
+
+.text {
+    font-weight: 200;
+    display: block;
+}
+
+.grid-last-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px;
+    place-items: flex-end;
+    /* border-bottom: 0.6px solid #cdcdcd; */
+}
+
+.data-insumos {
+    margin-top: 10px;
+}
+
+.buscador {
+    font-size: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+.informacionDeLotes {
+    font-weight: 100;
+    font-size: 15px;
+    margin: 10px 0px 20px 34px;
+}
+
+.botonInformacionDeLotes{
+    font-weight: 100;
+    font-size: 15px;
+    margin: 0px 0px 10px 12px;
+}
+
+
+.informacionDeLotesboton{
+    border: none;
+    color: #3a85a7;
+    border-radius: 10px;
+    padding: 5px 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin-top: 12px;
+    font-weight: 600;
+}

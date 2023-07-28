@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_UMU__c</fullName>
+    <description>Campo que contiene el tipo de UMU almacenado en el objeto relacionado Account.</description>
+    <externalId>false</externalId>
+    <formula>CASE(UMU__r.Tipo_UMU__c, 
+&quot;CAF&quot;, &quot;CONSULTORIO ATENCIÓN FAMILIA&quot;,
+&quot;CC&quot;, &quot;CENTRO DE CANJE&quot;,
+&quot;CE&quot;, &quot;CLÍNICA DE ESPECIALIDADES&quot;,
+&quot;CH&quot;, &quot;CLÍNICA HOSPITAL&quot;,
+&quot;CMCT&quot;, &quot;CONSULTORIO MÉDICO EN CENTRO DE TRABAJO&quot;,
+&quot;CMF&quot;, &quot;CLÍNICA MEDICINA FAMILIAR&quot;,
+&quot;CMFE&quot;, &quot;CLÍNICA DE MEDICINA FAMILIAR CON ESPECIALIDADES&quot;,
+&quot;CMN&quot;, &quot;CENTRO MÉDICO NACIONAL&quot;,
+&quot;HG&quot;, &quot;HOSPITAL GENERAL&quot;,
+&quot;HR&quot;, &quot;HOSPITAL REGIONAL&quot;,
+&quot;NA&quot;, &quot;NO APLICA&quot;,
+&quot;UE&quot;, &quot;UNIDAD ESPECIAL&quot;,
+&quot;UMF&quot;, &quot;UNIDAD DE MEDICINA FAMILIAR&quot;, 
+&quot;&quot;)</formula>
+    <label>Tipo UMU</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Insumos que solicita el RESPONSABLE DE FARMACIA/ALMACEN</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Solicitud</name>
+    <style>none</style>
+    <subject>Respuesta de solicitud de autorización de pedido {!Pedido__c.Tipo_de_Pedido__c} Folio {!Pedido__c.ID_de_Pedido__c}, {!Account.Name} {!Account.Clave_Presupuestal__c}</subject>
+    <textOnly>Estimado cliente.
+
+Me permito enviarte un cordial saludo,
+
+
+El presente constituye la confirmación de inicio del proceso de pre autorización y en su caso autorización del pedido {!Pedido__c.Tipo_de_Pedido__c}.
+
+
+Folio: {!Pedido__c.ID_de_Pedido__c}
+
+
+Anexo encontrará el detalle de la solicitud de pre autorización.
+
+
+Atentamente,
+
+{!$Setup.Pie_de_Firma__c.Nombre__c}
+
+{!$Setup.Pie_de_Firma__c.Puesto__c}
+
+Teléfono: {!$Setup.Pie_de_Firma__c.Telefono__c}
+
+Correo electrónico:  {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c}
+{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

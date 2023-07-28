@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "ce91bd9c-718a-4056-8f8b-977354359db4",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "160b0845-e991-44c8-b5b5-7a4f4bfb7f64",
+  "label" : "Programas",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-programas",
+  "type" : "route",
+  "urlPrefix" : "programas"
+}

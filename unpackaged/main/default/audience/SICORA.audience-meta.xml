@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audience xmlns="http://soap.sforce.com/2006/04/metadata">
+    <audienceName>SICORA</audienceName>
+    <container>traxionfarma</container>
+    <criteria>
+        <criterion>
+            <criteriaNumber>1</criteriaNumber>
+            <criterionValue>
+                <isEnabled>true</isEnabled>
+                <permissionName>SICORA</permissionName>
+                <permissionType>Custom</permissionType>
+            </criterionValue>
+            <operator>Equal</operator>
+            <type>Permission</type>
+        </criterion>
+    </criteria>
+    <formulaFilterType>AllCriteriaMatch</formulaFilterType>
+    <isDefaultAudience>false</isDefaultAudience>
+    <targets>
+        <target>
+            <groupName>0ac2eae3-261b-48cf-9f3c-0c1b71cec9ff$#$0a4ed9c4-0ff8-4f9e-ba94-b56221d341ba</groupName>
+            <priority>3</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Home_Tile_Menu_1_Component_Properties</targetValue>
+        </target>
+    </targets>
+</Audience>

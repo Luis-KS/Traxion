@@ -1,0 +1,493 @@
+<template>
+    <template if:true={isUnidadMedica}>
+        <div class="container">
+            <template if:true={mostrarOcultarTabla}>
+                <template if:true={tamañoValidoDeDPN}>
+                    <div if:true={isGenerarPedido} class="slds-align_absolute-center slds-p-around_small option-text">
+                        <b>DPN activa de la Unidad Médica</b>
+                    </div>
+
+                    <div class="header">
+                        <lightning-layout class="slds-p-horizontal_small">
+                            <lightning-layout-item size="6">
+                                <div class="slds-clearfix">
+                                    <div class="slds-form-element">
+                                        <div class="slds-float_left">
+                                            <label class="slds-form-element__label" for="text-input-id-1">
+                                                {showTitleForSearch}
+                                            </label>
+                                            <div class="search-align search-margin-left">
+                                                <lightning-input variant="label-hidden" data-id="loading" type="search" value={search} onchange={handleOnSearch} is-loading={isLoading}></lightning-input>
+                                            </div>
+                                        </div>
+                                        <div if:false={isGenerarPedido} class="align-icons">
+                                            <lightning-button-icon
+                                                icon-name="utility:save"
+                                                alternative-text="Guardar progreso"
+                                                class="slds-float_left"
+                                                title="Guardar progreso"
+                                                onclick={handleSaveProgress}>
+                                            </lightning-button-icon>
+                                            <lightning-button-icon
+                                                icon-name="utility:clear"
+                                                alternative-text="Eliminar progreso"
+                                                class="slds-float_left slds-m-left_xx-small"
+                                                title="Eliminar progreso"
+                                                onclick={handleResetProgress}
+                                                disabled={isProgressDisabled}>
+                                            </lightning-button-icon>
+                                            <lightning-button-icon
+                                                icon-name="utility:sync"
+                                                alternative-text="Cargar data"
+                                                class="slds-float_left slds-m-left_xx-small"
+                                                title="Cargar data"
+                                                onclick={handleGetProgress}
+                                                disabled={isProgressDisabled}>
+                                            </lightning-button-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6" class="layout-excel">
+                                <template if:true={isGenerarPedido}>
+                                    <lightning-icon icon-name='doctype:excel' alternative-text='excel' size='medium' title='excel' onclick={downloadCSVFile}></lightning-icon>
+                                </template>
+                                <template if:false={isGenerarPedido}>
+                                    <div class="box">Resumen De La Orden</div>
+                                    <div class="box border">Insumos Agregados {totalInsumos}</div>
+                                    <div class="box">Total De Piezas {totalPiezas}</div>
+                                </template>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+
+                    <div class="c-container">
+                        <!-- <div if:true={isDataLoading} style="height: 200px; position:relative">
+                            <div>
+                                <lightning-spinner variant="base" size="medium" alternative-text="Loading..."></lightning-spinner>
+                            </div>
+                        </div> -->
+                        
+                        <!-- <template if:false={isDataLoading}> -->
+                            <div class="slds-p-around_small slds-text-align_center table-scroll">
+                                <table id='tableToExcel' class="" aria-labelledby="element-with-table-label other-element-with-table-label">
+                                    <!-- Generar Pedido table -->
+                                    <template if:true={isGenerarPedido}>
+                                        <thead>
+                                            <tr class="">
+                                            <template for:each={pedidosCol} for:item="column">
+                                                    <th class="" scope="col" key={column.key}>
+                                                        <div class="slds-truncate" title={column.label}>
+                                                            {column.label}
+                                                        </div>
+                                                    </th>
+                                            </template>
+                                            </tr>
+                                        </thead>
+
+                                        <template for:each={displayedItems} for:item="medica">
+                                            <tr class="slds-hint-parent" key={medica.Id} data-id={medica.Id}>
+                                                    <td data-label="Clave" scope="row">
+                                                        <div class="slds-truncate td">{medica.Clave}</div>
+                                                    </td>
+                                                    <td data-label="Insumos">
+                                                        <!-- <div class="slds-truncate td descripcion">{medica.Descripcion}</div> -->
+                                                        <template if:false={medica.mostrarDescripcion}>
+                                                            <div class="slds-truncate td mostrar-descripcion">{medica.Descripcion}</div>
+                                                            <lightning-button
+                                                            label="Mostrar Descripción"
+                                                            data-id={medica.Clave}
+                                                            data-name="Mostrar"
+                                                            icon-name="utility:arrowdown"
+                                                            icon-position="right"
+                                                            onclick={handleShowDescripcion}
+                                                            name="next">
+                                                            </lightning-button>
+                                                        </template>
+                                                        <template if:true={medica.mostrarDescripcion}>
+                                                            <div class="slds-truncate td ocultar-descripcion">{medica.Descripcion}</div>
+                                                            <lightning-button
+                                                            label="Ocultar Descripción"
+                                                            data-id={medica.Clave}
+                                                            data-name="Ocultar"
+                                                            icon-name="utility:arrowup"
+                                                            icon-position="right"
+                                                            onclick={handleShowDescripcion}
+                                                            name="next">
+                                                            </lightning-button>
+                                                        </template>
+                                                    </td>
+                                                    <td data-label="DPN">
+                                                        <div class="slds-truncate td">{medica.DPN}</div>
+                                                    </td>
+                                                    <td data-label="CantidadValidadaAcumulada">
+                                                        <div class="slds-truncate td">{medica.CantidadValidadaAcumulada}</div>
+                                                    </td>
+                                                    <td data-label="Disponible En DPN">
+                                                        <div class="slds-truncate td">{medica.DisponibleEnDpn}</div>
+                                                    </td>
+                                            </tr>
+                                        </template>
+                                    </template>
+
+                                    <!-- Aqui termina el generar pedido table -->
+
+                                    <template if:false={isGenerarPedido}>
+
+                                        <div if:true={isDataLoading} style="height: 200px; position:relative">
+                                            <div>
+                                                <lightning-spinner variant="base" size="medium" alternative-text="Loading..."></lightning-spinner>
+                                            </div>
+                                        </div>
+
+                                        <template if:false={isDataLoading}>
+                                            <template if:false={isPedidos}>
+                                                <template if:false={noOrdinary}>
+                                                    <thead>
+                                                        <tr class="slds-line-height_reset">
+                                                        <template for:each={columns} for:item="column">
+                                                                <th class="" scope="col" key={column.key}>
+                                                                    <div class="slds-truncate" title={column.label}>
+                                                                        {column.label}
+                                                                    </div>
+                                                                </th>
+                                                        </template>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Solicitar Pedidos Ordinario-->
+                                                            <template for:each={displayedItems} for:item="medica">
+                                                                <!-- <c-insumo-row key={medica.Id} data-id={medica.Id} rowdata={medica}></c-insumo-row> -->
+                                                                <tr class="slds-hint-parent" key={medica.Id} data-id={medica.Id}>
+                                                                        <th data-label="Clave" scope="row">
+                                                                            <div class="slds-truncate">{medica.Clave}</div>
+                                                                        </th>
+                                                                        <td data-label="Descripcion" scope="row">
+                                                                            <!-- <div class="slds-truncate">{medica.Nombre}</div> -->
+                                                                            <template if:false={medica.mostrarDescripcion}>
+                                                                                <div class="slds-truncate td mostrar-descripcion">{medica.Descripcion}</div>
+                                                                                <lightning-button
+                                                                                label="Mostrar Descripción"
+                                                                                data-id={medica.Clave}
+                                                                                data-name="Mostrar"
+                                                                                icon-name="utility:arrowdown"
+                                                                                icon-position="right"
+                                                                                onclick={handleShowDescripcion}
+                                                                                name="next">
+                                                                                </lightning-button>
+                                                                            </template>
+                                                                            <template if:true={medica.mostrarDescripcion}>
+                                                                                <div class="slds-truncate td ocultar-descripcion">{medica.Descripcion}</div>
+                                                                                <lightning-button
+                                                                                label="Ocultar Descripción"
+                                                                                data-id={medica.Clave}
+                                                                                data-name="Ocultar"
+                                                                                icon-name="utility:arrowup"
+                                                                                icon-position="right"
+                                                                                onclick={handleShowDescripcion}
+                                                                                name="next">
+                                                                                </lightning-button>
+                                                                            </template>
+                                                                        </td>
+                                                                        <td data-label="DPN">
+                                                                            <div class="slds-truncate">{medica.DPN}</div>
+                                                                        </td>
+                                                                        <td data-label="Validado">
+                                                                            <div class="slds-truncate">{medica.CantidadValidadaAcumulada}</div>
+                                                                        </td>
+                                                                        <td data-label="DisponibleEnDpn">
+                                                                            <div class="slds-truncate">{medica.DisponibleEnDpn}</div>
+                                                                        </td>
+                                                                        <td data-label="DisponibleASolicitar">
+                                                                            <div class="slds-truncate">{medica.DisponibleASolicitar}</div>
+                                                                        </td>
+                                                                        <td data-label="EnTransito">
+                                                                            <div class="slds-truncate">0</div>
+                                                                        </td>
+                                                                        <td data-label="Cantidad">
+                                                                            <lightning-input
+                                                                                    type="number"
+                                                                                    class="fields"
+                                                                                    variant="label-hidden"
+                                                                                    label="Cantidad"
+                                                                                    name="Cantidad"
+                                                                                    value={medica.Cantidad}
+                                                                                    disabled={medica.inputDisabled}
+                                                                                    data-id={medica.Clave}
+                                                                                    data-element="input-field"
+                                                                                    onchange={handleOnChange}>
+                                                                            </lightning-input>
+                                                                            <template if:true={medica.PiezaPorPaquete}>
+                                                                                <span class="paquete-style">Piezas Por Paquete: {medica.PiezaPorPaquete}</span>
+                                                                            </template>
+                                                                        </td>
+                                                                        <td data-label="Action">
+                                                                            <template if:true={medica.mostrarBoton}>
+                                                                                <lightning-button
+                                                                                    data-msg="Namaste"
+                                                                                    data-id={medica.Clave}
+                                                                                    data-name="Add"
+                                                                                    value={medica.Clave}
+                                                                                    label="Agregar"
+                                                                                    title="Agregar"
+                                                                                    variant="brand"
+                                                                                    onclick={handleAgregarInsumo}>
+                                                                                </lightning-button>
+                                                                            </template>
+                                                                            <template if:false={medica.mostrarBoton}>
+                                                                                <lightning-button
+                                                                                    data-msg="Namaste"
+                                                                                    data-id={medica.Clave}
+                                                                                    data-name="Remove"
+                                                                                    value={medica.Clave}
+                                                                                    label="Quitar"
+                                                                                    title="Quitar"
+                                                                                    variant="destructive"
+                                                                                    onclick={handleAgregarInsumo}>
+                                                                                </lightning-button>
+                                                                            </template>
+                                                                        </td>
+                                                                </tr>
+                                                            </template>
+                                                    </tbody>
+                                                </template>
+                                                <template if:true={noOrdinary}>
+                                                    <thead>
+                                                        <tr class="slds-line-height_reset">
+                                                        <template for:each={columnsNoOrdinary} for:item="column">
+                                                            <th class="" scope="col" key={column.key}>
+                                                                <div class="slds-truncate" title={column.label}>
+                                                                    {column.label}
+                                                                </div>
+                                                            </th>
+                                                        </template>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Solicitar Pedidos No Ordinario-->
+                                                            <template for:each={displayedItems} for:item="medica">
+                                                                <!-- <c-insumo-row key={medica.Id} data-id={medica.Id} rowdata={medica}></c-insumo-row> -->
+                                                                <tr class="slds-hint-parent" key={medica.Id} data-id={medica.Id}>
+                                                                        <th data-label="Clave" scope="row">
+                                                                            <div class="slds-truncate">{medica.Clave}</div>
+                                                                        </th>
+                                                                        <td data-label="Descripcion" scope="row">
+                                                                            <!-- <div class="slds-truncate">{medica.Descripcion}</div> -->
+                                                                            <template if:false={medica.mostrarDescripcion}>
+                                                                                <div class="slds-truncate td mostrar-descripcion">{medica.Descripcion}</div>
+                                                                                <lightning-button
+                                                                                label="Mostrar Descripción"
+                                                                                data-id={medica.Clave}
+                                                                                data-name="Mostrar"
+                                                                                icon-name="utility:arrowdown"
+                                                                                icon-position="right"
+                                                                                onclick={handleShowDescripcion}
+                                                                                name="next">
+                                                                                </lightning-button>
+                                                                            </template>
+                                                                            <template if:true={medica.mostrarDescripcion}>
+                                                                                <div class="slds-truncate td ocultar-descripcion">{medica.Descripcion}</div>
+                                                                                <lightning-button
+                                                                                label="Ocultar Descripción"
+                                                                                data-id={medica.Clave}
+                                                                                data-name="Ocultar"
+                                                                                icon-name="utility:arrowup"
+                                                                                icon-position="right"
+                                                                                onclick={handleShowDescripcion}
+                                                                                name="next">
+                                                                                </lightning-button>
+                                                                            </template>
+                                                                        </td>
+                                                                        <td data-label="DisponibleEnDpn">
+                                                                            <div class="slds-truncate">{medica.DisponibleEnDpn}</div>
+                                                                        </td>
+                                                                        <td data-label="DisponibleASolicitar">
+                                                                            <div class="slds-truncate">{medica.DisponibleASolicitar}</div>
+                                                                        </td>
+                                                                        <td data-label="EnTransito">
+                                                                            <div class="slds-truncate">0</div>
+                                                                        </td>
+                                                                        <td data-label="Cantidad">
+                                                                            <lightning-input
+                                                                                    type="number"
+                                                                                    class="fields" 
+                                                                                    variant="label-hidden" 
+                                                                                    label="Cantidad" 
+                                                                                    name="Cantidad" 
+                                                                                    value={medica.Cantidad} 
+                                                                                    disabled={medica.inputDisabled}
+                                                                                    data-id={medica.Clave} 
+                                                                                    data-element="input-field"
+                                                                                    onchange={handleOnChange}>
+                                                                            </lightning-input> 
+                                                                            <template if:true={medica.PiezaPorPaquete}>
+                                                                                <span class="paquete-style">Piezas Por Paquete: {medica.PiezaPorPaquete}</span>
+                                                                            </template>
+                                                                        </td>
+                                                                        <td data-label="Action">
+                                                                            <!-- <lightning-button-icon icon-name="action:approval" data-msg="Namaste"
+                                                                            alternative-text="Approval" title="Approved" variant="error"
+                                                                            data-id={medica.Clave} onclick={handleAgregarInsumo}></lightning-button-icon> -->
+                                                                            <template if:true={medica.mostrarBoton}>
+                                                                                <lightning-button
+                                                                                    data-msg="Namaste"
+                                                                                    data-id={medica.Clave}
+                                                                                    data-name="Add"
+                                                                                    value={medica.Clave}
+                                                                                    label="Agregar"
+                                                                                    title="Agregar"
+                                                                                    variant="brand"
+                                                                                    data-element="button"
+                                                                                    onclick={handleAgregarInsumo}>
+                                                                                </lightning-button>
+                                                                            </template>
+                                                                            <template if:false={medica.mostrarBoton}>
+                                                                                <lightning-button
+                                                                                    data-msg="Namaste"
+                                                                                    data-id={medica.Clave}
+                                                                                    data-name="Remove"
+                                                                                    value={medica.Clave}
+                                                                                    label="Quitar"
+                                                                                    title="Quitar"
+                                                                                    variant="destructive"
+                                                                                    data-element="button"
+                                                                                    onclick={handleAgregarInsumo}>
+                                                                                </lightning-button>
+                                                                            </template>
+                                                                        </td>
+                                                                </tr>
+                                                            </template>
+                                                    </tbody>
+                                                </template>
+                                            </template>
+                                        </template>
+
+                                        <template if:true={isPedidos}>
+                                            <thead>
+                                                <tr class="slds-line-height_reset">
+                                                <template for:each={columns} for:item="col">
+                                                        <th class="" scope="col" key={col.key}>
+                                                            <div class="slds-truncate" title={col.label}>
+                                                                {col.label}
+                                                            </div>
+                                                        </th>
+                                                </template>
+                                                </tr>
+                                            </thead>
+                                            <template for:each={displayedItems} for:item="pedidos">
+                                                <!-- <div key={pedidos.Id}>
+                                                    {pedidos.Descripcion}
+                                                </div> -->
+                                                <tr class="slds-hint-parent" key={pedidos.Id} data-id={pedidos.Clave}>
+                                                    <th data-label="Descripcion" scope="row">
+                                                        <div class="slds-truncate">{pedidos.Clave}</div>
+                                                    </th>
+                                                    <td data-label="Descripcion" scope="row">
+                                                        <!-- <div class="slds-truncate">{pedidos.Nombre}</div> -->
+                                                        <template if:false={pedidos.mostrarDescripcion}>
+                                                            <div class="slds-truncate td mostrar-descripcion">{pedidos.Descripcion}</div>
+                                                            <lightning-button
+                                                            label="Mostrar Descripción"
+                                                            data-id={pedidos.Clave}
+                                                            data-name="Mostrar"
+                                                            icon-name="utility:arrowdown"
+                                                            icon-position="right"
+                                                            onclick={handleShowDescripcion}
+                                                            name="next">
+                                                            </lightning-button>
+                                                        </template>
+                                                        <template if:true={pedidos.mostrarDescripcion}>
+                                                            <div class="slds-truncate td ocultar-descripcion">{pedidos.Descripcion}</div>
+                                                            <lightning-button
+                                                            label="Ocultar Descripción"
+                                                            data-id={pedidos.Clave}
+                                                            data-name="Ocultar"
+                                                            icon-name="utility:arrowup"
+                                                            icon-position="right"
+                                                            onclick={handleShowDescripcion}
+                                                            name="next">
+                                                            </lightning-button>
+                                                        </template>
+                                                    </td>
+                                                    <td data-label="DPN">
+                                                        <div class="slds-truncate">{pedidos.DPN}</div>
+                                                    </td>
+                                                    <td data-label="Validado">
+                                                        <div class="slds-truncate">{pedidos.CantidadValidadaAcumulada}</div>
+                                                    </td>
+                                                    <td data-label="DisponibleEnDpn">
+                                                        <div class="slds-truncate">{pedidos.DisponibleEnDpn}</div>
+                                                    </td>
+                                                    <td data-label="DisponibleASolicitar">
+                                                        <div class="slds-truncate">{pedidos.DisponibleASolicitar}</div>
+                                                    </td>
+                                                    <!-- <td data-label="ExistenciaDeUnidad">
+                                                        <div class="slds-truncate">0</div>
+                                                    </td>
+                                                    <td data-label="DisponibleEnCenadi">
+                                                        <div class="slds-truncate">0</div>
+                                                    </td> -->
+                                                    <td data-label="EnTransito">
+                                                        <div class="slds-truncate">0</div>
+                                                    </td>
+                                                    <td data-label="Cantidad">
+                                                        <div class="slds-truncate">{pedidos.Cantidad}</div>
+                                                    </td>
+                                                    <td data-label="Action">
+                                                        <lightning-button-icon icon-name="action:delete"  alternative-text="Delete" title="Delete" variant="error" data-id={pedidos.Clave} onclick={handleRemovePedidos}></lightning-button-icon>
+                                                    </td>
+                                                </tr>
+                                            </template>
+                                        </template>
+
+                                    </template>
+                                </table>
+
+                                <div class="slds-align_absolute-center slds-m-top_small">
+                                    <div class="slds-p-right_xx-small">
+                                        <lightning-button
+                                            label="Anterior"
+                                            disabled={isFirstPage}
+                                            onclick={handlePrev}
+                                            variant="brand"
+                                            icon-name="utility:back"
+                                            name="prev">
+                                        </lightning-button>
+                                    </div>
+
+                                    <span class="slds-badge slds-badge_lightest">
+                                        {actualRecords} de {totalRecords} Registros | Página {currentPage} de {totalPages}
+                                    </span>
+
+                                    <div class="slds-p-left_xx-small">
+                                        <lightning-button
+                                        label="Siguiente"
+                                        disabled={isLastPage}
+                                        onclick={handleNext}
+                                        variant="brand"
+                                        icon-name="utility:forward"
+                                        icon-position="right"
+                                        name="next">
+                                        </lightning-button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <!-- </template> -->
+                    </div>
+                </template>
+                <template if:false={tamañoValidoDeDPN}>
+                    <div class="slds-align_absolute-center slds-p-around_small option-text">
+                        <b>La Unidad Médica seleccionada NO cuenta con una DPN activa. Contacta al administrador para más información</b>
+                    </div>
+                </template>
+            </template>
+
+            <template if:false={mostrarOcultarTabla}>
+                <div class="slds-align_absolute-center slds-p-around_small option-text">
+                    <b>No se ha seleccionado una Unidad Médica</b>
+                </div>
+            </template>
+        </div>
+   </template>
+</template>

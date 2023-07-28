@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Aplicación para administrar inventarios.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Inventarios</label>
+    <navType>Standard</navType>
+    <tabs>Inventario__c</tabs>
+    <tabs>Clave_de_Inventario__c</tabs>
+    <tabs>Lote_de_Inventario__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Inventarios_UtilityBar</utilityBar>
+</CustomApplication>

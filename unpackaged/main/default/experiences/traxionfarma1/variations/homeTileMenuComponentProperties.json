@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "0627bb37-05ff-4e65-8aa3-d26f70f02bbf",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "tileMenuEditor" : "Men_Responsable_de_Farmacia_y_o_Almac_n"
+      }
+    },
+    "targetId" : "0a4ed9c4-0ff8-4f9e-ba94-b56221d341ba",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Home_Tile_Menu_Component_Properties",
+  "id" : "a667f62f-5dbd-446e-b07f-098533f94efe",
+  "type" : "experienceVariation"
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UMU_account__c</fullName>
+    <description>Esta relación, representa la unidad medica a la que pertenece las existencias</description>
+    <externalId>false</externalId>
+    <inlineHelpText>La unidad medica en la que esta el registro</inlineHelpText>
+    <label>UMU</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>SIAM_stocks</relationshipLabel>
+    <relationshipName>SIAM_stocks</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

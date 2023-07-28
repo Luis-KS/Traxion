@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "f12598e6-f982-44a4-8d08-b0727085ea4b",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "tileMenuEditor" : "Men_ANS_Auxiliar_de_Entrega"
+      }
+    },
+    "targetId" : "0a4ed9c4-0ff8-4f9e-ba94-b56221d341ba",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Home_Tile_Menu_4_Component_Properties",
+  "id" : "7c388ddf-c4e3-4acb-ac7e-988845ebafb5",
+  "type" : "experienceVariation"
+}

@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "46d8a1bf-fb9c-44cd-a4c3-50291951f2f2",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "a9db11c2-ba0b-4224-ba86-7abd6ca93a27",
+  "label" : "Probador de Componentes",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-probador-de-componentes",
+  "type" : "route",
+  "urlPrefix" : "probador-de-componentes"
+}

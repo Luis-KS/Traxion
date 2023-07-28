@@ -1,0 +1,44 @@
+<template>
+        <lightning-accordion
+                active-section-name="A"
+                onsectiontoggle={handleSectionToggle}
+                allow-multiple-sections-open
+                class="accordion">
+            <lightning-accordion-section name="A" label="Insumos">
+                <lightning-record-view-form record-id={recordId} object-api-name="Account">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_10-of-12">
+                                <!-- INSUMOS -->
+                                <template if:false={isMostrarListaDeClaves}>
+                                    <div class="slds-box lista-productos">
+                                        Una vez guardes los insumos, los productos removidos ya no seran visible en la dpn.
+                                    </div>
+                                </template>
+                                <template for:each={productosUI} for:item="producto">
+                                    <div class="slds-box slds-clearfix lista-productos" key={producto.Id}>
+                                        <c-clave
+                                        producto={producto}
+                                        ondelete={handleDeleteProducto}    
+                                        >
+                                        </c-clave>
+                                    </div>                            
+                                </template>
+                                <div class="apartado-button">
+                                    <button class="slds-button slds-button_neutral slds-button_stretch" onclick={handleCancelar}>
+                                        Cancelar
+                                    </button>
+                                    <button class="slds-button slds-button_brand slds-button_stretch" onclick={handleAgregarProducto}>
+                                        Guardar Insumos
+                                    </button>
+                                </div>      
+                        </div>
+                        <template if:true={showLoading}>
+                            <div class="exampleHolder">
+                                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+                            </div>
+                          </template>
+                    </div> 
+                </lightning-record-view-form>
+            </lightning-accordion-section> 
+        </lightning-accordion>
+</template>

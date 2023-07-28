@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Inventario</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Inventarios</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Inventario Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Firmas --></label>
+            <section>Firmas</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- Genera_PDF --></label>
+        <name>Genera_PDF</name>
+    </webLinks>
+</CustomObjectTranslation>

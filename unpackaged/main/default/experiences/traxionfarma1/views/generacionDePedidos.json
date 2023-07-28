@@ -1,0 +1,105 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "aae34e3c-c719-4b1e-a4fe-b66374df8fea",
+  "label" : "Generacion de pedidos",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(255,255,255,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "2cfa4d09-b86f-4459-9c51-44d8e7e12e7c",
+          "columns" : [ {
+            "UUID" : "38d20062-e656-4837-aa8e-4cc7bf0ae71e",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "2cfa4d09-b86f-4459-9c51-44d8e7e12e7c",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:generarPedidoTemplate",
+          "id" : "c6ab4ab4-c2e0-4009-a66d-fa48766d91a8",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "38d20062-e656-4837-aa8e-4cc7bf0ae71e",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "3b600f9c-17ea-4e27-a670-720fc387e16a",
+          "columns" : [ {
+            "UUID" : "a8f6e6e7-ad8b-445e-8a11-6cb013e27970",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "3b600f9c-17ea-4e27-a670-720fc387e16a",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:insumosTableList",
+          "id" : "db5bc87b-e538-4758-abf4-2bebb962df79",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "a8f6e6e7-ad8b-445e-8a11-6cb013e27970",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1f4c1db0-818e-44c5-b5d3-9148e7e9b68b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Generacion de pedidos"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "a40dd151-c0cb-4f9a-b30e-3eb914fadf79",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6bcf7241-ea47-4dd7-9996-63c6e4741212",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-generacion-de-pedidos"
+}

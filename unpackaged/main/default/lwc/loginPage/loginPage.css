@@ -1,0 +1,99 @@
+:host {
+    --green: #8AC6BF;
+    --darkGreen: #619a94;
+}
+
+@font-face {
+    font-family: 'raleway';
+    src: url('/resource/ASSETS/ASSETS/Raleway-Regular.ttf') format('TrueType');
+}
+
+*{
+    padding: 0;
+    margin: 0 auto;
+    font-family: 'raleway';
+    font-size: 0.938rem;
+}
+
+.box{
+    background-color: var(--green);
+    height: 100vh;
+}
+
+.User-Login {
+    background-color: white;
+}
+
+.inside-container{
+    margin-top: 22%;
+    width: 75%;
+}
+
+.left-layout {
+    display: none;
+}
+
+@media only screen and (min-width:1200px){
+    .inside-container{
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width:768px){
+    *{
+        margin: 0;
+    }
+    
+    .left-layout {
+        display: block;
+    }
+
+    .inside-container{
+        margin-left: 60px;
+    }
+}
+
+.row{
+    margin-top: 10px;
+}
+
+.row-margin{
+    margin-top: 20px;
+}
+
+.login-font{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.error-message{
+    color: red;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* .slds-form-element__legend {
+    font-weight: normal;
+} */
+
+.Sign-In {
+    background-color: var(--green);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+.Sign-In:hover{
+    background-color: var(--darkGreen)
+}
+
+.forgotBtn {
+    color: black;
+}
+
+.forgotBtn:hover {
+    color: rgb(69, 187, 245);
+}

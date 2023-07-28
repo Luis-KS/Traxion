@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Orden</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Ordenes</value>
+    </caseValues>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Orden Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Order Layout</layout>
+        <sections>
+            <label><!-- Aprobación --></label>
+            <section>Aprobación</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Detalles de Dirección y Envío --></label>
+            <section>Detalles de Dirección y Envío</section>
+        </sections>
+        <sections>
+            <label><!-- Detalles de Orden --></label>
+            <section>Detalles de Orden</section>
+        </sections>
+        <sections>
+            <label><!-- Información de Orden --></label>
+            <section>Información de Orden</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

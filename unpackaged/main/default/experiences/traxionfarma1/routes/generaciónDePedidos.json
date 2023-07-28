@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "aae34e3c-c719-4b1e-a4fe-b66374df8fea",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "8efeef04-0fd9-45bf-81c3-b9f9c5d73f52",
+  "label" : "Generación de Pedidos",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-generacion-de-pedidos",
+  "type" : "route",
+  "urlPrefix" : "generacion-de-pedidos"
+}

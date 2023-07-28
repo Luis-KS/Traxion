@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Esta la recibe únicamente el usuario con rol ADMIN DE PROGRAMAS que generó la guía y aquellos usuarios con el rol de SUPERVISOR.  Contiene un Excel con el detalle de los pedidos que cargó y se confirmó en SAP.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Confirmacion de Solicitud de Pedido</name>
+    <style>none</style>
+    <subject>Confirmación de solicitud de guía de {TIPO_DE_PEDIDO}, folio {NUMERO_DE_FOLIO}, programa {NOMBRE_DEL_PROGRAMA}</subject>
+    <textOnly>Estimado cliente.
+
+Me permito enviarte un cordial saludo,
+
+Te informo que el pedido {{TIPO_DE_PEDIDO}} del programa {{NOMBRE_DEL_PROGRAMA}}l ha sido validado con el número de folio {{NUMERO_DE_FOLIO}} con fecha de carga {{FECHA_DE_CARGA}}.
+
+*El surtimiento de los insumos de Grupo 1 están sujetos al aviso de previsiones vigente
+
+Número de Unidades Médicas: {{CANTIDAD_DE_UNIDADES_MEDICAS}}
+
+Número de claves solicitadas: {{CANTIDAD_DE_CLAVES_SOLICITADAS}}
+
+Número de piezas solicitadas: {{CANTIDAD_DE_PIEZAS_SOLICITADAS}}
+
+
+Atentamente,
+
+{!$Setup.Pie_de_Firma__c.Nombre__c}
+
+{!$Setup.Pie_de_Firma__c.Puesto__c}
+
+Teléfono: {!$Setup.Pie_de_Firma__c.Telefono__c}
+
+Correo electrónico:  {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c}
+{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

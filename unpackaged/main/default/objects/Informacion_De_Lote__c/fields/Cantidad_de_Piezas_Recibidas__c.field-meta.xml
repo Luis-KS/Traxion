@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cantidad_de_Piezas_Recibidas__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Guarda la cantidad de piezas recibidas por el auxiliar de farmacia.</description>
+    <externalId>false</externalId>
+    <label>Cantidad de Piezas Faltantes</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

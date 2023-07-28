@@ -1,0 +1,38 @@
+{
+  "appPageId" : "2343b4c8-1ebc-4fe4-ac6e-902919e88cfd",
+  "componentName" : "c:FullWidthLayout",
+  "dataProviders" : [ ],
+  "id" : "c0e2f5fc-4fc8-40da-84ce-426f0d28e639",
+  "label" : "FullNewLogin",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:loginPage",
+      "id" : "f1b6c775-00a9-4a28-82dc-35fdb291fa77",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "764ef62a-e377-4da7-ba94-c42a94384b09",
+    "regionName" : "column1",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : ""
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "726318a6-3b1c-457c-96d8-bc1588319af9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fac92a95-eae5-43cd-8052-d306b56ad16f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "login-home"
+}

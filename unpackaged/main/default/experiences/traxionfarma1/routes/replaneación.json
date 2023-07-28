@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "54043631-a895-40a8-9eaf-523b1b7aa28f",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "6ea318a4-e254-43e4-8007-30431ffec7e5",
+  "label" : "Replaneación",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-replaneacin",
+  "type" : "route",
+  "urlPrefix" : "replaneacion"
+}

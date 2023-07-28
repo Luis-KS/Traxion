@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "acd7a191-6613-4f83-8a9e-b6a0e1983b21",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "Men_Todos"
+      }
+    },
+    "targetId" : "e2d48d50-b7b0-4389-9fc2-ce096bde235a",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_Component_Properties",
+  "id" : "7dd29ee5-c36b-44dd-93ee-89e296b14f70",
+  "type" : "experienceVariation"
+}

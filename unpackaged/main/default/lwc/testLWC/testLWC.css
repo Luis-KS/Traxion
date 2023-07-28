@@ -1,0 +1,52 @@
+.umus-select {
+    width: 25%;
+    height: 200px;
+}
+
+@media (max-width: 767px) {
+    .umus-select {
+        height: 100px
+    }
+}
+
+@media (max-width: 479px) {
+    .umus-select {
+        height: 50px;
+        /* reduce height further for smaller screens */
+    }
+}
+
+.no-ordinario {
+    margin-left: -18%;
+    border: 1px solid #E6E6E4;
+    background-color: #e6e6e6;
+    width: 180px;
+    height: 87px;
+    border-radius: 8px;
+}
+
+.ordinario {
+    border: 1px solid #E6E6E4;
+    background-color: #e6e6e6;
+    width: 160px;
+    height: 87px;
+    border-radius: 8px;
+}
+
+.solicitar-pedido {
+    margin: auto;
+    margin-top: 15%;
+}
+
+.texto-pedido {
+    text-align: center;
+}
+
+
+/* Aqui es la tabla y buscador */
+
+.info {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Related Customer Community and User Info">
+        <template if:true={contact.data}>
+            <div class="slds-m-around_medium">
+                <div><strong>Community Name:</strong> {customerCommunity.Name}</div>
+                <div><strong>User Name:</strong> {user.Name}</div>
+                <div><strong>Permission Sets:</strong></div>
+                <template for:each={permissionSets} for:item="permSet">
+                    <div key={permSet.Id}>{permSet.Label}</div>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>

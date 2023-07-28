@@ -1,0 +1,56 @@
+<template>
+  <div class="container">
+    <div
+      class="grid-left-panel"
+      onclick={handleTransporteData}
+      data-id={transporte.Id}
+    >
+      <div class="left-panel-data">
+        <span class="text"> Order Number </span>
+        <span class="text text-weight"> {transporte.order_Number} </span>
+      </div>
+      <div class="left-panel-data" style={setStatusStyle}>
+        {transporte.orderStatus}
+      </div>
+      <div class="left-panel-data">
+        <span class="text"> Id Transporte </span>
+        <span class="text text-weight"> {transporte.IdTransporte} </span>
+      </div>
+      <div class="left-panel-data">
+        <span class="text"> Delegación </span>
+        <span class="text text-weight"> {transporte.orderUMU} </span>
+      </div>
+      <div class="left-panel-data">
+        <span class="text"> UMU </span>
+        <span class="text text-weight"> {transporte.orderUMU} </span>
+      </div>
+      <div class="left-panel-data">
+        <span class="text"> Estado </span>
+        <span class="text text-weight"> {transporte.Estado} </span>
+      </div>
+      <div class="left-panel-data">
+        <span class="text"> Fecha Maxima de Entrega </span>
+        <p style="font-weight: bold;"><lightning-formatted-date-time value={transporte.FechaEntrega}></lightning-formatted-date-time></p>
+      </div>
+    </div>
+  </div>
+</template>
+<!-- 
+{
+    //         "umuId": "0013K00000y6OBZQA2",
+    //         "orderUMU": "CENTRO DE CANJE VERTIZ",
+    //         "orderStatus": "Recibido Parcial",
+    //         "orderId": "a0J3K00000CEPXQUA5",
+    //         "informacionDeTransportista": {
+    //             "Telefono": "809-111-1111",
+    //             "Nombre": "User1681408764895901570",
+    //             "IdTransportista": "0053K000003CYN6QAO",
+    //             "FotoChecking": null,
+    //             "Email": "raybely.navarro@theksquaregroup.com"
+    //         },
+    //         "IdTransporte": "a043K000002JNDcQAO",
+    //         "FechaEntrega": null,
+    //         "Evidencia": "0693K000001sFXvQAM",
+    //         "Comentario": "andale comentario",
+    //         "Ciudad": null
+    //     } -->

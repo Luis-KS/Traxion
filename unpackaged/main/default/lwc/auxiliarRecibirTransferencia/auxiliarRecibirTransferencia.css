@@ -1,0 +1,83 @@
+/* Donde agregamos la cantidad de insumos */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.selected-item-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.selected-item-label {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-button {
+    padding: 0.25rem;
+    background-color: transparent;
+    border: 1px solid blue;
+    min-width: 2rem;
+    cursor: pointer;
+}
+
+.quantity-value {
+    margin: 0 0.5rem;
+    width: 70px;
+    font-size: 18px;
+    position: relative;
+    top: -14px;
+}
+
+.card-image {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+
+/* Orden status */
+
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    background-color: rgb(15 255 15 / 15%);
+    width: 33%;
+}
+
+.ordenStatus {
+    font-weight: 600;
+}
+
+.estado {
+    color: green;
+    font-weight: 800;
+    margin: 0 5px 0 5px;
+}
+
+.custom-icon {
+    --sds-c-icon-color-foreground-default: green;
+}
+
+.orden {
+    color: red;
+    font-weight: 800;
+    margin: 0 5px 0 5px;
+}
+
+.elCheck {
+    margin-left: 10px;
+}
+
+.container {
+    border: 0.6px solid #c0baba;
+    padding: 10px;
+}

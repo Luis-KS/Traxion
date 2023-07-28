@@ -1,0 +1,18 @@
+<template>
+    <template for:each={lotes} for:item="lote">
+            <div key={lote} class="container slds-grid slds-gutters">
+                <div class="slds-size_1-of-3">
+                <!-- <div class="slds-col slds-size_1-of-3"> -->
+                    <lightning-badge label={lote.name}></lightning-badge>
+                </div>
+                <div class="slds-size_1-of-3">
+                <!-- <div class="slds-col slds-size_1-of-3"> -->
+                    Piezas Faltantes: {lote.cantidadDePiezasFaltantes}
+                </div>
+                <div class="slds-size_1-of-3">
+                <!-- <div class="slds-col slds-size_1-of-3"> -->
+                    <lightning-button data-id={lote.id} data-cantidad={lote.cantidadDePiezasFaltantes} variant="editar" label="Editar" title="Editar" onclick={handleEdit} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </div>
+    </template>
+</template>

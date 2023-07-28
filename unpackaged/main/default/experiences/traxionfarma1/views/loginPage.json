@@ -1,0 +1,77 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "a680ff3c-5202-4de3-bdf9-bb5dba567b41",
+  "label" : "LoginPage",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "247bfef8-8722-4637-a05f-e34b8aa800a0",
+          "columns" : [ {
+            "UUID" : "ed975dd8-881b-4433-95cc-bc528693a9c9",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "247bfef8-8722-4637-a05f-e34b8aa800a0",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p style=\"text-align: center;\"><strong style=\"font-size: 24px;\">Recupera tu Contraseña</strong></p><p style=\"text-align: center;\">Te enviaremos las instrucciones para resetear tu contraseña.</p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "625d20ff-4324-4b90-b016-cf221e1235c7",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "c:forgetPassword",
+          "id" : "78960aa0-1e33-4253-a0a2-c4f6e284ddb6",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "ed975dd8-881b-4433-95cc-bc528693a9c9",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "aaa0fe9a-025f-4c6a-9c78-2361b8d38298",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "LoginPage"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "079d22e0-fcd7-4224-a2ed-2119ab8a44c5",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "44fb5985-d9df-4e59-9fd6-50811b07e057",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-loginpage"
+}

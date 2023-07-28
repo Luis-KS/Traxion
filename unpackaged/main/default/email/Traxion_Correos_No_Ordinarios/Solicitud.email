@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body style="font-family: Arial, sans-serif;">
+<p><b>Estimado cliente.</b></p>
+<p>Me permito enviarte un cordial saludo, </p>
+<br><p>El presente constituye la confirmación de inicio del proceso de pre autorización y en su caso autorización del pedido <b>{!Pedido__c.Tipo_de_Pedido__c}.</b></p>
+<p>Folio: <b>{!Pedido__c.ID_de_Pedido__c}</b></p>
+<br><p>Anexo encontrará el detalle de la solicitud de pre autorización.</p>
+
+	<br>
+	<p>Atentamente,</p>
+	 {!$Setup.Pie_de_Firma__c.Nombre__c} 
+	<p>	 {!$Setup.Pie_de_Firma__c.Puesto__c} </p>
+<p>Teléfono: 	 <a href="tel:{!$Setup.Pie_de_Firma__c.Telefono__c}">{!$Setup.Pie_de_Firma__c.Telefono__c}</a></p>
+	<p>Correo electrónico:  {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c} <br>
+	{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</p>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Estatus --></label>
+        <name>Estatus__c</name>
+        <picklistValues>
+            <masterLabel>Certificado</masterLabel>
+            <translation><!-- Certificado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Certificado Parcial</masterLabel>
+            <translation><!-- Certificado Parcial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En Firma</masterLabel>
+            <translation><!-- En Firma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En Firma Parcial</masterLabel>
+            <translation><!-- En Firma Parcial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enviado</masterLabel>
+            <translation><!-- Enviado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Error</masterLabel>
+            <translation><!-- Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Llegada de Transporte</masterLabel>
+            <translation><!-- Llegada de Transporte --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preparando Envío</masterLabel>
+            <translation><!-- Preparando Envío --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procesando</masterLabel>
+            <translation><!-- Procesando --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rechazado</masterLabel>
+            <translation><!-- Rechazado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recibido</masterLabel>
+            <translation><!-- Recibido --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recibido Parcial</masterLabel>
+            <translation><!-- Recibido Parcial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transferido</masterLabel>
+            <translation><!-- Transferido --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verificando Disponibilidad</masterLabel>
+            <translation><!-- Verificando Disponibilidad --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

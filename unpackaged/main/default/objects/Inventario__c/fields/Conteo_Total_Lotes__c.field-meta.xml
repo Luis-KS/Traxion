@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conteo_Total_Lotes__c</fullName>
+    <description>Conteo total de lotes por inventario. Campo utilizado en la creación de PDFs.</description>
+    <externalId>false</externalId>
+    <label>Conteo Total Lotes</label>
+    <summarizedField>Clave_de_Inventario__c.Numero_Total_de_Lotes__c</summarizedField>
+    <summaryForeignKey>Clave_de_Inventario__c.Inventario__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

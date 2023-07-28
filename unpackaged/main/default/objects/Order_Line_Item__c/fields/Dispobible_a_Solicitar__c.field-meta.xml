@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dispobible_a_Solicitar__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(AND(NOT(ISBLANK(Tipo_de_Pedido__c)), OR(Tipo_de_Pedido__c != &#39;Ordinario&#39;, Tipo_de_Pedido__c != &#39;Programa&#39;)), 99, IF(AND(AND(NOT(ISBLANK(L_mite_Mensual_DPN__c)),NOT(ISBLANK(Consumido_DPN__c)),L_mite_Mensual_DPN__c &gt; Consumido_DPN__c)), L_mite_Mensual_DPN__c - Consumido_DPN__c, 0))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Dispobible a Solicitar</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

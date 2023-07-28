@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "d57d7e81-a6b9-4ad9-b543-4f54ec352286",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "bc896c7a-2573-4318-abd1-d154ab27a7cb",
+  "label" : "Inventario Detalle",
+  "objectApiName" : "Inventario__c",
+  "routeType" : "detail-a0L",
+  "type" : "route",
+  "urlPrefix" : "inventario"
+}

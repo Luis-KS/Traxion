@@ -1,0 +1,109 @@
+<template>
+	<div class="slds-clearfix">
+		<lightning-button-icon
+			icon-name="utility:save"
+			alternative-text="Guardar progreso"
+			class="slds-float_left"
+			title="Guardar progreso"
+			onclick={handleSaveProgress}>
+		</lightning-button-icon>
+		<lightning-button-icon
+			icon-name="utility:clear"
+			alternative-text="Eliminar progreso"
+			class="slds-float_left slds-m-left_xx-small"
+			title="Eliminar progreso"
+			onclick={handleResetProgress}>
+		</lightning-button-icon>
+		<lightning-button
+			label="Seleccionar Unidades Médicas"
+			disabled="true"
+			data-name="addUmusBtn"
+			onclick={handleClickSelect}
+			class="slds-float_right slds-m-bottom_small">
+		</lightning-button>
+		<lightning-button
+			label="Atrás"
+			disabled={isFirstPage}
+			onclick={handleBack}
+			class="slds-m-left_xx-small"
+			icon-name="utility:back"
+			name="prev">
+		</lightning-button>
+	</div>
+
+	<lightning-input
+		disabled="true"
+		data-name="calendar"
+		class="slds-p-around_x-small calendar-input"
+		type="date"
+		min={minDate}
+		value={maxDeliveryDate}
+		placeholder="d MMM yyyy"
+		label="Fecha de entrega"
+		onchange={handleCalendar}>
+	</lightning-input>
+
+	<div if:true={isDataLoading} style="height: 200px; position:relative">
+		<div>
+			<lightning-spinner variant="base" size="medium" alternative-text="Loading..."></lightning-spinner>
+		</div>
+	</div>  
+
+	<div if:false={isDataLoading} class="combobox-container slds-p-around_x-small slds-m-top_xx-large slds-m-bottom_xx-large">
+
+		<lightning-combobox
+			name="orderType"
+			label="Tipo de Pedido"
+			value={orderType}
+			placeholder="Selecciona una Opción"
+			options={optionsOrderType}
+			onchange={handleChange}>
+		</lightning-combobox>
+
+		<template if:true={isUmuTypeDataLoaded}>
+			<!-- <template if:true={hasPreselectedValUmuType}> -->
+				<c-pick-list-multiselect 
+					label="Tipo de Unidad Médica" 
+					options={optionsUmuType} 
+					showclearbutton='true' 
+					showfilterinput='true'
+					showselectallbutton='true' 
+					showrefreshbutton='true' 
+					onitemselected={handleOnItemSelectedUmuType}
+					rerenderselected={rerenderedUmuType}
+					defaultselectedvalues={defaultSelectedUmuItems}>
+				</c-pick-list-multiselect>
+			<!-- </template> -->
+		</template>
+
+		<template if:true={isDelegationDataLoaded}>
+			<!-- <template if:true={hasPreselectedValDelegation}> -->
+				<c-pick-list-multiselect 
+					label="Delegación" 
+					options={optionsDelegation} 
+					showclearbutton='true' 
+					showfilterinput='true'
+					showselectallbutton='true' 
+					showrefreshbutton='true' 
+					onitemselected={handleOnItemSelectedDelegation}
+					rerenderselected={rerenderedDelegation}
+					defaultselectedvalues={defaultSelectedDelegations}>
+				</c-pick-list-multiselect>
+			<!-- </template> -->
+		</template>
+
+		<template if:true={isUmuDataLoaded}>
+			<c-pick-list-multiselect 
+				label="Unidad Médica" 
+				options={optionsUmu} 
+				showclearbutton='true' 
+				showfilterinput='true'
+				showselectallbutton='true' 
+				showrefreshbutton='true' 
+				onitemselected={handleOnItemSelectedUmu}
+				rerenderselected={rerenderedUmu}
+				defaultselectedvalues={defaultSelectedUmus}>
+		</c-pick-list-multiselect>
+		</template>
+	</div>
+</template>

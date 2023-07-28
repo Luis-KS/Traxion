@@ -1,0 +1,89 @@
+<template>
+  <div class="tab-container">
+    <lightning-button
+      label="Asignar Entrega"
+      class={tab1Classes}
+      onclick={handleTab1Click}
+    >
+    </lightning-button>
+    <lightning-button
+      label="Entregas Asignadas"
+      class={tab2Classes}
+      onclick={handleTab2Click}
+    >
+    </lightning-button>
+  </div>
+  <div class="tab-content-container">
+    <template if:true={tab1Active}>
+      <!-- <c-asignacion-transporte
+        onentrega={handleDisplay}
+      ></c-asignacion-transporte> -->
+
+      <lightning-card title="Asignar Viaje">
+        <div class="slds-m-around_x-large center">
+          <lightning-input
+            type="text"
+            disabled={inputDisabled}
+            label="Introduzca su número de viaje"
+            onchange={handleNumeroViaje}
+          ></lightning-input>
+          <div class="asignarButton">
+            <lightning-button
+              disabled={inputDisabled}
+              variant="brand"
+              label="Asignar"
+              title="Asignar"
+              onclick={handleAsignar}
+            >
+            </lightning-button>
+          </div>
+        </div>
+      </lightning-card>
+    </template>
+<template if:true={tab2Active}>
+      <template if:true={isentrega}>
+        <template for:each={entrega} for:item="record">
+          <div key={record.UMUName} class="card-container">
+            <lightning-card title={record.UMUName}>
+              <template for:each={record.records} for:item="item">
+                <div class="card" key={item.id}>
+                  {item.UMU__r.Calle__c}, {item.UMU__r.Ciudad__c},
+                  {item.UMU__r.Colonia__c}, {item.UMU__r.Estado__c}
+                </div>
+              </template>
+<template for:each={record.records} for:item="item2">
+                <div class="center" key={item2.id}>
+                  <c-chekin-button-entrega
+                    ischeckin={item2.ImageId__c}
+                    order-id={item2.Id}
+                    record-ids={record.ids}
+                    umu-id={item2.UMU__r.Id}
+                    usuario-ans={item2.Usuario_ANS__c}
+                    entrega-name={item2.Entrega__r.Name}
+                    umuname={item2.UMU__r.Name}
+                    user-id={userId}
+                  ></c-chekin-button-entrega>
+                </div>
+              </template>
+</lightning-card>
+</div>
+</template>
+
+<div class="button-container">
+    <button class="desasignar" onclick={handleDesasignar}>
+            Desasignar
+          </button>
+    <button class="finalizar" onclick={handleFinalizarTransporte}>
+            Finalizar Transporte
+          </button>
+</div>
+</template>
+
+<template if:false={isentrega}>
+        <lightning-card title="Entregas Asignadas">
+          <p class="card">No tiene entregas asignadas</p>
+        </lightning-card>
+      </template>
+</template>
+</div>
+</template>

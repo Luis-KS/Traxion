@@ -1,0 +1,360 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:false={isStep3}>
+        <div class="slds-clearfix">
+            <lightning-button-icon
+                icon-name="utility:save"
+                alternative-text="Guardar progreso"
+                class="slds-float_left"
+                title="Guardar progreso"
+                onclick={handleSaveProgress}>
+            </lightning-button-icon>
+            <lightning-button-icon
+                icon-name="utility:clear"
+                alternative-text="Eliminar progreso"
+                class="slds-float_left slds-m-left_xx-small"
+                title="Eliminar progreso"
+                onclick={handleResetProgress}>
+            </lightning-button-icon>
+            <lightning-button
+                label={addSuppliesText}
+                disabled="true"
+                data-name="addSuppliesBtn"
+                onclick={handleClickAddBtn}
+                class="slds-float_right slds-m-bottom_small">
+            </lightning-button>
+        </div>
+
+        <template if:true={isProgramsDataLoaded}>
+            <div class="slds-m-bottom_small program-combobox">
+                <lightning-combobox
+                    name="orderType"
+                    label="Programa"
+                    placeholder="Selecciona una Opción"
+                    value={programId}
+                    options={options}
+                    onchange={handleChange}>
+                </lightning-combobox>
+            </div>
+        </template>
+    </template>
+
+    <template if:false={isStep3}>
+
+        <div if:true={programId}>
+            <div if:false={isDataSkuLoaded} style="height: 200px; position:relative">
+                <div>
+                    <lightning-spinner variant="base" size="medium" alternative-text="Loading..."></lightning-spinner>
+                </div>
+            </div>
+        </div>
+
+        <template if:true={isDataSkuLoaded}>
+            <lightning-card title="Filtrar Claves">
+                <div class="slds-m-around_medium">
+                    <lightning-input type="search" data-name="search" onchange={handleKeyChange} class="slds-m-bottom_small" label="Buscar" >
+                    </lightning-input>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Clave</th>
+                                <th>Descripción</th>
+                                <th>Disponible en CENADI</th>
+                                <th>
+                                    <lightning-input
+                                        type="checkbox-button"
+                                        alternative-text="Seleccionar todas las claves"
+                                        class="table-checkbox"
+                                        onchange={handleCheckbox}>
+                                    </lightning-input>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={displayedItems} for:item="data" for:index="index">
+                                <tr key={data.Id}>
+                                    <td><b>{data.productCodeId}</b></td>
+                                    <td>
+                                        <template if:false={data.showDescription}>
+                                            <div class="slds-truncate description-show">{data.description}</div>
+                                            <lightning-button style="font-weight:bold;"
+                                                label="Mostrar Descripción"
+                                                variant="base"
+                                                data-code={data.productCodeId}
+                                                data-name="Show"
+                                                icon-name="utility:arrowdown"
+                                                icon-position="right"
+                                                onclick={handleShowDescription}>
+                                            </lightning-button>
+                                        </template>
+                                        <template if:true={data.showDescription}>
+                                            <div class="slds-truncate description-hide">{data.description}</div>
+                                            <lightning-button style="font-weight:bold;"
+                                                label="Ocultar Descripción"
+                                                variant="base"
+                                                data-code={data.productCodeId}
+                                                data-name="Hide"
+                                                icon-name="utility:arrowup"
+                                                icon-position="right"
+                                                onclick={handleShowDescription}>
+                                            </lightning-button>
+                                        </template>
+                                    </td>
+                                    <td><lightning-formatted-number value={data.availability} maximum-fraction-digits="2"></lightning-formatted-number></td>
+                                    <td>
+                                        <template if:true={data.showButton}>
+                                            <lightning-button
+                                                data-id={data.productCodeId}
+                                                data-code={data.productCodeId}
+                                                data-name="Add"
+                                                data-availability={data.availability}
+                                                value={data.productCodeId}
+                                                label="Agregar"
+                                                title="Agregar"
+                                                disabled={data.disabled}
+                                                variant="brand"
+                                                onclick={handleClick}>
+                                            </lightning-button>
+                                        </template>
+                                        <template if:false={data.showButton}>
+                                            <lightning-button
+                                                data-id={data.productCodeId}
+                                                data-code={data.productCodeId}
+                                                data-name="Remove"
+                                                data-index={index}
+                                                value={data.productCodeId}
+                                                label="Quitar"
+                                                title="Quitar"
+                                                variant="destructive"
+                                                onclick={handleClick}>
+                                            </lightning-button>
+                                        </template>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                    <template if:true = {error}>
+                        {error}
+                    </template>
+                    <div class="slds-align_absolute-center slds-m-top_small">
+                        <div class="slds-p-right_xx-small">
+                            <lightning-button
+                                label="Anterior"
+                                disabled={isFirstPage}
+                                onclick={handlePrev}
+                                variant="brand"
+                                icon-name="utility:back"
+                                name="prev">
+                            </lightning-button>
+                        </div>
+
+                        <span class="slds-badge slds-badge_lightest">
+                            {actualRecords} de {totalRecords} Registros | Página {currentPage} de {totalPages}
+                        </span>
+
+                        <div class="slds-p-left_xx-small">
+                            <lightning-button 
+                            label="Siguiente"
+                            disabled={isLastPage}
+                            onclick={handleNext}
+                            variant="brand"
+                            icon-name="utility:forward"
+                            icon-position="right"
+                            name="next">
+                            </lightning-button>
+                        </div>
+                    </div> 
+                </div>
+            </lightning-card>
+        </template>
+    </template>
+
+
+    <template if:true={isStep3}>
+        <!-- <div if:false={isDataSkuLoaded} style="height: 200px; position:relative">
+            <div>
+                <lightning-spinner variant="base" size="medium" alternative-text="Loading..."></lightning-spinner>
+            </div>
+        </div> -->
+
+        <!-- <div if:true={isDataSkuLoaded} class="slds-clearfix slds-m-bottom_small"> -->
+        <div class="slds-clearfix slds-m-bottom_small">
+            <lightning-button-icon
+                icon-name="utility:save"
+                alternative-text="Guardar progreso"
+                class="slds-float_left"
+                title="Guardar progreso"
+                onclick={handleSaveProgress}>
+            </lightning-button-icon>
+            <lightning-button-icon
+                icon-name="utility:clear"
+                alternative-text="Eliminar progreso"
+                class="slds-float_left slds-m-left_xx-small"
+                title="Eliminar progreso"
+                onclick={handleResetProgress}>
+            </lightning-button-icon>
+            <lightning-button
+                label="Atrás"
+                onclick={handleBack}
+                class="slds-m-left_xx-small"
+                icon-name="utility:back">
+		    </lightning-button>
+            <lightning-button
+                label="Colocar Pedido"
+                variant="Brand"
+                data-name="createOrderBtn"
+                onclick={handleCreateOrder}
+                disabled={disabled}
+                class="slds-float_right">
+            </lightning-button>
+
+            <lightning-input
+                type="file"
+                label="Please upload a UTF-8 encoded, comma separated .csv file"
+                accept=".csv"
+                onchange={handleFileUpload}
+                class="slds-float_right slds-m-right_small"
+                variant="label-hidden"
+            ></lightning-input>
+
+            <lightning-button-icon
+                icon-name="utility:download"
+                alternative-text="Descargar documento base"
+                class="slds-float_right slds-m-right_small"
+                title="Descargar documento base"
+                onclick={generateDataToDownload}>
+            </lightning-button-icon>
+        </div>
+
+        <c-program-confirmation-modal
+            carrito={carrito}
+            umus-selected={dataOfUmusSelected}
+            inputs={inputValues}
+            program={programInfo}
+            extra-data={extraData}>
+        </c-program-confirmation-modal>
+
+        <div class="slds-clearfix slds-m-bottom_small">
+            <template if:true={piecesAdded} >
+                <p class="slds-float_right card-title">Se han agregado insumos para <b>{resume.totalUmus}</b> unidades
+                    <span class="resume-text"> Total de claves: <b>{resume.totalProducts}</b> | Total de piezas: <b>{resume.totalPieces}</b></span>
+                </p>
+            </template>
+            <template if:false={piecesAdded}>
+                <lightning-button
+                    label="Agregar Piezas"
+                    variant="Brand"
+                    data-name="addPiecesBtn"
+                    onclick={generateCar}
+                    disabled={emptyInput}
+                    class="slds-float_right">
+                </lightning-button>
+            </template>
+        </div>
+
+        <!-- <template if:true={isDataSkuLoaded}> -->
+            <template if:true={isUmusSelectedDataLoaded} for:each={dataOfUmusSelected} for:item="gData">
+                <div key={gData.Id} class="container">
+                    <lightning-card>
+                        <div class="card-content">
+                            <div class="card-info">
+                                <p class="card-title">Número</p>
+                                <p class="card-value">{gData.number}</p>
+                            </div>
+                            <div class="card-info">
+                                <p class="card-title">Nombre</p>
+                                <p class="card-value">{gData.name}</p>
+                            </div>
+                            <div class="card-info">
+                                <p class="card-title">Clave Presupuestal</p>
+                                <p class="card-value">{gData.budget}</p>
+                            </div>
+                            <div class="card-info">
+                                <p class="card-title">Tipo de Programa</p>
+                                <p class="card-value">{orderType}</p>
+                            </div>
+                            <div if:true={maxDate} class="card-info">
+                                <p class="card-title">Fecha de entrega</p>
+                                <p class="card-value">{maxDate}</p>
+                            </div>
+                        </div>
+
+                        <div class="slds-m-around_medium">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Clave</th>
+                                        <th>Descripción</th>
+                                        <th>Disponible en CENADI</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={data} for:item="data">
+                                        <tr key={data.Id}>
+                                            <td><b>{data.productCodeId}</b></td>
+                                            <td>
+                                                <template if:false={data.showDescription}>
+                                                    <div class="slds-truncate description-show">{data.description}</div>
+                                                    <lightning-button style="font-weight:bold;"
+                                                        label="Mostrar Descripción"
+                                                        variant="base"
+                                                        data-code={data.productCodeId}
+                                                        data-name="Show"
+                                                        icon-name="utility:arrowdown"
+                                                        icon-position="right"
+                                                        onclick={handleShowDescription}>
+                                                    </lightning-button>
+                                                </template>
+                                                <template if:true={data.showDescription}>
+                                                    <div class="slds-truncate description-hide">{data.description}</div>
+                                                    <lightning-button style="font-weight:bold;"
+                                                        label="Ocultar Descripción"
+                                                        variant="base"
+                                                        data-code={data.productCodeId}
+                                                        data-name="Hide"
+                                                        icon-name="utility:arrowup"
+                                                        icon-position="right"
+                                                        onclick={handleShowDescription}>
+                                                    </lightning-button>
+                                                </template>
+                                            </td>
+                                            <td><lightning-formatted-number value={data.availability} maximum-fraction-digits="2"></lightning-formatted-number></td>
+                                            <td>
+                                                <lightning-input
+                                                    data-id={data.id}
+                                                    data-code={data.productCodeId}
+                                                    data-capacity={data.availability}
+                                                    data-description={data.description}
+                                                    data-umu={gData.id}
+                                                    data-clavepresupuestal={gData.budget}
+                                                    data-name="quantityInput"
+                                                    type="number"
+                                                    min="0"
+                                                    variant="label-hidden"
+                                                    onchange={handleChangeQuantity}>
+                                                </lightning-input>
+                                                <template if:true={data.quantityPiecesPackage}>
+                                                    <span class="slds-text-align_left">Piezas por paquete: {data.quantityPiecesPackage}</span>
+                                                </template>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                            <template if:true = {error}>
+                                {error}
+                            </template>
+                        </div>
+                    </lightning-card>
+                </div>
+            </template>
+        <!-- </template> -->
+    </template>
+
+    <template if:true={isProgramPicklistEmpty}>
+        <div class="slds-align_absolute-center" data-name="unavailable-data-text" style="height:3rem">No hay resultados disponibles</div>
+    </template>
+</template>

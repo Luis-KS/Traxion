@@ -1,0 +1,58 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "325eb4bc-4c7d-4e51-9384-4f4fd20dd14c",
+  "label" : "Mis Pedidos",
+  "regions" : [ {
+    "id" : "b4cdd312-7d09-44c8-ab9e-d76fc9ebdec9",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:MisPedidos",
+      "id" : "10a4a863-1d7b-417e-85bf-26440e8ccdb2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0b812025-b64e-4b84-af53-1e21ba32affe",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:MisPedidosDetalles",
+      "id" : "423f71ce-a52b-4bf2-afec-e8c61d61a1b7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "577c0dba-f597-4348-8028-926bf87275aa",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "5a471541-829f-4a10-badc-a72501cc4f62",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Mis Pedidos"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f85a0be8-445c-424b-b340-8195b1161247",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fa95d503-b067-4022-a6be-75b48a0295aa",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-mis-pedidos"
+}

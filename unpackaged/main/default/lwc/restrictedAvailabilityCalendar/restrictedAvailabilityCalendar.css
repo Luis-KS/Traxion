@@ -1,0 +1,7 @@
+.slds-form_stacked .slds-form-element:not(.slds-form-element_readonly){
+    margin-bottom: 0px;
+}
+
+.slds-dropdown{
+    position: inherit;
+}

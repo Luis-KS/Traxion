@@ -1,0 +1,89 @@
+.tab-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.tab-button {
+    flex: 2;
+    height: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    color: #666;
+    margin: 0 -10px;
+}
+
+.active {
+    color: #0070d2;
+    background-color: #f2f2f2;
+}
+
+.tab-content-container {
+    margin-top: 1rem;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+}
+
+.asignarButton {
+    margin-top: 10px;
+}
+
+
+/* .direcciones {
+    margin-bottom: 10px;
+} */
+
+.card-container {
+    margin-bottom: 10px;
+}
+
+.card {
+    padding: 10px;
+}
+
+
+/* Botones del fondo */
+
+.button-container {
+    /* display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0; */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    bottom: 7px;
+    left: 0;
+}
+
+.button-container button {
+    width: 50%;
+}
+
+.finalizar {
+    background-color: #2a2abd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.desasignar {
+    background-color: #9e2d2d;
+    font-size: 14px;
+    border-radius: 4px;
+    color: #fff;
+}

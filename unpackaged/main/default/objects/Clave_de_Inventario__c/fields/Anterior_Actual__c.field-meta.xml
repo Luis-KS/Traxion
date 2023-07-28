@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Anterior_Actual__c</fullName>
+    <description>Campo de ayuda para mostrar en la lista relacionada en Inventarios.</description>
+    <externalId>false</externalId>
+    <formula>TEXT( Conteo_Anterior_Total__c ) + &#39; - &#39; + TEXT( Conteo_Actual_Total__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Anterior - Actual</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

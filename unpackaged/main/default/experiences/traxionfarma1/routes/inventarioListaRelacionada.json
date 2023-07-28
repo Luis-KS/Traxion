@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "cb0a3641-2529-44ab-8824-eceb4723ea41",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "8c0b0d91-fbf3-4c84-98b0-da7d914e15f6",
+  "label" : "Inventario Lista relacionada",
+  "objectApiName" : "Inventario__c",
+  "routeType" : "relatedlist-a0L",
+  "type" : "route",
+  "urlPrefix" : "inventario"
+}

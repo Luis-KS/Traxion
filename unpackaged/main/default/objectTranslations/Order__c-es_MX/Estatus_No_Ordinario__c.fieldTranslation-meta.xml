@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Estatus No Ordinario --></label>
+        <name>Estatus_No_Ordinario__c</name>
+        <picklistValues>
+            <masterLabel>Aprobado</masterLabel>
+            <translation><!-- Aprobado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Por Aprobar</masterLabel>
+            <translation><!-- Por Aprobar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rechazado</masterLabel>
+            <translation><!-- Rechazado --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

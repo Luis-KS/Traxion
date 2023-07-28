@@ -1,0 +1,68 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "46d8a1bf-fb9c-44cd-a4c3-50291951f2f2",
+  "label" : "Probador de Componentes",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "3ebb3bd9-d9f4-443c-a4cd-c113ff1067dc",
+          "columns" : [ {
+            "UUID" : "b757b3d0-9b70-4112-ba3e-1305cf6792fc",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "3ebb3bd9-d9f4-443c-a4cd-c113ff1067dc",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:replaneacionDePedidos",
+          "id" : "fd26c139-9166-4b1c-ae79-041d3e958c8f",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "b757b3d0-9b70-4112-ba3e-1305cf6792fc",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e922e81c-5f42-4f35-8b32-0d29e588fb3f",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Probador de Componentes"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "bc3bbfc3-c12f-449e-882d-bd6f3d902833",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "65c4a1f0-7e61-4ec5-9065-67236c54693f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-probador-de-componentes"
+}

@@ -1,0 +1,39 @@
+<template>
+
+
+    <lightning-button label="Open Calendar" onclick={handleButtonClick}></lightning-button>
+    <template if:true={isCalendarVisible}>
+        <div id="my-calendar" class="calendar-container">
+            <c-avonni-calendar value={value} selection-mode="multiple"></c-avonni-calendar>
+        </div>
+    </template>
+
+
+    <!-- <lightning-button id="button" label="Click Me" onclick={toggleCalendar}></lightning-button>
+    <template if:true={isCalendarVisible}>
+        <c-avonni-calendar value={value} selection-mode="multiple" >
+        </c-avonni-calendar>
+    </template> -->
+    
+
+    <!-- <div class="slds-form slds-form_stacked"> 
+        <label style="font-family: Source Sans Pro, sans-serif; font-size: 12px;" class="slds-form-element__label" for="date-input-id-default">WHAT DATE?</label>
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+            <lightning-input type="text" style="font-family: Source Sans Pro, sans-serif; font-size: 12px; padding-left: 0px; padding-right: 0px" name="date-input-id-default" placeholder="Select a Date" value={dateToDisplay} onchange={handleInputChange} onclick={toggleCalendar}></lightning-input>
+            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" onclick={toggleCalendar}>
+                <lightning-icon icon-name="utility:date_input" size="x-small"></lightning-icon>
+            </button>
+        </div> 
+        <template if:true={isCalendarVisible}>
+            <div aria-hidden="false" aria-label="Date picker: June" class="slds-datepicker slds-dropdown slds-dropdown_left" role="dialog">
+                <div class="slds-datepicker__filter slds-grid">
+                    <div class="slds-datepicker__filter_month slds-grid slds-grid_align-spread slds-grow">
+                        <div class="slds-align-middle">
+                            <c-avonni-calendar min={minDate} value={formattedDate} selection-mode={selectionMode} onchange={handleDateChange}></c-avonni-calendar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>   -->
+</template>

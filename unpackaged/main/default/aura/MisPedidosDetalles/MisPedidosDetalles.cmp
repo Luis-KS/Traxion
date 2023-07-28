@@ -1,0 +1,29 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+
+    <!-- SELF ATTRIBUTES --> 
+    <aura:attribute name="data" type="Object" /> 
+    <aura:attribute name="rangoDeFechas" type="String" /> 
+    <aura:attribute name="mostrarDetallesGenerales" type="Boolean" /> 
+
+    <!-- HANDLERS -->
+    <aura:handler event="c:mostrarDetalles" action="{!c.handleUpdateDetails}"/> 
+
+    <!-- MARKUP -->
+    <lightning:card variant="Narrow" title="DETALLES" iconName="standard:procedure_detail">
+
+        <aura:set attribute="actions"> 
+            <lightning:layout multipleRows="false">
+                <h2>{!v.rangoDeFechas}</h2>
+            </lightning:layout>
+        </aura:set>
+
+        <p class="slds-p-horizontal_small">  
+            <aura:renderIf isTrue="{!v.mostrarDetallesGenerales}">
+                <c:MisPedidosDetallesEspecificos/>  
+                <aura:set attribute="else">
+                    <c:MisPedidosDetallesGenerales/>   
+                </aura:set> 
+            </aura:renderIf> 
+        </p> 
+    </lightning:card>
+</aura:component>

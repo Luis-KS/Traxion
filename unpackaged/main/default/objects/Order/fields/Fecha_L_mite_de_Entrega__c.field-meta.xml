@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fecha_L_mite_de_Entrega__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(MOD(WEEKDAY(Fecha_de_Creaci_n__c),7),  
+ 0, Fecha_de_Creaci_n__c  + 5, 
+ 1, Fecha_de_Creaci_n__c  + 4, 
+ 2, Fecha_de_Creaci_n__c  + 4, 
+ 3, Fecha_de_Creaci_n__c  + 4, 
+ 4, Fecha_de_Creaci_n__c  + 4, 
+ 5, Fecha_de_Creaci_n__c  + 4, 
+ 6, Fecha_de_Creaci_n__c  + 6, 
+Fecha_de_Creaci_n__c  
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Fecha Límite de Entrega</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

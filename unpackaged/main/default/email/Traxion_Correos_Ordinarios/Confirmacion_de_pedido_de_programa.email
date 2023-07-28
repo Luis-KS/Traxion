@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<body style="font-family: Arial, sans-serif;">
+<p>Estimado cliente.</p>
+<p>Me comunico para informarle que nuestro equipo ha verificado la disponibilidad de insumos en CENADI, hacemos de su conocimiento que entregaremos el 100% de su pedido {Programa}.</p>
+	<p>Anexo encontrará el detalle de los insumos confirmados.</p>
+
+<p><b>*El surtimiento de los insumos de Grupo 1 están sujetos al aviso de previsiones vigente</b></p>
+	<br>
+	<p>Atentamente,</p>
+	 {!$Setup.Pie_de_Firma__c.Nombre__c} 
+	<p>	 {!$Setup.Pie_de_Firma__c.Puesto__c} </p>
+	<p>Teléfono: 	 <a href="tel:{!$Setup.Pie_de_Firma__c.Telefono__c}">{!$Setup.Pie_de_Firma__c.Telefono__c}</a></p>
+	<p>Correo electrónico:  {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c} <br>
+	{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</p>
+</body>
+</html>

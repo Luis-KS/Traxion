@@ -1,0 +1,68 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "54043631-a895-40a8-9eaf-523b1b7aa28f",
+  "label" : "Replaneación",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "eff5a39b-3a3d-4b3f-ab88-530c3bc46de6",
+          "columns" : [ {
+            "UUID" : "5e56900e-e3fd-4192-9fc3-2583b40b6d26",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "eff5a39b-3a3d-4b3f-ab88-530c3bc46de6",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:replaneacionDePedidos",
+          "id" : "e4530123-3e17-4897-824a-e6d17386a008",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "5e56900e-e3fd-4192-9fc3-2583b40b6d26",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6ba40c34-153d-489d-8235-89724dc2c478",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Replaneación"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9f997e14-641e-4839-8611-323fb34d1461",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d72dae25-d099-4bec-a7f2-2bd15f6766fc",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-replaneacin"
+}

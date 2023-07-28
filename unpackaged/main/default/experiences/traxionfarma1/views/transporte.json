@@ -1,0 +1,68 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "f703a40f-06b4-46cb-a73d-6c4cece1de4f",
+  "label" : "Transporte",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "c7ecbd39-c433-42af-a81d-4e530c314771",
+          "columns" : [ {
+            "UUID" : "16709345-ccf2-49d9-97cd-9ef1d1b6860b",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "c7ecbd39-c433-42af-a81d-4e530c314771",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:asignacionTransporteMenu",
+          "id" : "4d3a96ea-e7b8-42db-ba8e-fb7b38c0004b",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "16709345-ccf2-49d9-97cd-9ef1d1b6860b",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c63d3e8e-fbd2-47cc-ada4-468bf248b72c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Transporte"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "418cbf72-047f-4edb-aa32-2c35381044f4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "008c6a0e-3d4b-4352-9b05-2f9de0f40f82",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-transporte"
+}

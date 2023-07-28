@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Clasificación --></label>
+        <name>Clasificacion__c</name>
+        <picklistValues>
+            <masterLabel>Material de Curación</masterLabel>
+            <translation><!-- Material de Curación --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medicamento</masterLabel>
+            <translation><!-- Medicamento --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

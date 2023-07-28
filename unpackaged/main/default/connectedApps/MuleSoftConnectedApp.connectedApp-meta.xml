@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>Luis.Vargas@theksquaregroup.com</contactEmail>
+    <label>MuleSoftConnectedApp</label>
+    <oauthConfig>
+        <callbackUrl>https://oauth.pstmn.io/v1/browser-callback</callbackUrl>
+        <consumerKey>3MVG9QN_oTOaL3XSyXZVqcNb989e8i8CnOpr11kgTStUSeBViIc4JmF9ai7QbmQHEQ.1_28FQodrOyFAuVUqw</consumerKey>
+        <isAdminApproved>true</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>true</isSecretRequiredForRefreshToken>
+        <scopes>Basic</scopes>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>BYPASS</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+    <profileName>System Administrator</profileName>
+</ConnectedApp>

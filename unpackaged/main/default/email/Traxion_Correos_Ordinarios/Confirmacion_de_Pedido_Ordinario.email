@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body style="font-family: Arial, sans-serif;">
+
+<p style="margin: 0;">Estimado cliente,</p> 
+<p style="margin: 0;">Me permito enviarte un cordial saludo.</p>
+<p>Me comunico para informarle que nuestro equipo ha verificado la disponibilidad de insumos en CENADI, hacemos de su conocimiento que entregaremos el {PORCENTAJE}% de su pedido {TIPO_DE_PEDIDO} {FOLIO}.</p>
+<p>Anexo encontrará el detalle de los insumos confirmados.</p>
+
+<p><b>*El surtimiento de los insumos de Grupo 1 están sujetos al aviso de previsiones vigente</b></p>
+
+<br>
+
+    <p style="margin: 0;">Atentamente,</p>
+    <p style="margin: 0;">ALMACENAJE Y DISTRIBUCIÓN AVIOR, S.A. DE C.V.</p>
+    <p style="margin: 0;">Contáctanos de Mesa de Ayuda</p>
+    <p style="margin: 0;">Teléfono: <a href="tel:5586477783">55 8647 7783</a></p>
+    <p style="margin: 0;">Correo electrónico: <a href="mailto:gruposidinsightlogistica@gruposid.com.mx">gruposidinsightlogistica@gruposid.com.mx</a></p>
+    <p style="margin: 0;"><a href="mailto:maypoinsightlogistica@maypo.com">maypoinsightlogistica@maypo.com</a></p>
+
+</body>
+</html>

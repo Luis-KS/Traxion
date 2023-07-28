@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delegaci_n__c</fullName>
+    <externalId>false</externalId>
+    <label>Delegación</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>001-AGUASCALIENTES</fullName>
+                <default>false</default>
+                <label>001-AGUASCALIENTES</label>
+            </value>
+            <value>
+                <fullName>002-BAJA CALIFORNIA</fullName>
+                <default>false</default>
+                <label>002-BAJA CALIFORNIA</label>
+            </value>
+            <value>
+                <fullName>003-BAJA CALIFORNIA SUR</fullName>
+                <default>false</default>
+                <label>003-BAJA CALIFORNIA SUR</label>
+            </value>
+            <value>
+                <fullName>004-CAMPECHE</fullName>
+                <default>false</default>
+                <label>004-CAMPECHE</label>
+            </value>
+            <value>
+                <fullName>005-COAHUILA</fullName>
+                <default>false</default>
+                <label>005-COAHUILA</label>
+            </value>
+            <value>
+                <fullName>006-COLIMA</fullName>
+                <default>false</default>
+                <label>006-COLIMA</label>
+            </value>
+            <value>
+                <fullName>007-CHIAPAS</fullName>
+                <default>false</default>
+                <label>007-CHIAPAS</label>
+            </value>
+            <value>
+                <fullName>008-CHIHUAHUA</fullName>
+                <default>false</default>
+                <label>008-CHIHUAHUA</label>
+            </value>
+            <value>
+                <fullName>009-DISTRITO FEDERAL</fullName>
+                <default>false</default>
+                <label>009-DISTRITO FEDERAL</label>
+            </value>
+            <value>
+                <fullName>010-DURANGO</fullName>
+                <default>false</default>
+                <label>010-DURANGO</label>
+            </value>
+            <value>
+                <fullName>011-GUANAJUATO</fullName>
+                <default>false</default>
+                <label>011-GUANAJUATO</label>
+            </value>
+            <value>
+                <fullName>012-GUERRERO</fullName>
+                <default>false</default>
+                <label>012-GUERRERO</label>
+            </value>
+            <value>
+                <fullName>013-HIDALGO</fullName>
+                <default>false</default>
+                <label>013-HIDALGO</label>
+            </value>
+            <value>
+                <fullName>014-JALISCO</fullName>
+                <default>false</default>
+                <label>014-JALISCO</label>
+            </value>
+            <value>
+                <fullName>015-ESTADO DE MÉXICO</fullName>
+                <default>false</default>
+                <label>015-ESTADO DE MÉXICO</label>
+            </value>
+            <value>
+                <fullName>016-MICHOACAN</fullName>
+                <default>false</default>
+                <label>016-MICHOACAN</label>
+            </value>
+            <value>
+                <fullName>017-MORELOS</fullName>
+                <default>false</default>
+                <label>017-MORELOS</label>
+            </value>
+            <value>
+                <fullName>018-NAYARIT</fullName>
+                <default>false</default>
+                <label>018-NAYARIT</label>
+            </value>
+            <value>
+                <fullName>019-NUEVO LEÓN</fullName>
+                <default>false</default>
+                <label>019-NUEVO LEÓN</label>
+            </value>
+            <value>
+                <fullName>020-OAXACA</fullName>
+                <default>false</default>
+                <label>020-OAXACA</label>
+            </value>
+            <value>
+                <fullName>021-PUEBLA</fullName>
+                <default>false</default>
+                <label>021-PUEBLA</label>
+            </value>
+            <value>
+                <fullName>022-QUERÉTARO</fullName>
+                <default>false</default>
+                <label>022-QUERÉTARO</label>
+            </value>
+            <value>
+                <fullName>023-QUINTANA ROO</fullName>
+                <default>false</default>
+                <label>023-QUINTANA ROO</label>
+            </value>
+            <value>
+                <fullName>024-SAN LUIS POTOSÍ</fullName>
+                <default>false</default>
+                <label>024-SAN LUIS POTOSÍ</label>
+            </value>
+            <value>
+                <fullName>025-SINALOA</fullName>
+                <default>false</default>
+                <label>025-SINALOA</label>
+            </value>
+            <value>
+                <fullName>026-SONORA</fullName>
+                <default>false</default>
+                <label>026-SONORA</label>
+            </value>
+            <value>
+                <fullName>027-TABASCO</fullName>
+                <default>false</default>
+                <label>027-TABASCO</label>
+            </value>
+            <value>
+                <fullName>028-TAMAULIPAS</fullName>
+                <default>false</default>
+                <label>028-TAMAULIPAS</label>
+            </value>
+            <value>
+                <fullName>029-TLAXCALA</fullName>
+                <default>false</default>
+                <label>029-TLAXCALA</label>
+            </value>
+            <value>
+                <fullName>030-VERACRUZ</fullName>
+                <default>false</default>
+                <label>030-VERACRUZ</label>
+            </value>
+            <value>
+                <fullName>031-YUCATÁN</fullName>
+                <default>false</default>
+                <label>031-YUCATÁN</label>
+            </value>
+            <value>
+                <fullName>032-ZACATECAS</fullName>
+                <default>false</default>
+                <label>032-ZACATECAS</label>
+            </value>
+            <value>
+                <fullName>033-HOSPITAL REGIONAL CARDENAS DE LA VEGA</fullName>
+                <default>false</default>
+                <label>033-HOSPITAL REGIONAL CARDENAS DE LA VEGA</label>
+            </value>
+            <value>
+                <fullName>034-HOSPITAL REGIONAL VALENTIN GOMEZ</fullName>
+                <default>false</default>
+                <label>034-HOSPITAL REGIONAL VALENTIN GOMEZ</label>
+            </value>
+            <value>
+                <fullName>035-HOSPITAL REGIONAL MONTERREY</fullName>
+                <default>false</default>
+                <label>035-HOSPITAL REGIONAL MONTERREY</label>
+            </value>
+            <value>
+                <fullName>036-HOSPITAL REGIONAL PUEBLA</fullName>
+                <default>false</default>
+                <label>036-HOSPITAL REGIONAL PUEBLA</label>
+            </value>
+            <value>
+                <fullName>037-HR DE LEÓN</fullName>
+                <default>false</default>
+                <label>037-HR DE LEÓN</label>
+            </value>
+            <value>
+                <fullName>038-HOSPITAL REGIONAL MERIDA</fullName>
+                <default>false</default>
+                <label>038-HOSPITAL REGIONAL MERIDA</label>
+            </value>
+            <value>
+                <fullName>039-HOSPITAL REGIONAL OAXACA</fullName>
+                <default>false</default>
+                <label>039-HOSPITAL REGIONAL OAXACA</label>
+            </value>
+            <value>
+                <fullName>042-HR DE ALTA ESP BICENTENARIO DE LA INDEPENDENCIA</fullName>
+                <default>false</default>
+                <label>042-HR DE ALTA ESP BICENTENARIO DE LA INDEPENDENCIA</label>
+            </value>
+            <value>
+                <fullName>043-HR ALTA ESP CENTENARIO DE LA REVOLUCION MEXICANA</fullName>
+                <default>false</default>
+                <label>043-HR ALTA ESP CENTENARIO DE LA REVOLUCION MEXICANA</label>
+            </value>
+            <value>
+                <fullName>044-HR B MORELIA (ALTA ESPECIALIDAD) MICHOACAN (P)</fullName>
+                <default>false</default>
+                <label>044-HR B MORELIA (ALTA ESPECIALIDAD) MICHOACAN (P)</label>
+            </value>
+            <value>
+                <fullName>045-HR B VERACRUZ (ALTA ESPECIALIDAD) VERACRUZ (P)</fullName>
+                <default>false</default>
+                <label>045-HR B VERACRUZ (ALTA ESPECIALIDAD) VERACRUZ (P)</label>
+            </value>
+            <value>
+                <fullName>090-HOSPITAL REGIONAL 1RO DE OCTUBRE</fullName>
+                <default>false</default>
+                <label>090-HOSPITAL REGIONAL 1RO DE OCTUBRE</label>
+            </value>
+            <value>
+                <fullName>091-NORTE DEL D.F.</fullName>
+                <default>false</default>
+                <label>091-NORTE DEL D.F.</label>
+            </value>
+            <value>
+                <fullName>092-ORIENTE DEL D.F.</fullName>
+                <default>false</default>
+                <label>092-ORIENTE DEL D.F.</label>
+            </value>
+            <value>
+                <fullName>093-SUR DEL D.F.</fullName>
+                <default>false</default>
+                <label>093-SUR DEL D.F.</label>
+            </value>
+            <value>
+                <fullName>094-PONIENTE DEL D.F.</fullName>
+                <default>false</default>
+                <label>094-PONIENTE DEL D.F.</label>
+            </value>
+            <value>
+                <fullName>096-CENTRO MEDICO NACIONAL</fullName>
+                <default>false</default>
+                <label>096-CENTRO MEDICO NACIONAL</label>
+            </value>
+            <value>
+                <fullName>097-HOSPITAL REGIONAL ZARAGOZA</fullName>
+                <default>false</default>
+                <label>097-HOSPITAL REGIONAL ZARAGOZA</label>
+            </value>
+            <value>
+                <fullName>098-HOSPITAL REGIONAL LOPEZ MATEOS</fullName>
+                <default>false</default>
+                <label>098-HOSPITAL REGIONAL LOPEZ MATEOS</label>
+            </value>
+            <value>
+                <fullName>140-CENTROS DE CANJE</fullName>
+                <default>false</default>
+                <label>140-CENTROS DE CANJE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

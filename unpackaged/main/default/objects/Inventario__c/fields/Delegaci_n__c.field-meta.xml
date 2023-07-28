@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delegaci_n__c</fullName>
+    <description>Delegación de la UMU relacionada. Utilizado para mostrar su valor en InventarioPDF</description>
+    <externalId>false</externalId>
+    <formula>UMU__r.Delegacion__c</formula>
+    <label>Delegación</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

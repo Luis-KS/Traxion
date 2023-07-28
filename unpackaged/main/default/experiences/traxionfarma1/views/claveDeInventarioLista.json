@@ -1,0 +1,46 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "c19b9f0e-afdd-4c52-bfa0-053e70723938",
+  "label" : "Clave de Inventario Lista",
+  "regions" : [ {
+    "id" : "d7d4b868-d606-4684-a42e-4bb7d4a29aff",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "enableInlineEdit" : true,
+        "filterName" : "All",
+        "layout" : "FULL",
+        "pageSize" : 25,
+        "scope" : "Clave_de_Inventario__c",
+        "showActionBar" : true,
+        "showChartsPanel" : false,
+        "showDisplay" : "showall",
+        "showFilterPanel" : true,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : true,
+        "showObjectName" : true,
+        "showPinnedList" : true,
+        "showSearchBar" : false
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "bdbcfe47-4211-42da-8865-a387b95ae8e7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a25e2b79-5843-42a3-92fc-0274ae5b273c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "b4b929f8-bde7-44b4-8c0d-4671c95ca705",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list-a0K"
+}

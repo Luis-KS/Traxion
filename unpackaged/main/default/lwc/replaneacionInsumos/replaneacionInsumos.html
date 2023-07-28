@@ -1,0 +1,79 @@
+<template>
+  <div class="search">
+    <div class="buscador">
+      <lightning-input
+        type="text"
+        placeholder="Nombre del Medicamento"
+        label="BUSCAR"
+        onchange={handleBuscar}
+      >
+      </lightning-input>
+    </div>
+    <br />
+    <div class="container">
+      <div class="container-product">
+        <template for:each={filteredProducts} for:item="orden">
+          <div key={orden.Id} class="data-insumos">
+            <div class="motivo left-panel-data">
+              <lightning-icon
+                icon-name="standard:entity_milestone"
+                alternative-text="Motivo"
+                size="xx-small"
+                title="Motivo"
+              ></lightning-icon>
+              <span style="margin-left: 5px">{transporte.motivo}</span>
+            </div>
+
+            <div class="orden">
+              <div class="orden left-panel-data">
+                <span>{orden.Product__r.Product_Code_ID__c}</span>
+              </div>
+            </div>
+
+            <div class="medicamento">
+              <p>{orden.Product__r.Name}</p>
+            </div>
+            <div class="botonInformacionDeLotes">
+              <button class="informacionDeLotesboton" onclick={toggleLotes}>{ botonInformacionDeLotesText }</button>
+            </div>
+            
+            <div class="informacionDeLotes">
+              <span >LOTES </span>
+              <div class={divClass}>
+                <div style="display: flex; flex-direction: column;">
+                  <ol>
+                    <template for:each={orden.Informacion_De_Lotes__r} for:item="lote">
+                      <li key={lote.Numero_de_Lote__c} class="text-weight">Lote: {lote.Numero_de_Lote__c} - Cant: {lote.Cantidad__c} - Exp: {lote.Fecha_de_Expiracion__c}</li>
+                    </template>
+                  </ol> 
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-left-panel">
+              <div class="piezas left-panel-data">
+                <span class="text">PIEZAS SOLICITADAS</span>
+                <span class="text-weight">{orden.Cantidad_Solicitada__c}</span>
+              </div>
+              <div class="piezas left-panel-data">
+                <span class="text"> PIEZAS ENTREGADAS</span>
+                <span class="text-weight">{orden.Cantidad_Entregada__c}</span>
+              </div>
+            </div>
+
+            <div class="grid-last-panel">
+              <div class="piezas left-panel-data">
+                <span class="text">COSTO PROMEDIO</span>
+                <span class="text-weight">{orden.Costo_Promedio__c}</span>
+              </div>
+              <div class="piezas left-panel-data">
+                <span class="text"> COSTO TOTAL</span>
+                <span class="text-weight">{orden.Costo_Total__c}</span>
+              </div>
+            </div>
+          </div>
+        </template>
+</div>
+</div>
+</div>
+</template>

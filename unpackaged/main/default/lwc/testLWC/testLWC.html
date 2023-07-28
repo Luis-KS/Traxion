@@ -1,0 +1,113 @@
+<template>
+
+  <div class="slds-grid">
+
+    <div class="umu-select slds-col slds-size_1-of-3">
+        <select onchange={handleSelect}>
+            <option value="Seleccionar Unidad Medica"> Seleccionar Unidad Medica</option>
+            <option value="HR PRIMERO DE OCTUBRE">HR PRIMERO DE OCTUBRE</option>
+            <option value="CMF GUSTAVO A. MADERO">CMF GUSTAVO A. MADERO</option>
+            <option value="CMF ARAGON">CMF ARAGON</option>
+            <option value="CMF GUADALUPE">CMF GUADALUPE</option>
+        </select> 
+     </div>
+
+
+     <div class="slds-col slds-size_2-of-3">
+
+        <template if:true={showMessage}>
+            <!-- <span>{message}</span> -->
+                 <!-- Success variant: Identifies a successful action -->
+                 <div class="ordinario">
+                     <div class="texto-pedido">
+                        <h3>Ordinario</h3>
+                     </div>
+                    <div class="solicitar-pedido">
+                        <lightning-button variant="success" label="Calendario" title="Calendario" onclick={handleClick} class="slds-m-left_x-large"></lightning-button>
+                    </div>
+
+                 </div>
+        <!-- <lightning-button variant="success" label="Solicitar Pedido" title="Successful action" onclick={handleClick} class="slds-m-left_x-large"></lightning-button> -->
+    
+        </template>
+
+</div>
+
+<div class="slds-col slds-size_3-of-3">
+
+    <template if:true={showMessage}>
+        <!-- <span>{message}</span> -->
+             <div class="no-ordinario">
+                 <div class="texto-pedido">
+                    <h3>No ordinario</h3>
+                 </div>
+                <div class="solicitar-pedido">
+                    <lightning-button variant="success" label="Solicitar Pedido" title="Solicitar Pedido" onclick={handleClick} class="slds-m-left_x-large"></lightning-button>
+                </div>
+
+             </div>
+    </template>
+
+</div>
+
+
+</div>
+
+
+<!-- <lightning-card title="Hello">
+    <lightning-button label="New" slot="actions"></lightning-button>
+    <lightning-button label="Old" slot="actions"></lightning-button>
+    <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+    <div slot="footer">
+        <a class="slds-card__footer-action" href="#">View All
+                <span class="slds-assistive-text">Accounts</span>
+            </a>
+    </div>
+</lightning-card> -->
+
+<template if:true={showMessage}>
+
+    <lightning-card title="Buscar DPN">
+
+        <div class="layout">
+    
+            <lightning-layout multiple-rows="true" vertical-align="end">
+                <div class="item1">
+                    <lightning-layout-item size="4" padding="around-small">
+                        <lightning-input type="text" label="Nombre DPN" value={key} onchange={updateKey} placeholder={placeholder}></lightning-input>
+    
+                    </lightning-layout-item>
+                </div>
+                <div class="item2">
+                    <lightning-layout-item size="2" padding="around-small">
+                        <lightning-button label="Search" onclick={handleSearch} variant="brand"></lightning-button>
+    
+                    </lightning-layout-item>
+                </div>
+                <div class="item3">
+                    <lightning-layout-item size="9" padding="around-small">
+                        <lightning-datatable key-field="id" data={DPNs} columns={cols}></lightning-datatable>
+    
+                    </lightning-layout-item>
+    
+    
+                </div>
+                <div class="item4">
+                    <lightning-layout-item>
+                        <lightning-button label="Cancelar"> </lightning-button>
+                    </lightning-layout-item>
+                </div>
+            </lightning-layout>
+    
+    
+    
+        </div>
+    
+    </lightning-card>
+
+</template>
+
+
+
+
+</template>

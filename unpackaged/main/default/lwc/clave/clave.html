@@ -1,0 +1,11 @@
+<template>
+  <div class="container">
+    <div class="slds-float_left">
+      {producto.Product__r.Partida_Presupuestal__c} - {producto.Product__r.Name} | {producto.Product__r.Fraction__c}
+    </div>
+    <div class="slds-float_right">
+      <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" onclick={handleDelete} class="slds-m-left_xx-small"
+        title="Delete"></lightning-button-icon>
+    </div>
+  </div>
+</template>

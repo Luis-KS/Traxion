@@ -1,0 +1,101 @@
+<template>
+  <div class="container">
+    <div class="titleContainer">
+      <div class="ordenStatus">
+        <label> UMU: </label>
+      </div>
+
+      <div class="estado">
+        <label>{umu}</label>
+      </div>
+    </div>
+
+    <div class="titleContainer">
+      <div class="ordenStatus">
+        <label> Número de Orden: </label>
+      </div>
+
+      <div class="orden">
+        <label>{orderNumber}</label>
+      </div>
+    </div>
+
+    <div class="titleContainer">
+      <div class="ordenStatus">
+        <label> Estado de Orden: </label>
+      </div>
+
+      <div class="estado">
+        <label>{estado}</label>
+      </div>
+      <div class="custom-icon">
+        <lightning-icon
+          icon-name="utility:check"
+          size="x-small"
+        ></lightning-icon>
+      </div>
+    </div>
+
+    <template if:true={formattedDate}>
+      <div class="titleContainer">
+        <div class="ordenStatus">
+          <label> Máx. Entrega : </label>
+        </div>
+
+        <div class="orden">
+          <label>{formattedDate}</label>
+        </div>
+      </div>
+    </template>
+
+<template if:true={subalmacen}>
+      <div class="titleContainer">
+        <div class="ordenStatus">
+          <label> Sub-Almacén: </label>
+        </div>
+
+        <div class="estado">
+          <label>{subalmacen}</label>
+        </div>
+      </div>
+    </template>
+
+<div class="selected-item-container">
+    <label class="selected-item-label">Cantidad de Cajas Recibidas</label>
+
+    <div class="quantity-controls">
+        <button class="quantity-button" disabled={isDisabled} onclick={handleSubstract}>
+          -
+        </button>
+        <div class="inputNumber">
+            <lightning-input type="number" onchange={handleInputPiezasFaltantes} class="quantity-value" value={selectedQuantityValue} disabled={isDisabled}></lightning-input>
+        </div>
+
+        <button class="quantity-button" disabled={isDisabled} onclick={handleAdd}>
+          +
+        </button>
+    </div>
+    <p style="background-color: green; color: white; margin-left: 2rem">
+        Cantidad Enviada: {cantidadCajas}
+    </p>
+
+    <!-- EL checkbox -->
+
+    <div class="elCheck">
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <div class="slds-checkbox">
+                    <input type="checkbox" name="options" id="checkbox-unique-id-80" onchange={handleCheckboxAdd} checked={isAgregado} />
+                    <label class="slds-checkbox__label" for="checkbox-unique-id-80">
+                <span class="slds-checkbox_faux"></span>
+                <span class="slds-form-element__label">Agregado</span>
+              </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  -->
+</div>
+</div>
+</template>

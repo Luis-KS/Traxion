@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estatus__c</fullName>
+    <externalId>false</externalId>
+    <label>Estatus</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Censo</fullName>
+                <default>false</default>
+                <label>Censo</label>
+            </value>
+            <value>
+                <fullName>Censo DPN</fullName>
+                <default>false</default>
+                <label>Censo DPN</label>
+            </value>
+            <value>
+                <fullName>Consumible</fullName>
+                <default>false</default>
+                <label>Consumible</label>
+            </value>
+            <value>
+                <fullName>Consumo</fullName>
+                <default>false</default>
+                <label>Consumo</label>
+            </value>
+            <value>
+                <fullName>Material de Curación</fullName>
+                <default>false</default>
+                <label>Material de Curación</label>
+            </value>
+            <value>
+                <fullName>Material de Laboratorio</fullName>
+                <default>false</default>
+                <label>Material de Laboratorio</label>
+            </value>
+            <value>
+                <fullName>Material Radiológico</fullName>
+                <default>false</default>
+                <label>Material Radiológico</label>
+            </value>
+            <value>
+                <fullName>Medicamento</fullName>
+                <default>false</default>
+                <label>Medicamento</label>
+            </value>
+            <value>
+                <fullName>Ropa Quirúrgica Desechable</fullName>
+                <default>false</default>
+                <label>Ropa Quirúrgica Desechable</label>
+            </value>
+            <value>
+                <fullName>#N/D</fullName>
+                <default>false</default>
+                <label>#N/D</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

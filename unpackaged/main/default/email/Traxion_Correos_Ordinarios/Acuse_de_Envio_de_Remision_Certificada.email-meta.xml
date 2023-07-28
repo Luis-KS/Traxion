@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>ACUSE DE CERTIFICACIÓN (ESTE SÓLO LO RECIBE EL USUARIO QUE HA FIRMADO LA ENTREGA).</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Acuse de Envío de Remisión Certificada</name>
+    <style>none</style>
+    <subject>Remisión certificada con folio {!Pedido__c.Folio_de_Pedido__c}, del pedido Extraordinario, {!Pedido__c.ID_de_Pedido__c}</subject>
+    <textOnly>Acuse de Envío de Remisión Certificada
+
+El presente constituye el acuse de envío del archivo con la remisión certificada con folio {Num Folio}.
+
+Fecha y hora de certificación: {FECHA HORA}
+
+
+Atentamente,
+
+{!$Setup.Pie_de_Firma__c.Nombre__c}
+
+{!$Setup.Pie_de_Firma__c.Puesto__c}
+
+Teléfono: {!$Setup.Pie_de_Firma__c.Telefono__c}
+
+Correo electrónico:  {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c}
+{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

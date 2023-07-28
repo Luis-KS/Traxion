@@ -1,0 +1,5 @@
+<template>
+    <div class="container">
+        <lightning-datatable data={wireContact.data} errors={errors} onsave={handleSave} columns={columns} key-field="id" hide-checkbox-column="true" onrowaction={handleRowAction}></lightning-datatable>
+    </div>
+</template>

@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* 
+lightning-primitive-datatable-status-bar{
+    display: none;
+} */
+
+.error-color{
+    background-color: red;
+}

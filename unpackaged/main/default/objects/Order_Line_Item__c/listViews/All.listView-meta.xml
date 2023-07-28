@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Estatus__c</columns>
+    <columns>Cantidad_Aprobada__c</columns>
+    <columns>Cantidad_Autorizada__c</columns>
+    <columns>Cantidad_Colocada_en_SAP__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

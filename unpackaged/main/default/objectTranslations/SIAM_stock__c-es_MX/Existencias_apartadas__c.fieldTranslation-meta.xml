@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <help><!-- Cantidad de existencias no disponibles apartadas en la unidad medica --></help>
+        <label><!-- Existencias apartadas --></label>
+        <name>Existencias_apartadas__c</name>
+    </CustomFieldTranslation>

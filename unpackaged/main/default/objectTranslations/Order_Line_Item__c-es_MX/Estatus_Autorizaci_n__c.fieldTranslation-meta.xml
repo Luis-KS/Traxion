@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Estatus Autorización --></label>
+        <name>Estatus_Autorizaci_n__c</name>
+        <picklistValues>
+            <masterLabel>Autorizado</masterLabel>
+            <translation><!-- Autorizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modificado</masterLabel>
+            <translation><!-- Modificado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendiente</masterLabel>
+            <translation><!-- Pendiente --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rechazado</masterLabel>
+            <translation><!-- Rechazado --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

@@ -1,0 +1,68 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "0819d41c-2a2f-4d07-9cb5-28e7ba5991b7",
+  "label" : "Autorización de Pedidos",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "ad085aa4-c6e6-463b-8fe9-d8c5acaea0aa",
+          "columns" : [ {
+            "UUID" : "cd143d42-b6bd-4147-85f5-08d6f2bcfe74",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "ad085aa4-c6e6-463b-8fe9-d8c5acaea0aa",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:AprobacionAutorizacionPedidos",
+          "id" : "c3c24c44-97cb-4f61-96d1-b64208d1dd26",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "cd143d42-b6bd-4147-85f5-08d6f2bcfe74",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c13e6f60-ef5f-4029-90c0-da210ffa49d4",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Autorización de Pedidos"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "26d289ad-0672-4f69-8cfb-6ea4c306f505",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4e33e794-8330-4871-b3ec-fe2ea02f3076",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-autorizacion-de-pedidos"
+}

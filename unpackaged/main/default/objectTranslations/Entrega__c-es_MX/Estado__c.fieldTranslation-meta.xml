@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Estado --></label>
+        <name>Estado__c</name>
+        <picklistValues>
+            <masterLabel>Asignado</masterLabel>
+            <translation><!-- Asignado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entregado</masterLabel>
+            <translation><!-- Entregado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Asignado</masterLabel>
+            <translation><!-- No Asignado --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

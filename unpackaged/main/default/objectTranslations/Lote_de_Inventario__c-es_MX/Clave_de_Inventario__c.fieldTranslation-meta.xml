@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Clave de Inventario --></label>
+        <name>Clave_de_Inventario__c</name>
+        <relationshipLabel><!-- Lotes de Inventario --></relationshipLabel>
+    </CustomFieldTranslation>

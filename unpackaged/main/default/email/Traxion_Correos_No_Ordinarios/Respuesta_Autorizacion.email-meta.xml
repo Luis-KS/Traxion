@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Confirmación de respuesta a la solicitud de autorización del Pedido Extraordinario.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Respuesta Autorización</name>
+    <style>none</style>
+    <subject>Respuesta de solicitud de autorización de pedido {!Pedido__c.Tipo_de_Pedido__c} Folio {!Pedido__c.ID_de_Pedido__c}, {!Account.Name} {!Account.Clave_Presupuestal__c}</subject>
+    <textOnly>Estimado cliente.
+Me permito enviarte un cordial saludo,
+
+
+El presente constituye la confirmación de respuesta a la solicitud de autorización del Pedido {!Pedido__c.Tipo_de_Pedido__c}.
+
+Folio: {!Pedido__c.Folio_de_Pedido__c}.
+
+Folio Control: {!Pedido__c.Folio_de_Pedido__c}.
+
+Autorizado por: {!Pedido__c.Autorizado_Por__c}
+
+*El surtimiento de los insumos de Grupo 1 están sujetos al aviso de previsiones vigente
+
+En estos momentos nuestro equipo está verificando la disponibilidad de inventario en CENADI, en breve enviaremos el detalle de los insumos disponibles.
+
+Anexo encontrará el detalle de la respuesta.
+
+
+Atentamente,
+
+{!$Setup.Pie_de_Firma__c.Nombre__c}
+
+{!$Setup.Pie_de_Firma__c.Puesto__c}
+
+Teléfono: {!$Setup.Pie_de_Firma__c.Telefono__c}
+
+Correo electrónico: {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c}
+{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,20 @@
+<template>
+  <template if:true={isentrega}>
+    <template for:each={datosEntrega} for:item="item">
+      <div key={item.id} class="card-container">
+        <lightning-card title={item.UMU__r.Name}>
+          <p class="card">
+            {item.UMU__r.Calle__c}, {item.UMU__r.Ciudad__c},
+            {item.UMU__r.Colonia__c}, {item.UMU__r.Estado__c}
+          </p>
+        </lightning-card>
+      </div>
+    </template>
+</template>
+
+<template if:false={isentrega}>
+    <lightning-card title="Entregas Asignadas">
+      <p class="card">No tiene entregas asignadas</p>
+    </lightning-card>
+  </template>
+</template>

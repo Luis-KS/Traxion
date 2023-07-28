@@ -1,0 +1,39 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d5250f11-6750-47f1-83e3-da8aeec51d26",
+  "label" : "Clave de Inventario Lista relacionada",
+  "regions" : [ {
+    "id" : "71a023a5-652b-49b7-bdf0-fd4dc9a4609a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customTitle" : "",
+        "parentRecordId" : "{!recordId}",
+        "relatedListName" : "{!relationshipApiName}",
+        "showBreadCrumbs" : true,
+        "showCustomTitle" : false,
+        "showManualRefreshButton" : true,
+        "showRowNumbers" : true
+      },
+      "componentName" : "forceCommunity:relatedList",
+      "id" : "d3f66fce-61f9-4181-b2e6-c982b9b015c1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5f9824e3-2292-4e1f-8778-f94457de327d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "346a773a-3e9e-47de-9bac-6f7a5a0a5325",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "relatedlist-a0K"
+}

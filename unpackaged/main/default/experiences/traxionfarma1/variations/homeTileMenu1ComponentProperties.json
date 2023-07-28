@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "85d64f11-fdd5-49a9-8fff-f00f2d1a178f",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "tileMenuEditor" : "Men_SICORA"
+      }
+    },
+    "targetId" : "0a4ed9c4-0ff8-4f9e-ba94-b56221d341ba",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Home_Tile_Menu_1_Component_Properties",
+  "id" : "ddccce14-044b-4bfd-92cd-7c07e72d7ec6",
+  "type" : "experienceVariation"
+}

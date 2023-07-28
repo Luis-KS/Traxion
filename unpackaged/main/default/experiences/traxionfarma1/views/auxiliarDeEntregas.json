@@ -1,0 +1,68 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "c17f71f5-01a6-4dbc-8ee4-c30b4daa81b3",
+  "label" : "Auxiliar de Entregas",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "64f9cbcc-59ac-431a-aac6-333a2a257fb7",
+          "columns" : [ {
+            "UUID" : "927629e9-ec81-4a8d-a523-cb4700d88ca1",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "64f9cbcc-59ac-431a-aac6-333a2a257fb7",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:auxiliarRecibir",
+          "id" : "b0e0b01e-e660-4658-8262-1dee594ff29d",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "927629e9-ec81-4a8d-a523-cb4700d88ca1",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3925a698-4288-4a6f-861d-7f435d9a9de7",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Auxiliar de Entregas"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "08be1acb-b4d3-4d65-8004-fdcc82aef0ab",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d3a7bf65-23c0-449b-a3b7-a822ac9fb29e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-auxiliar-de-entregas"
+}

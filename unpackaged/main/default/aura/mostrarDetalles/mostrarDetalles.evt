@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Manda JSON Obj en formato de string con los detalles"> 
+    <aura:attribute name="fechasSeleccionadas" type="String" />
+    <aura:attribute name="mostrarDetallesGenerales" type="Boolean" />
+</aura:event>

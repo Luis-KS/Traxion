@@ -1,0 +1,190 @@
+<!-- Page: -->
+<apex:page controller="CertificacionClass" renderAs="pdf">
+    
+    <div class="row">
+        <div class="column" style="float: left; width: 31%;">
+            <apex:image id="theImage" value="{!$Resource.BIRMEXLogo}" width="200" alt="BIRMEX" />
+        </div>
+        <div class="column" style="float: left; font-family: sans-serif; font-size: 12px; width: 31%;">
+            LABORATORIOS DE BIOLOGICOS Y REACTIVOS DE MEXICO S.A DE C.V.<br/>
+            AUTOPISTA MEXICO-QUERETARO KM.37.5 PARQUE INDUSTRIAL CUAMATLA<br/>
+            CUAUTITLAN IZCALLI. C.P. 54730<br/>
+            Tel. 5555274297<br/>
+            R.F.C. LBR990311Q29
+        </div>
+        <div class="column" style="float: left; font-family: sans-serif; font-size: 12px; width: 31%;">
+            <div style="font-weight: 600; padding-bottom: 10px;">REMISION CERTIFICADA</div> 
+            PEDIDO<br/>
+            <div style="font-weight: 600; padding-bottom: 10px;">{!orden.Pedido__r.ID_de_Pedido__c}</div>
+            FOLIO REMISIÓN<br/>
+            <div style="font-weight: 600; padding-bottom: 10px;">{!orden.Folio_de_Remision__c}</div>
+            FECHA DE SOLICITUD<br/>
+            <div style="font-weight: 600; padding-bottom: 10px;"><apex:outputText value="{0,date,dd-MM-yyyy}"> <apex:param value="{!orden.CreatedDate}" /> </apex:outputText> </div>
+            <!--<div style="font-weight: 600; padding-bottom: 10px;">{!orden.CreatedDate}</div>-->
+            FECHA DE RECEPCIÓN<br/>
+            <!--<div style="font-weight: 600; padding-bottom: 10px;"><apex:outputText value="{0,date,dd/MM/yy}"> <apex:param value="{!fecharecepcion}" /> </apex:outputText></div>-->
+            <div style="font-weight: 600; padding-bottom: 10px;">{!fecharecepcion}</div>
+            FECHA DE REMISIÓN<br/>
+            <!--<div style="font-weight: 600; padding-bottom: 10px;"><apex:outputText value="{0,date,dd/MM/yy}"> <apex:param value="{!fechaderemision}" /> </apex:outputText> </div>-->
+            <div style="font-weight: 600; padding-bottom: 10px;">{!fechaderemision}</div>
+        </div>
+        
+        <div class="column" style="float: left; font-family: sans-serif; font-size: 12px; width: 100%;">
+            <div class="row">
+                <div class="column" style="float: left; width: 30%;">
+                    FECHA DE LLEGADA DEL CAMIÓN<br/>
+                    <div style="font-weight: 600; padding-bottom: 5px;">{!fechallegadatransporte}</div>
+                </div>
+                
+                <div class="column" style="float: left; width: 30%;">
+                    FOLIO DE CONTROL<br/>
+                    <div style="font-weight: 600; padding-bottom: 5px;">{!orden.Order_Number__c}</div>
+                </div>
+                
+                <div class="column" style="float: left; width: 30%;">
+                    TIPO DE PEDIDO<br/>
+                    <div style="font-weight: 600; padding-bottom: 5px;">{!orden.Pedido__r.Tipo_de_Pedido__c}</div>
+                </div>    
+            </div>
+        </div> 
+    </div>
+    
+    
+    <div class="row">
+        <div class="column" style="float: left; width: 100%;">
+            <hr/>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="column" style="float: left; padding-top: 10px; font-family: sans-serif; font-size: 12px; width: 32%;">
+            DISTRIBUIDO POR
+            <div style="font-weight: 600; padding-bottom: 5px;"> 
+                LABORATORIOS DE BIOLÓGICOS Y REACTIVOS DE MÉXICO S.A DE C.V
+            </div>
+            OPERADOR LOGISTICO
+            <div style="font-weight: 600; padding-bottom: 5px;"> 
+                ALMACENAJE Y DISTRIBUCIÓN AVIOR, S.A. DE C.V.
+            </div>
+            ALMACÉN
+            <div style="font-weight: 600; padding-bottom: 5px;"> 
+                Centro Nacional de Distribución 
+                Km 27.5 Carretera Lago de Guadalupe No 2-E 
+                Colonia San Pedro Barrientos 
+                Municipio de Tlalnepantla de Baz 
+                Estado de México C.P. 54010
+            </div>
+        </div>
+        <div class="column" style="float: left; padding-top: 10px; font-family: sans-serif; font-size: 12px; width: 32%;">
+            PROPIETARIO DE LOS INSUMOS
+            <div style="font-weight: 600; padding-bottom: 5px;"> 
+                INSTITUTO DE SEGURIDAD Y SERVICIOS SOCIALES DE LOS TRABAJADORES DEL ESTADO 
+                <br/>Rio Rhin, Número 3 Piso 10 
+                <br/>Colonia Cuauhtémoc, Alcaldía Cuauhtémoc 
+                <br/>CP.06500, Ciudad de México 
+                <br/>RFC: ISS6001015A3
+            </div>
+        </div>
+        <div class="column" style="float: left; padding-top: 10px; font-family: sans-serif; font-size: 12px; width: 32%;">
+            REMISIONADO A
+            <div style="font-weight: 600; padding-bottom: 5px;"> 
+                INSTITUTO DE SEGURIDAD Y SERVICIOS SOCIALES DE LOS TRABAJADORES DEL ESTADO
+                <br/>{!umu.UMU__c} - {!umu.Clave_Presupuestal__c} - {!umu.Name} {!umu.Calle__c}, {!umu.Estado__c}
+            </div>
+            DATOS DE LICENCIA
+            <div style="font-weight: 600; padding-bottom: 5px;"> 
+                {!umu.Razon_Social__c} {!umu.Direccion_de_Licencia_Sanitaria__c}
+            </div> 
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="column" style="float: left; width: 100%;">
+            <hr/>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="column" style="float: left; width: 100%;">
+            <table style="font-family: sans-serif; font-size: 12px; margin-top: 15px;">
+                <thead>
+                    <tr style="background-color:#D8D335">
+                        <td style="padding-left: 5px; padding-right: 5px;">Cons.</td>
+                        <td style="padding-left: 5px; padding-right: 5px; width: 60px">Clave</td>
+                        <td style="padding-left: 5px; text-align: center; width: 40px">Cantidad Surtida</td>
+                        <td style="padding-left: 5px; text-align: center; padding-left: 5px; padding-right: 5px">Unidad</td>
+                        <td style="padding-left: 5px; text-align: center; padding-left: 5px; padding-right: 5px">Partida Presupuestal</td>
+                        <td style="padding-left: 5px; text-align: center; padding-left: 5px; padding-right: 5px; width: 120px">Descripción</td>
+                        <td style="padding-left: 5px; text-align: center; padding-left: 5px; padding-right: 5px; width: 40px">Lote</td>
+                        <td style="padding-left: 5px; text-align: center; padding-left: 5px; padding-right: 5px">Caducidad</td>
+                        <td style="padding-left: 5px; text-align: center; padding-left: 5px; padding-right: 5px">Costo Promedio</td>
+                        <td style="padding-left: 5px; text-align: center; padding-left: 5px; padding-right: 5px width: 90px">Importe</td>
+                    </tr> 
+                </thead>
+                
+                <tbody>
+                    <apex:repeat value="{!certificationDataList}" var="certData">
+                         <tr>
+                            <td style="text-align: center; font-size: 8px; border: 1px solid black; border-collapse: collapse;">{!certData.cons}</td>
+                            <td style="text-align: center; font-size: 8px; border: 1px solid black; border-collapse: collapse;">{!certData.clave}</td>
+                            <td style="text-align: center; font-size: 8px; border: 1px solid black; border-collapse: collapse;">{!certData.cantidadsurtida}</td>
+                            <td style="text-align: center; font-size: 8px; border: 1px solid black; border-collapse: collapse;">{!certData.unidad}</td>
+                            <td style="text-align: center; font-size: 8px; border: 1px solid black; border-collapse: collapse;">{!certData.clavepresupuestal}</td> 
+                            <td style="text-align: center; font-size: 6px; border: 1px solid black; border-collapse: collapse;">{!certData.descripcion}</td>
+                            <td style="border: 1px solid black; border-collapse: collapse;">
+                              <table>
+                                <apex:repeat value="{!certData.loteList}" var="lote">
+                                    <tr>
+                                       <td style="text-align: center; font-size: 8px;">{!lote}</td> 
+                                    </tr>
+                                </apex:repeat>
+                              </table>
+                            </td> 
+                            <td style="border: 1px solid black; border-collapse: collapse;">
+                              <table>
+                                <apex:repeat value="{!certData.caducidadList}" var="caducidad">
+                                    <tr>
+                                       <td style="text-align: center; font-size: 8px;">{!caducidad}</td> 
+                                    </tr>
+                                </apex:repeat>
+                              </table>
+                            </td> 
+                            <td style="text-align: center; font-size: 8px; border: 1px solid black; border-collapse: collapse;">{!certData.costopromedio}</td> 
+                            <td style="text-align: center; font-size: 8px; border: 1px solid black; border-collapse: collapse;">{!certData.importe}</td> 
+                         </tr> 
+                    </apex:repeat>
+                </tbody>
+            </table> 
+        </div>
+    </div>        
+                        
+    <div class="row" style="margin-top: 30px;">
+        <div class="column" style="float: left; width: 100%;">
+            <hr/>
+            <div style="font-family: sans-serif; font-size: 12px; font-weight: 600;"> 
+                TOTAL DE PIEZAS: {!totaldepiezas} UN
+            </div>
+            <hr/>
+            <div style="font-family: sans-serif; font-size: 12px; font-weight: 600;"> 
+                SUBTOTAL: ${!subtotal} 
+            </div>
+            <hr/>
+            <div style="font-family: sans-serif; font-size: 12px; font-weight: 600;"> 
+                IMPORTE: {!subtotaltexto}
+            </div>
+            <hr/>
+        </div>
+    </div>
+    
+    
+    <div class="row" style="margin-top: 30px;">
+        <div class="column" style="float: left; width: 100%;">
+            <div align="center" style="font-family: sans-serif; font-size: 12px; font-weight: 600;"> 
+                CADENA DE CONTENIDO
+            </div>
+            <div align="center" style="font-family: sans-serif; font-size: 12px; font-weight: 600;"> 
+                {!cadenadecontenido}
+            </div>
+        </div>
+    </div>
+</apex:page>

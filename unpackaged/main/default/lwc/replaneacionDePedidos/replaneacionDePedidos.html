@@ -1,0 +1,436 @@
+<template>
+  <div class="container">
+    <!-- HEADER -->
+    <div
+      class="slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none"
+    >
+      <lightning-layout multiple-rows>
+        <lightning-layout-item
+          size="12"
+          small-device-size="7"
+          medium-device-size="7"
+          large-device-size="7"
+          padding="around-small"
+        >
+          <div
+            class="custom-box slds-p-around_medium slds-text-align_left replaniacion-text-style"
+          >
+            Replaneación
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item
+          size="12"
+          small-device-size="7"
+          medium-device-size="7"
+          large-device-size="5"
+          padding="around-small"
+        >
+          <div class="custom-box slds-p-around_medium slds-text-align_left">
+            <!-- <div class="search-align">Contact Name</div> -->
+            <!-- value={search} onchange={handleOnSearch} is-loading={isLoading} -->
+            <div class="grid-header">
+              <lightning-input
+                label="Transporte"
+                placeholder="Id De Transporte"
+                data-id="loading"
+                type="search"
+                onchange={handleOnChangeTransporte}
+              ></lightning-input>
+              <lightning-input
+                class="margin-left-input"
+                placeholder="Id De Delivery / Remisión"
+                label="Delivery/Remisión"
+                data-id="loading"
+                type="search"
+                onchange={handleOnChangeDelivery}
+              ></lightning-input>
+            </div>
+          </div>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+
+    <!-- Left Panel -->
+    <div
+      class="slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none"
+    >
+      <lightning-layout multiple-rows>
+        <lightning-layout-item
+          size="12"
+          small-device-size="12"
+          medium-device-size="12"
+          large-device-size="3"
+          padding="around-small"
+        >
+          <div class="custom-box slds-text-align_left left-panel">
+            <!-- LEFT PANEL -->
+            <div class="custom-box slds-text-align_left left-panel">
+              <!-- <div class="filtro-Estatus">
+                <lightning-combobox
+                  name="progress"
+                  label="Filtro Estatus"
+                  place-holder="Seleccione Estatus"
+                  options={statusOrderOptions}
+                  onchange={handleOnChangeStatus}
+                >
+                </lightning-combobox>
+              </div> -->
+              <!-- Tarjeta de transporte -->
+              <template if:true={thereIsData}>
+                <template for:each={filtroTransporte} for:item="transporte">
+                  <c-replaneacion-de-pedidos-item
+                    key={transporte.IdTransporte}
+                    transporte={transporte}
+                    ontransporte={handleSelectedTransporte}
+                  >
+                  </c-replaneacion-de-pedidos-item>
+                </template>
+</template>
+</div>
+</div>
+</lightning-layout-item>
+<lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="9" padding="around-small">
+    <template if:true={isTransporte}>
+            <div
+              class="custom-box slds-p-around_medium slds-text-align_left right-panel"
+            >
+              <div class="right-panel">
+                <div class="right-panel-item1">
+                  Entrega {actualTransporte.Id}
+                </div>
+                <div class="right-panel-item2">
+                  <span class="text"> {actualTransportista.Nombre} </span>
+                  <p class="text">
+                    <lightning-icon
+                      icon-name="utility:call"
+                      alternative-text="call"
+                      size="xx-small"
+                      title="call"
+                    ></lightning-icon>
+                    {actualTransportista.Telefono}
+                  </p>
+                  <p class="text">
+                    <lightning-icon
+                      icon-name="utility:email"
+                      alternative-text="email"
+                      size="xx-small"
+                      title="email"
+                    ></lightning-icon>
+                    {actualTransportista.Email}
+                  </p>
+                </div>
+                <div class="right-panel-item3">
+                  <!-- NOTE: Abbre el modal para poder editar los insumos, la evidencia y el comentario -->
+                  <button
+                    id="editarEntrega"
+                    class="button-btn button-editar"
+                    onclick={handleEditarEntrega}
+                  >
+                    <label for="editarEntrega">Editar Entrega</label>
+                  </button>
+
+                  <!-- NOTE: Quizas debamos mover este boton dentro del modal para poder enviarlo despues de editar la entrega -->
+
+                  <button
+                    id="editarFirmar"
+                    class="button-btn button-aprobar"
+                    onclick={handleFirmar}
+                  >
+                    <label for="editarFirmar">Aprobar Y Enviar A Firma</label>
+                  </button>
+                </div>
+                <div class="right-panel-item4">
+                  <!-- INSUMOS -->
+                  <lightning-accordion
+                    class="example-accordion"
+                    onsectiontoggle={handleToggleSection}
+                    active-section-name="A"
+                  >
+                    <lightning-accordion-section name="A" label="Insumos">
+                      <c-replaneacion-insumos
+                        orderid={actualTransporte.orderId}
+                        transporte={actualTransportista}
+                      ></c-replaneacion-insumos>
+                    </lightning-accordion-section>
+                    <lightning-accordion-section name="B" label="Comentario">
+                      <lightning-textarea
+                        read-only
+                        name="input3"
+                        value={comentario}
+                        class="textarea-width"
+                      >
+                      </lightning-textarea>
+                      <!-- <lightning-button-icon data-id={actualTransporte.Id} icon-name="utility:add"
+                        alternative-text="Add" onclick={handleAgregarComentario}
+                        class="slds-m-left_xx-small add-comment" title="Add">
+                      </lightning-button-icon> -->
+                    </lightning-accordion-section>
+                  </lightning-accordion>
+                </div>
+
+                <div class="right-panel-item-5">
+                  Evidencia
+                  <c-replaneacion-evidencia-imagen
+                    order-id={actualTransporte.orderId}
+                    evidencia={actualTransporte.Evidencia}
+                  >
+                  </c-replaneacion-evidencia-imagen>
+                  <!-- <div class="evidencia-img">
+                    <img
+                      src="https://saferstoragesystems.com.au/wp-content/uploads/2016/04/Goods-Receiving-Header-980x551.jpg"
+                      alt="Image"
+                    />
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </template>
+    <template if:false={isTransporte}>
+            <div class="slds-align_absolute-center idle-content">
+              <span class="text">
+                SELECCIONA UNA ENTREGA PARA VER SUS DETALLES
+              </span>
+              <span class="text"> </span>
+            </div>
+          </template>
+</lightning-layout-item>
+</lightning-layout>
+</div>
+</div>
+
+<!-- Modal -->
+<!-- 
+      Aqui esta lo de editar el pedido
+   -->
+
+<c-avonni-dialog dialog-name="recibir" size="small" show-dialog={isRecibirPedido}>
+    <h2 slot="title" class="slds-modal__title slds-hyphenate">
+        Recibir Pedido
+    </h2>
+
+    <template if:true={isParcial}>
+      <h1>Registrar Entrega</h1>
+
+      <div class="parcialButton">
+        <lightning-button
+          variant="brand"
+          class="slds-p-left_x-small"
+          label="Agregar Materiales"
+          onclick={handleAgregarMateriales}
+        ></lightning-button>
+      </div>
+
+      <div class="container">
+        <div class="button-container">
+          <lightning-button
+            label="INSUMOS"
+            variant="brand"
+            onclick={handleOptionsParcial}
+            data-card="insumos"
+          ></lightning-button>
+
+          <lightning-button
+            style="margin-left: 5px; margin-right: 5px"
+            label="EVIDENCIA"
+            variant="brand"
+            onclick={handleOptionsParcial}
+            data-card="evidencia"
+          ></lightning-button>
+
+          <lightning-button
+            label="NOTAS"
+            variant="brand"
+            onclick={handleOptionsParcial}
+            data-card="notas"
+          ></lightning-button>
+        </div>
+        <div class="card-container">
+          <lightning-card title="Lista de Insumos" if:true={showInsumos}>
+            <template if:true={itemId}>
+              <template for:each={arrayParcialItem} for:item="item">
+                <div key={item.Id}>
+                  <p>
+                    {item.name} - Cantidad a Recibir: {item.catidadRecibida}
+                  </p>
+                </div>
+              </template>
+    </template>
+    <!-- <div class="containerCard"> -->
+    </lightning-card>
+
+    <lightning-card title="EVIDENCIA" if:true={showEvidencia}>
+        <template if:false={isEvidenciaCargada}>
+              <div class="slds-m-around_medium">
+                <template if:false={isCargarImg}>
+                  <label for="file-input" class="slds-button slds-button_brand">
+                    <span>AGREGAR EVIDENCIA</span>
+                    <input
+                      id="file-input"
+                      type="file"
+                      accept="image/*"
+                      capture="camera"
+                      onchange={handleCapture}
+                      data-facing-mode="environment"
+                      class="slds-file-selector__input slds-assistive-text"
+                    />
+                  </label>
+                </template>
+
+        <img if:true={base64Image} src={base64Image} alt="Captured image" renderkey={imgKey} />
+        <div if:true={base64Image} class="slds-m-top_small">
+            <lightning-button label="Cargar" onclick={uploadImage}></lightning-button>
+            <lightning-button label="Eliminar" variant="destructive" onclick={deleteImage}></lightning-button>
+        </div>
+        </div>
+        </template>
+
+        <div class="slds-m-around_medium">
+            <img if:true={base64Image} src={base64Image} alt="Evidencia tomada" renderkey={imgKey} class="card-image" />
+        </div>
+    </lightning-card>
+
+    <lightning-card title="NOTAS" if:true={showNotas}>
+        <div class="notas">
+            <lightning-textarea label="Agregar Nota" name="nota" placeholder="Notas aquí" value={notes} onchange={handleNota}></lightning-textarea>
+        </div>
+    </lightning-card>
+    </div>
+
+    <div class="umu-select">
+        <!-- Opciones/ Motivos -->
+        <c-avonni-combobox label="Motivos" options={options} onchange={handleMotivoSelection}></c-avonni-combobox>
+    </div>
+    <template if:true={isotraDesviacion}>
+          <div class="otraDesviacion">
+            <lightning-textarea
+              label="Especifique la desviacion"
+              name="desviacion"
+              placeholder="Explique el motivo de desviación aqui"
+              value={notaParcial}
+              onfocusout={handleNotaMotivoParcial}
+            ></lightning-textarea>
+          </div>
+        </template>
+
+    <!-- <template if:true={isDisplayParcialButton}> -->
+    <div class="container" style="margin-top: 30px">
+        <lightning-button variant="brand" class="slds-p-left_x-small" label="Completar Edicion" onclick={handleGuardarParcial}></lightning-button>
+    </div>
+    <!-- </template> -->
+    </div>
+    </template>
+
+    <template if:true={isAgregarMateriales}>
+      <lightning-card title="Agregar Materiales">
+        <div class="search">
+          <lightning-input
+            type="text"
+            label="BUSCAR"
+            onchange={handleBuscarProducto}
+          >
+          </lightning-input>
+
+          <div class="container-product">
+            <template for:each={filteredProducts} for:item="item">
+              <div key={item.id} class="product-container">
+                <div class="label-container">
+                  <a
+                    href="javascript:void(0);"
+                    onclick={handleProductClick}
+                    data-id={item.Id}
+                    data-quantity={item.Cantidad_de_Piezas__c}
+                    data-lote={item.Numero_de_Lote__c}
+                    >{item.Product__r.Name}</a
+                  >
+
+                  <lightning-icon
+                    icon-name="utility:chevronright"
+                    size="small"
+                  ></lightning-icon>
+                </div>
+              </div>
+            </template>
+    </div>
+    </div>
+    </lightning-card>
+    </template>
+
+    <template if:true={isProductParcial}>
+      <lightning-card title={itemName}>
+        <template if:true={itemId}>
+          <div class="selected-item-container">
+            <label class="selected-item-label"
+              >LOTE: {loteNumber} - {itemName}</label
+            >
+
+            <div class="quantity-controls">
+              <button class="quantity-button" onclick={handleSubstract}>
+                -
+              </button>
+              <lightning-input
+                type="number"
+                onchange={handleInputPiezasFaltantes}
+                class="quantity-value"
+                value={selectedQuantityValue}
+              ></lightning-input>
+              <!-- <span class="quantity-value">{selectedQuantityValue}</span> -->
+
+              <button class="quantity-button" onclick={handleAdd}>+</button>
+            </div>
+            <p style="background-color: green; color: white; margin-left: 2rem">
+              Cantidad Enviada: {quantityReceived}
+            </p>
+          </div>
+
+          <div class="botonGuardarParcial">
+            <lightning-button
+              variant="brand"
+              class="slds-p-left_x-small"
+              label="Agregar Insumo"
+              onclick={handleAgregarInsumoParcial}
+            ></lightning-button>
+          </div>
+        </template>
+    </lightning-card>
+    </template>
+
+    <template if:true={isEnviadoParcial}>
+      <lightning-card title="Seleccione fecha y hora">
+        <div class="slds-p-around_medium">
+          <lightning-input
+            type="date"
+            label="Fecha"
+            value={selectedDate}
+            onchange={handleDateParcial}
+          ></lightning-input>
+          <lightning-input
+            type="time"
+            label="Hora"
+            value={selectedTime}
+            onchange={handleTimeParcial}
+          ></lightning-input>
+          <div class="slds-m-top_medium">
+            <lightning-button
+              variant="Destructive"
+              label="Cancelar"
+              title="Cancelar"
+              onclick={handleCancel}
+            ></lightning-button>
+            <lightning-button
+              variant="success"
+              label="Guardar"
+              title="Guardar"
+              onclick={handleGuardarParcial}
+            ></lightning-button>
+          </div>
+        </div>
+      </lightning-card>
+    </template>
+
+    <div slot="footer">
+        <lightning-button variant="brand" class="slds-p-left_x-small" label="Cerrar" onclick={handleCancel}></lightning-button>
+    </div>
+</c-avonni-dialog>
+</template>
+
+<!-- Right Panel -->

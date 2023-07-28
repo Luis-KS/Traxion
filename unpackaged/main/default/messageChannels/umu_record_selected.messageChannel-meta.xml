@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Canal de mensajes para enviar la umu seleccionada.</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <description>umu id</description>
+        <fieldName>selectedUmu</fieldName>
+    </lightningMessageFields>
+    <masterLabel>umuRecordSelected</masterLabel>
+</LightningMessageChannel>

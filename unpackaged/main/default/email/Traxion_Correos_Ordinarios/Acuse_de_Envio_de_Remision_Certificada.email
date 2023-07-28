@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<img src="https://storage.googleapis.com/maypo-public/BIRMEX-.png" height="100" alt="" pardot region="logo">
+<h1>Acuse de Envío de Remisión Certificada</h1>
+<body style="font-family: Arial, sans-serif;">
+	<p>El presente constituye el acuse de envío del archivo con la remisión certificada con folio {!Pedido__c.Folio_de_Pedido__c}.</p>
+	<p>Fecha y hora de certificación: {!Order__c.Fecha_de_certificacion_de_la_remision__c}</p>
+	<br>
+	<p>Atentamente,</p>
+	 {!$Setup.Pie_de_Firma__c.Nombre__c} 
+	<p>	 {!$Setup.Pie_de_Firma__c.Puesto__c} </p>
+	<p>Teléfono: 	 <a href="tel:{!$Setup.Pie_de_Firma__c.Telefono__c}">{!$Setup.Pie_de_Firma__c.Telefono__c}</a></p>
+	<p>Correo electrónico:  {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c} <br>
+	{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<template>
+    <template if:true={showModal}>
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="modal-heading-01"
+          aria-modal="true"
+          aria-describedby="modal-content-id-1"
+          class="slds-modal slds-fade-in-open">
+
+            <div class="slds-modal__container">
+                <div class="slds-is-relative slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                    <div if:true={isDataLoading}>
+                        <lightning-spinner variant="base" size="medium" alternative-text="Loading..."></lightning-spinner>
+                    </div>
+
+                    <div class="container">
+                        <h1 id="modal-heading-02" class="title" tabindex="-1">Confirmar Pedido</h1>
+
+                        <p class="align-left">Estas a punto de colocar {content}, esta acción no puede ser un
+                            revertida, ni se podrá editar una vez colocado. ¿Seguro que deseas continuar?</p>
+                        <div class="align-left">
+                            <lightning-button class="slds-m-right_x-small" label="Cancelar" onclick={handleClose}></lightning-button>
+                            <lightning-button label="Guardar" variant="brand" onclick={handleSave}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <c-modal-detalle-orden
+        carrito={orders}
+        programa={programName}
+        es-programa={isProgram}>
+    </c-modal-detalle-orden>
+</template>
+
+<!-- <template>
+    <div class="slds-is-relative">
+        <div if:true={isDataLoading}>
+            <lightning-spinner variant="base" size="medium" alternative-text="Loading..."></lightning-spinner>
+        </div>
+
+        <lightning-modal-body>
+
+            <div class="container">
+                <h1 id="modal-heading-02" class="title" tabindex="-1">Confirmar Pedido</h1>
+
+                <p>Estas a punto de colocar {content}, esta acción no puede ser un
+                    revertida, ni se podrá editar una vez colocado. ¿Seguro que deseas continuar?</p>
+
+                <div>
+                    <lightning-button class="slds-m-right_x-small" label="Cancelar" onclick={handleClose}></lightning-button>
+                    <lightning-button label="Guardar" variant="brand" onclick={handleSave}></lightning-button>
+                </div>
+            </div>
+        </lightning-modal-body>
+    </div>
+</template> -->

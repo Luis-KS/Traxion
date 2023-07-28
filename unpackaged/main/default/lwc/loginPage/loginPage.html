@@ -1,0 +1,40 @@
+<template>
+    <div class="container">
+        <lightning-layout>
+            <lightning-layout-item size="5" flexibility="auto" class="box left-layout">
+                <div class="inside-container">
+                    
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto" class="box User-Login">
+                <div class="inside-container">
+                    <span class="login-font">Bienvenido a Traxión!</span>
+                    <div class="iniciar-sesion">
+                        Iniciar Sesión
+                    </div>
+                    <template if:true={isErrorMessage}>
+                        <div class="error-message">
+                            {errorMessage}
+                        </div>
+                    </template>
+                    <div class="row-margin">
+                        <!-- <legend class="slds-form-element__legend slds-form-element__label">Desired Label</legend> -->
+                        <lightning-input type="text" label="Usuario" onchange={handleUsuarioInput}></lightning-input>
+                    </div>
+                    <div class="row">
+                        <lightning-input type="password" label="Contraseña" onchange={handleContrasenaInput}></lightning-input>
+                    </div>
+                    <div>
+                        <button class="Sign-In" onclick={handleSignInBtnClick}>
+                                Sign In
+                        </button>
+                    </div>
+                    <div class="row">
+                        <a class="forgotBtn" onclick={handleForgetPasswordLinkClick}>¿Olvidó su contraseña?</a>
+                    </div>
+                </div>
+            </lightning-layout-item>
+
+        </lightning-layout>
+    </div>
+</template>

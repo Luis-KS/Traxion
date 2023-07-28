@@ -1,0 +1,34 @@
+<template>
+  <!-- <template if:false={isAsignado}> -->
+  <lightning-card title="Asignar Viaje">
+    <div class="slds-m-around_x-large center">
+      <lightning-input
+        label="Introduzca su número de viaje"
+        onchange={handleNumeroViaje}
+      ></lightning-input>
+      <div class="asignarButton">
+        <lightning-button
+          variant="brand"
+          label="Asignar"
+          title="Asignar"
+          onclick={handleAsignar}
+        >
+        </lightning-button>
+      </div>
+    </div>
+  </lightning-card>
+  <!-- </template> -->
+
+<!-- <template if:true={isAsignado}>
+    <template for:each={datosEntrega} for:item="item">
+      <div key={item.id} class="card-container">
+        <lightning-card title={item.UMU__r.Name}>
+          <p class="card">
+            {item.UMU__r.Calle__c}, {item.UMU__r.Ciudad__c},
+            {item.UMU__r.Colonia__c}, {item.UMU__r.Estado__c}
+          </p>
+        </lightning-card>
+      </div>
+    </template>
+</template> -->
+</template>

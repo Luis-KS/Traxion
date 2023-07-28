@@ -1,0 +1,18 @@
+<template>
+  <button onclick={handleSolicitarPedido}>Calendario</button>
+  <template if:true={isCalendar}>
+    <div class="calendar">
+      <c-avonni-calendar
+        value={value}
+        selection-mode="multiple"
+      ></c-avonni-calendar>
+    </div>
+  </template>
+
+<p>Hola</p>
+<ul>
+    <template for:each={diasDePedido} for:item="fecha">
+      <li key={fecha.Fecha__c}>{fecha.Fecha__c}</li>
+    </template>
+</ul>
+</template>

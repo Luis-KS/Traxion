@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "4a3e020a-2ae1-4d13-8c69-64123a41ed6e",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "e15085c9-b3ea-4b55-98c4-e1281690790e",
+  "label" : "Aprobación de Pedidos",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-aprobacion-de-pedidos",
+  "type" : "route",
+  "urlPrefix" : "aprobacion-de-pedidos"
+}

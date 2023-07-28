@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "c17f71f5-01a6-4dbc-8ee4-c30b4daa81b3",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "7b4f8afe-97d3-479d-8531-5ec0e18b733f",
+  "label" : "Auxiliar de Entregas",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-auxiliar-de-entregas",
+  "type" : "route",
+  "urlPrefix" : "auxiliar-de-entregas"
+}

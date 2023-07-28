@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllAccounts</fullName>
+    <columns>UMU__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Clave_Presupuestal__c</columns>
+    <columns>Estado__c</columns>
+    <columns>Ciudad__c</columns>
+    <columns>Delegaci_n__c</columns>
+    <columns>Tipo_UMU__c</columns>
+    <columns>Direccion_de_Licencia_Sanitaria__c</columns>
+    <columns>Numero_de_Licencia_Sanitaria__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Accounts</label>
+</ListView>

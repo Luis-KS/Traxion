@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subalmacen__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+LEFT(Order_Number__c, 3),
+&#39;101&#39;, &#39;MEDICAMENTO AG&#39;,
+&#39;102&#39;, &#39;MATERIAL CURACION AG&#39;,
+&#39;301&#39;, &#39;MEDICAMENTO AE&#39;,
+&#39;302&#39;, &#39;MATERIAL DE CURACÍON AE&#39;,
+&#39;401&#39;, &#39;MEDICAMENTO CONTROLADO&#39;,
+&#39;501&#39;, &#39;MEDICAMENTO REFRIGERADO&#39;,
+&#39;502&#39;, &#39;MATERIAL DE CURACIÓN REFRIGERADO&#39;,
+&#39;503&#39;, &#39;MEDICAMENTO CONTROLADO REFRIGERADO&#39;,
+&#39;601&#39;, &#39;MEDICAMENTO CONGELADO&#39;,
+&#39;Almacen Desconocido&#39;
+)</formula>
+    <label>Subalmacen</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

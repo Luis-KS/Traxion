@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "a680ff3c-5202-4de3-bdf9-bb5dba567b41",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "3a190cba-40b3-4769-aacb-9d762aa70fff",
+  "label" : "LoginPage",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-loginpage",
+  "type" : "route",
+  "urlPrefix" : "loginpage"
+}

@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "0819d41c-2a2f-4d07-9cb5-28e7ba5991b7",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "b9aef62d-4e1d-41b9-8c66-57da53f68518",
+  "label" : "Autorización de Pedidos",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-autorizacion-de-pedidos",
+  "type" : "route",
+  "urlPrefix" : "autorizacion-de-pedidos"
+}

@@ -1,0 +1,18 @@
+<template>
+  <div class="container">
+    <template if:true={url}>
+      <!-- <lightning-card> -->
+      <div class="evidenciaImg">
+        <!-- <img src={url} alt="Evidencia" /> -->
+        <lightning-icon icon-name="doctype:image" alternative-text={Title} title="Image"></lightning-icon>
+        <a href={url} target="_blank">{Title}</a>
+      </div>
+      <!-- </lightning-card> -->
+    </template>
+<template if:false={dataResult}>
+      <lightning-card title="No tiene imagen">
+        <p>No tiene evidencia en esta orden</p>
+      </lightning-card>
+    </template>
+</div>
+</template>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Codigo__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Guarda el codigo aleatorio unico que identifica la transferencia.</description>
+    <externalId>false</externalId>
+    <label>Codigo</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

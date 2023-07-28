@@ -1,0 +1,13 @@
+.container{
+    font-size: 14px;
+    /* font-weight: 600; */
+    /* padding-left: 24px; */
+    gap: 0.3rem;
+    padding: 15px;
+    align-items: center;
+    /* border-bottom: 1px solid #dadada; */
+}
+
+.slds-col{
+    font-weight: 400;
+}

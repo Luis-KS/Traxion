@@ -1,0 +1,61 @@
+.buttonCalendario {
+    /* border: none; */
+    /* border-radius: 4px; */
+    /* text-align: center; */
+    display: table;
+    font-size: 16px;
+    color: white;
+    /* background-color: #008CBA; */
+    text-decoration: none;
+    /* padding: 8px 46px; */
+    margin: auto;
+    margin-bottom: 5px;
+    /* cursor: pointer; */
+}
+
+.textNoPedido {
+    font-size: 16px;
+    color: #808080;
+    text-align: center;
+    margin-bottom: 13px;
+}
+
+.textFechaApertura {
+    font-size: 14px;
+    color: #808080;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.textFecha {
+    font-size: 12px;
+    color: #b9b6b6;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+/* 
+.button {
+    padding: 0.5rem;
+    background-color: white;
+    border: 1px solid #d8dde6;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #f5f5f5;
+}
+
+.date-picker-wrapper {
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    border: 1px solid #d8dde6;
+    border-radius: 0.25rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    top: 2rem;
+} */

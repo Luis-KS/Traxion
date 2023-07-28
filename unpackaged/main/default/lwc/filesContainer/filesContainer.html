@@ -1,0 +1,23 @@
+<template> 
+    <div class="slds-box slds-m-around_x-small">
+        <template if:true={documents}>
+            <template for:each={documents} for:item="document">
+                <!-- <div class="slds-box slds-m-vertical_x-small" key={document.Id}> 
+                    <h5 class="slds-m-around_xx-small">
+                        Documentos Relacionados a la Orden: {document.name} 
+                    </h5> 
+                    <ol> -->
+                        <template for:each={document.files} for:item="file">
+                            <li class="slds-border_left slds-p-around_small slds-m-around_small" key={file.id}>
+                                <lightning-layout multiple-rows="false">
+                                    <lightning-icon class="slds-p-right_small" data-id={file.id} onclick={handleDownloadFile} icon-name={file.icon} alternative-text="XML file" title="XML"></lightning-icon>
+                                    <a href="javascript:void(0);" class="slds-p-top_xx-small" data-id={file.id} onclick={handleDownloadFile}>{file.name}</a> 
+                                </lightning-layout>
+                            </li>
+                        </template>
+                    <!-- </ol> 
+                </div> -->
+            </template> 
+        </template>   
+    </div>
+</template>

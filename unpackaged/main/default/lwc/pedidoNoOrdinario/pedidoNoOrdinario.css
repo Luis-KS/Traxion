@@ -1,0 +1,21 @@
+.buttonNoOrdinario {
+    /* border: none; */
+    /* border-radius: 4px; */
+    /* text-align: center; */
+    display: table;
+    font-size: 16px;
+    color: white;
+    /* background-color: #008CBA; */
+    text-decoration: none;
+    /* padding: 8px 46px; */
+    margin: auto;
+    margin-bottom: 5px;
+    /* cursor: pointer; */
+}
+
+.textNoPedido {
+    font-size: 16px;
+    color: #808080;
+    text-align: center;
+    margin-bottom: 13px;
+}

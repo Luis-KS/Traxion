@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Ordinario" icon-name="standard:buyer_account">
+
+        <!-- Texto -->
+      <div class="textNoPedido">
+          <h3>{pedido}</h3>
+      </div>
+      <div class="textFechaApertura">
+          <h4>{fechaApertura}</h4>
+          
+      </div>
+      <div class="textFecha">
+        <h5>{fecha}</h5>
+      </div>
+
+
+      <!-- buttons -->
+        <div class="buttonPedidoOrdinario">
+            <lightning-button class="buttonCalendario slds-datepicker" onclick={handleOrdinario} label="Solicitar Pedido" icon-name="utility:cart" icon-position="left" variant="success">Calendario</lightning-button>
+           </div>
+
+       <div class="buttonOrdinario">
+        <lightning-button class="buttonCalendario" onclick={handleCalendario} label="Calendario" icon-name="utility:monthlyview" icon-position="left" variant="success">Calendario</lightning-button>
+       <div class="app slds-p-around_x-large">
+         <p>Calendario: </p>
+		<lightning-input style="width:40px" type="date" name="input1" label="Enter a date" variant="label-hidden">
+		</lightning-input>
+	</div>
+        <!-- <template if:true={showDatePicker}>
+          <lightning-input class="calendar" type="date" value={selectedDate} onchange={handleDateChange} label="Calendario" icon-nam="utility:monthlyview" icon-position="left"></lightning-input>
+        </template> -->
+
+
+</div>
+
+</div>
+
+
+</lightning-card>
+</template>

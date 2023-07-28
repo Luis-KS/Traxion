@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sicora_Classification__c</fullName>
+    <externalId>false</externalId>
+    <label>Sicora Classification</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>REGULAR</fullName>
+                <default>false</default>
+                <label>REGULAR</label>
+            </value>
+            <value>
+                <fullName>HIGH VALUE</fullName>
+                <default>false</default>
+                <label>HIGH VALUE</label>
+            </value>
+            <value>
+                <fullName>HIGH_VALUE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>HIGH_VALUE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

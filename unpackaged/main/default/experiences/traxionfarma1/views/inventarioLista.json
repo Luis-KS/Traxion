@@ -1,0 +1,46 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "ce221ad7-52de-4ed5-8526-9ae5da38213b",
+  "label" : "Inventario Lista",
+  "regions" : [ {
+    "id" : "8bb9ab62-2ce8-4a30-a724-b30acde66da8",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "enableInlineEdit" : true,
+        "filterName" : "All",
+        "layout" : "FULL",
+        "pageSize" : 25,
+        "scope" : "Inventario__c",
+        "showActionBar" : true,
+        "showChartsPanel" : false,
+        "showDisplay" : "showall",
+        "showFilterPanel" : true,
+        "showImageIcon" : true,
+        "showManualRefreshButton" : true,
+        "showObjectName" : true,
+        "showPinnedList" : true,
+        "showSearchBar" : false
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "c6072bae-aab5-486f-aa47-f11bd13d2407",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "70ec6176-e008-4d55-b67b-ba37ee86ea9f",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d5cf1558-cadd-4b86-add2-e726c22b6e5a",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list-a0L"
+}

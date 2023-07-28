@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fecha__c</fullName>
+    <description>Fecha de Extracción de SIAM</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Fecha de Extracción de SIAM</inlineHelpText>
+    <label>Fecha</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,116 @@
+:host {
+  --green: #8AC6BF;
+  --darkGreen: #619a94;
+  --lightGray: #f9f9f9;
+  --text: 0.875rem;
+}
+
+@font-face {
+    font-family: 'raleway';
+    src: url('/resource/ASSETS/ASSETS/Raleway-Regular.ttf') format('TrueType');
+}
+
+*{
+    /* font-family: 'raleway'; */
+    font-size: var(--text);
+}
+
+.container{
+    border-radius: 1px;
+    background-color: white;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(114, 114, 114, 0.19); */
+}
+
+.form-design{
+    width: 70%;
+}
+
+.input-design{
+    padding-left: 7px;
+}
+
+.c-container{
+    margin-top: 15px;
+}
+
+.search-align{
+    display: inline-block;
+}
+
+.search-margin-left{
+    margin: 12px;
+}
+
+.layout-excel {
+    text-align: right;
+    margin: auto;
+}
+
+lightning-icon {
+    cursor: pointer;
+}
+
+.box{
+    display: inline;
+    padding-left: 5px;
+}
+
+.errorMessage{
+    color: red;
+}
+
+.paquete-style{
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.align-icons {
+    padding-top: 12px;
+}
+
+/* .option-text{
+    font-size: 15px;
+} */
+
+
+
+table {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+thead {
+    border-bottom: 1px solid lightgray;;
+}
+
+th {
+    padding: 0.8rem 0.625rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+}
+
+td {
+    padding: 0.8rem;
+    text-align: left;
+}
+
+.mostrar-descripcion{
+    width: 300px;
+}
+
+.ocultar-descripcion{
+   white-space: inherit;
+   width: 300px;
+}
+/* td:nth-child(4n),
+td:last-child {
+    text-align: center;
+} */
+
+/* tr:nth-child(even) {
+    background-color: var(--lightGray);
+} */

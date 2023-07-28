@@ -1,0 +1,571 @@
+<!-- sldsValidatorIgnore -->
+<template>
+  <template if:true={isOrden}>
+    <template if:false={isData}>
+      <div class="firmaBoton">
+        <h2>No tiene ordenes asignadas a Transporte</h2>
+      </div>
+    </template>
+
+<template if:true={isData}>
+
+      <template if:false={isMobile}>
+      <lightning-card title="Ordenes">
+        <div class="tabla">
+          <lightning-datatable
+            class="tabla"
+            data={orders}
+            columns={columns}
+            onrowaction={handleOpenModal}
+            key-field="Id"
+              hide-checkbox-column="true">
+          </lightning-datatable>
+        </div>
+        <!-- Boton para recibir transferencia -->
+      </lightning-card>
+    </template>
+
+      <template if:true={isMobile}>
+        <template for:each={orders} for:item='order'>
+          <article class="slds-card slds-m-around_xx-small" key={order.Id}>
+
+            <div class="mobile-container">
+              <div class="line" data-key={order.Id}></div>
+              <div class="slds-card__body slds-card__body_inner">
+
+                <div class="mobile-card-container">
+                  <div class="header-container">
+                    <div class="date-container">
+                      <lightning-icon
+                        icon-name="utility:event"
+                        alternative-text="Fecha Máxima de Entrega"
+                        class="slds-float_left"
+                        size="small"
+                        title="Fecha Máxima de Entrega">
+                      </lightning-icon>
+                      <p>{order.Fecha_Maxima_de_Entrega__c}</p>
+                    </div>
+
+                    <div class="status">
+                      <lightning-badge label={order.Estatus__c} data-key={order.Id} class="uppercase"></lightning-badge>
+                    </div>
+                  </div>
+
+                  <div class="card-element">
+                    <p class="card-title"># de Orden</p>
+                    <p class="card-value">{order.Order_Number__c}</p>
+                  </div>
+
+                  <div class="card-element">
+                    <p class="card-title">Tipo de orden</p>
+                    <p class="card-value">{order.Tipo_de_Pedido__c}</p>
+                  </div>
+
+                  <div class="card-element">
+                    <p class="card-title">Total de piezas</p>
+                    <p class="card-value">{order.Total_de_Piezas__c}</p>
+                  </div>
+
+                  <div class="card-element">
+                    <p class="card-title"># de viaje</p>
+                    <p class="card-value">{order.Id_de_Viaje__c}</p>
+                  </div>
+                </div>
+
+                <template if:true={order.showButton}>
+                  <button data-id={order.Id} class="slds-theme_inverse button uppercase" data-name="view_details" onclick={handleOpenModal}>Recibir Orden</button>
+                </template>
+
+              </div>
+            </div>
+          </article>
+        </template>
+      </template>
+
+    </template>
+</template>
+
+<c-avonni-dialog dialog-name="recibir" size="small" show-dialog={isRecibirPedido}>
+    <h2 slot="title" class="slds-modal__title slds-hyphenate">
+        Recibir Pedido
+    </h2>
+
+    <template if:false={isRecibir}>
+      <div>
+        <lightning-card
+          title="Registrar Entrega Electronica"
+          icon-name="standard:disclosure_and_compliance"
+          icon-position="left">
+          <lightning-button
+            variant="brand"
+            label="Registrar Firma"
+            title="recibir"
+              onclick={handleEnviarFirma}>
+          </lightning-button>
+        </lightning-card>
+        <hr />
+      </div>
+
+      <div>
+        <lightning-card
+          title="Registrar Entrega Parcial"
+          icon-name="standard:disclosure_and_compliance"
+          icon-position="left">
+          <lightning-button
+            variant="brand"
+            label="Entrega Parcial"
+            title="recibir"
+              onclick={handleParcial}>
+          </lightning-button>
+        </lightning-card>
+        <hr />
+      </div>
+
+      <div>
+        <lightning-card
+          title="Registrar Entrega Rechazada"
+          icon-name="standard:disclosure_and_compliance"
+          icon-position="left">
+          <lightning-button
+            variant="brand"
+            label="Rechazar Entrega"
+            title="recibir"
+              onclick={handleEnviarARechazar}>
+          </lightning-button>
+        </lightning-card>
+        <hr />
+      </div>
+    </template>
+
+    <template if:true={isFirmar}>
+      <h1>¿Está seguro de enviar la orden a Firma?</h1>
+      <div class="firmaBoton">
+        <lightning-button
+          variant="brand"
+          class="slds-p-left_x-small"
+          label="Enviar a Firma"
+          onclick={handleFirmar}
+        ></lightning-button>
+      </div>
+    </template>
+
+    <!-- Estamos aqui -->
+    <!-- Parcial -->
+    <template if:true={isParcial}>
+      <h1 class="card-partial-title text-weight_bold">Registrar Entrega</h1>
+      <div class="container">
+        <lightning-card>
+        <!-- <lightning-card title="SELECCIONE UNA DESVIACIÓN"> -->
+          <div class="containerCard slds-align_absolute-center">
+            <label class="slds-form-element__label" for="select-01">Desviación</label>
+            <div class="umu-select">
+              <select onchange={handleSelect}>
+                <option value="Seleccionar" disabled selected>Seleccione una desviación</option>
+                <option value="Exceso de suminis., causa descon.">Exceso de suminis., causa descon.</option>
+                <option value="Falta de suminis. causa descon.">Falta de suminis. causa descon.</option>
+                <option value="Falta certificado">Falta certificado</option><option value="Falta carta garantia de canje">Falta carta garantia de canje</option>
+                <option value="Falta factura, remisión, ord R">Falta factura, remisión, ord R</option>
+                <option value="Falta Contrato, Pedito, O.C">Falta Contrato, Pedito, O.C</option>
+                <option value="Falta Carta dustribución">Falta Carta dustribución</option>
+                <option value="Falta otro documento">Falta otro documento</option>
+                <option value="Faltante medicamento">Faltante medicamento</option>
+                <option value="Otro( explique )">Otro( explique )</option>
+              </select>
+            </div>
+          </div>
+        </lightning-card>
+
+        <div if:true={isotraDesviacion} class="width-notes">
+          <div class="otraDesviacion">
+            <lightning-textarea
+              label="Motivo de rechazo" name="desviacion" placeholder="Explique su motivo de rechazo"
+              value={notaParcial} onchange={handleNotaMotivoParcial}></lightning-textarea>
+      </div>
+        </div>
+      </div>
+
+      <!-- <template if:true={isotraDesviacion}>
+        <div class="otraDesviacion">
+          <lightning-textarea
+            label="Especifique la desviacion"
+            name="desviacion"
+            placeholder="Explique el motivo de desviación aqui"
+            value={notaParcial}
+            onchange={handleNotaMotivoParcial}
+          ></lightning-textarea>
+        </div>
+      </template> -->
+
+    <div class="parcialButton slds-align_absolute-center">
+        <lightning-button variant="brand" label="Agregar Materiales" onclick={handleAgregarMateriales}></lightning-button>
+    </div>
+
+    <div class="container">
+        <div class="button-container">
+            <lightning-button class="partial-button" label="Insumos" variant="brand" onclick={handleOptionsParcial} data-card="insumos"></lightning-button>
+            <lightning-button class="partial-button" label="Evidencia" variant="brand" onclick={handleOptionsParcial} data-card="evidencia"></lightning-button>
+            <lightning-button class="partial-button" label="Notas" variant="brand" onclick={handleOptionsParcial} data-card="notas"></lightning-button>
+        </div>
+
+        <div class="card-container">
+          <lightning-card if:true={showEvidencia}>
+            <h1 class="card-partial-title">Evidencia</h1>
+                <template if:false={isEvidenciaCargada}>
+              <div class="slds-m-around_medium">
+                <template if:true={isCheckinActive}>
+                  <label for="file-input" class="slds-button slds-button_brand">
+                      <span>Agregar Evidencia</span>
+                    <input
+                      id="file-input"
+                      type="file"
+                      accept="image/*"
+                      capture="camera"
+                      onchange={handleCapture}
+                      data-facing-mode="environment"
+                      class="slds-file-selector__input slds-assistive-text"
+                    />
+                  </label>
+                </template>
+
+                <img if:true={base64Image} src={base64Image} alt="Captured image" renderkey={imgKey} />
+                    <div if:true={base64Image} class="slds-m-top_x-small">
+                        <lightning-button class="slds-m-right_xx-small" label="Cargar" onclick={uploadImage}></lightning-button>
+                    <lightning-button label="Eliminar" variant="destructive" onclick={deleteImage}></lightning-button>
+                </div>
+        </div>
+        </template>
+
+            <div if:true={isEvidenciaCargada}>
+        <div class="slds-m-around_medium">
+            <img if:true={base64Image} src={base64Image} alt="Evidencia tomada" renderkey={imgKey} class="card-image" />
+        </div>
+            </div>
+        </lightning-card>
+
+          <lightning-card if:true={showNotas} class="width-notes">
+            <h1 class="card-partial-title">Notas</h1>
+          <!-- <lightning-card title="NOTAS" if:true={showNotas}> -->
+            <div class="notas">
+                  <lightning-textarea label="Agregar Nota" name="nota" placeholder="Escribe tus anotaciones" value={notes} onchange={handleNota} oninput={handleNota}></lightning-textarea>
+            </div>
+        </lightning-card>
+        
+    </div>
+
+    <template if:true={isDisplayParcialButton}>
+          <div class="container" style="margin-top: 30px">
+            <lightning-button
+              variant="brand"
+              class="slds-p-left_x-small"
+              label="Registrar Entrega Parcial"
+              onclick={handleRegistrarEntregaParcial}
+            ></lightning-button>
+          </div>
+        </template>
+    </div>
+
+    <!-- <lightning-card if:true={showInsumos}>
+      <h1 class="card-partial-title">Insumos</h1>
+        <template for:each={insumosParcial} for:item="item">
+      <div key={item.Id}>
+        <p>
+          {item.Product__r.Name} - Cantidad a Recibir:
+          {item.Cantidad_de_Piezas__c}
+        </p>
+      </div>
+    </template>
+    </lightning-card> -->
+
+    <template if:true={showInsumos}>
+    <template if:true={getListaInsumo}>
+        <div class="slds-align_absolute-center card-partial-title">Insumos</div>
+        <lightning-accordion active-section-name="A" onsectiontoggle={handleSectionToggle} allow-multiple-sections-open
+        class="accordion">
+        <template for:each={listaInsumos} for:item="item">
+          <lightning-accordion-section key={item} name="A" label={item.name}>
+            <!-- <div class="slds-grid">
+              <div class="slds-col slds-size_10-of-12"> -->
+               <c-auxiliar-ordenes-lotes-item
+                lotes={item.lotes}
+                insumo={item.id}
+                onedit={handleEdit}
+               >
+               </c-auxiliar-ordenes-lotes-item>
+                  <!-- <template for:each={listaInsumos} for:item="item"> -->
+                      
+                    <!-- <div key={item.Id}>
+                      <p>
+                      <b>Lote: </b>{item.lote.name} - Piezas Faltantes:
+                        {item.lote.cantidadDePiezasFaltantes}
+                      </p>
+                    </div> -->
+                  <!-- </template> -->
+
+
+              <!-- </div>
+            </div> -->
+          </lightning-accordion-section>
+        </template>
+      </lightning-accordion>
+    </template>
+    </template>
+
+    </template>
+
+    <!-- TODO: use a popup message instead -->
+    <!-- Or maybe a more styled header like the one used when we generate the code for transference. -->
+    <template if:true={isEnviadoFirma}>
+      <lightning-card title="Estado">
+        <h1>{estado}</h1>
+      </lightning-card>
+    </template>
+
+    <template if:true={isAgregarMateriales}>
+      <h1 class="card-partial-title text-weight_bold">Agregar Materiales</h1>
+      <lightning-card>
+      <!-- <lightning-card title="Agregar Materiales"> -->
+        <div class="search">
+          <lightning-input type="text" label="BUSCAR" onchange={handleBuscar}>
+          </lightning-input>
+          <div class="container-product">
+            <template for:each={filteredProducts} for:item="item">
+              <div key={item.id} class="product-container">
+                <div class="label-container">
+                  <a
+                    href="javascript:void(0);"
+                    onclick={handleProductClick}
+                    data-id={item.Id}
+                    data-quantity={item.Cantidad_de_Piezas__c}
+                    data-lote={item.Numero_de_Lote__c}
+                    >{item.Product__r.Name} - {item.Product__r.Product_Code_ID__c}</a>
+                  <lightning-icon
+                    icon-name="utility:chevronright"
+                    size="small"
+                  ></lightning-icon>
+                </div>
+              </div>
+            </template>
+    </div>
+    </div>
+    </lightning-card>
+    </template>
+
+    <template if:true={isProductParcial}>
+      <h1 class="card-partial-title text-weight_bold slds-m-bottom_medium">{itemName}</h1>
+      <lightning-card>
+      <!-- <lightning-card title={itemName}> -->
+        <template if:true={itemId}>
+          <div class="selected-item-container">
+            <!-- <label class="selected-item-label"
+              >LOTE: {loteNumber} - {itemName}</label
+            > -->
+
+             <!-- HOMBRE MANTENIMIENTO -->
+    
+                <lightning-combobox
+                name="progress"
+                label="Lote"
+                placeholder="Seleccionar Lote"
+                options={options}
+                value={loteName}
+                onchange={handleChange}
+                disabled={isSelectedLoteDisabled}
+                >
+              </lightning-combobox>
+            <!-- HOMBRE MANTENIMIENTO FIN-->
+
+
+            <div class="quantity-controls">
+              <button class="quantity-button quantity-button_left" onclick={handleSubstract}>
+                -
+              </button>
+              <div class="inputNumber">
+                <input
+                  type="number"
+                  onchange={handleInputPiezasFaltantes}
+                  class="quantity-value"
+                  value={selectedQuantityValue}
+                ></input>
+              </div>
+
+              <button class="quantity-button quantity-button_right" onclick={handleAdd}>+</button>
+            </div>
+            <p class="quantity-text">
+              Cantidad Enviada: {quantityReceived}
+            </p>
+          </div>
+
+          <div class="botonGuardarParcial">
+            <lightning-button
+              variant="brand"
+              label="Agregar Insumo"
+              onclick={handleAgregarInsumoParcial}
+            ></lightning-button>
+          </div>
+        </template>
+    </lightning-card>
+    </template>
+
+    <template if:true={isEnviadoParcial}>
+      <h1 class="card-partial-title">Seleccione fecha y hora</h1>
+      <lightning-card>
+      <!-- <lightning-card title="Seleccione fecha y hora"> -->
+        <div class="slds-p-around_medium">
+          <lightning-input
+            type="date"
+            label="Fecha"
+            value={selectedDate}
+            onchange={handleDateParcial}
+          ></lightning-input>
+          <lightning-input
+            type="time"
+            label="Hora"
+            value={selectedTime}
+            onchange={handleTimeParcial}
+          ></lightning-input>
+          <div class="slds-m-top_medium">
+            <lightning-button
+             class="slds-m-right_x-small"
+              variant="Destructive"
+              label="Cancelar"
+              title="Cancelar"
+              onclick={handleCancel}
+            ></lightning-button>
+            <lightning-button
+              variant="brand"
+              label="Guardar"
+              title="Guardar"
+              onclick={handleGuardarParcial}
+            ></lightning-button>
+          </div>
+        </div>
+      </lightning-card>
+    </template>
+
+    <!-- Rechazar -->
+    <!-- Estamos aqui -->
+
+    <template if:true={isRechazar}>
+      <h1 class="card-partial-title text-weight_bold">Rechazar Entrega</h1>
+      <div class="container">
+        <lightning-card>
+        <!-- <lightning-card title="SELECCIONE UN MOTIVO"> -->
+          <div class="containerCard slds-align_absolute-center">
+            <label class="slds-form-element__label" for="select-01">Motivos</label>
+            <div class="umu-select">
+              <select onchange={handleSelectRechazo}>
+                <option value="Seleccionar" disabled selected>Seleccione un motivo</option>
+                <option value="Medicamento dañado">Medicamento dañado</option>
+                <option value="Por corta caducidad">Por corta caducidad</option>
+                <option value="Cancelado por el cliente">Cancelado por el cliente</option>
+                <option value="Error de surtimiento (lote)">Error de surtimiento (lote)</option>
+                <option value="Error de surtimiento múltiplo">Error de surtimiento múltiplo</option>
+                <option value="Otro( explique )">Otro( explique )</option>
+              </select>
+            </div>
+          </div>
+        </lightning-card>
+
+        <div if:true={isotraDesviacionRechazo} class="width-notes">
+        <div class="otraDesviacion">
+          <lightning-textarea
+              label="Motivo de rechazo" name="desviacion" placeholder="Explique su motivo de rechazo"
+              value={notaMotivoRechazo} onchange={handleDesviacionChanges}></lightning-textarea>
+        </div>
+        </div>
+      </div>
+
+    <!-- Delete this later -->
+    <!-- <div class="parcialButton">
+        <lightning-button variant="brand" class="slds-p-left_x-small" label="Agregar Materiales" onclick={handleAgregarMateriales}></lightning-button>
+    </div> -->
+
+    <div class="container">
+        <div class="button-container">
+            <lightning-button class="partial-button" label="Insumos" variant="brand" onclick={handleOptionsParcial} data-card="insumos"></lightning-button>
+            <lightning-button class="partial-button" label="Evidencia" variant="brand" onclick={handleOptionsParcial} data-card="evidencia"></lightning-button>
+            <lightning-button class="partial-button" label="Notas" variant="brand" onclick={handleOptionsParcial} data-card="notas"></lightning-button>
+        </div>
+        <div class="card-container">
+          
+            <lightning-card if:true={showInsumos}>
+              <h1 class="card-partial-title">Insumos</h1>
+            <!-- <lightning-card title="INSUMOS" if:true={showInsumos}> -->
+                <!-- <template if:true={itemId}> -->
+                <template for:each={insumosParcial} for:item="item">
+              <div key={item.Id}>
+                <p>
+                  {item.Product__r.Name} - Cantidad a Recibir:
+                  {item.Cantidad_de_Piezas__c}
+                </p>
+              </div>
+            </template>
+                <!-- <p>Nombre de Insumo: {itemName}</p>
+                  <p>Cantidad a recibir: {selectedQuantityValue}</p> -->
+                <!-- </template> -->
+            </lightning-card>
+
+            <lightning-card if:true={showEvidencia}>
+              <h1 class="card-partial-title">Evidencia</h1>
+                <template if:false={isEvidenciaCargada}>
+              <div class="slds-m-around_medium">
+                <label for="file-input" class="slds-button slds-button_brand">
+                  <span>Agregar Evidencia</span>
+                  <input
+                    id={inputId}
+                    type="file"
+                    accept="image/*"
+                    capture="camera"
+                    onchange={handleCapture}
+                    data-facing-mode="environment"
+                    class="slds-file-selector__input slds-assistive-text"/>
+                </label>
+
+                <img if:true={base64Image} src={base64Image} alt="Captured image" renderkey={imgKey} />
+                <div if:true={base64Image} class="slds-m-top_small">
+                  <lightning-button label="Cargar" onclick={uploadImage}></lightning-button>
+                  <lightning-button label="Eliminar" variant="destructive" onclick={deleteImage}></lightning-button>
+                </div>
+              </div>
+            </template>
+
+                <div if:true={isEvidenciaCargada}>
+                <div class="slds-m-around_medium">
+                    <img if:true={base64Image} src={base64Image} alt="Evidencia tomada" renderkey={imgKey} class="card-image" />
+                </div>
+                </div>
+            </lightning-card>
+
+            <!-- <lightning-card if:true={showNotas} class="width-max">
+              <h1 class="card-partial-title">Notas</h1>
+                <div class="notas">
+                    <lightning-textarea label="Agregar Nota" name="nota" placeholder="Escribe tus anotaciones" value={notes} onchange={handleNota} oninput={handleNota}></lightning-textarea>
+                </div>
+            </lightning-card> -->
+
+            <lightning-card if:true={showNotas} class="width-notes">
+              <h1 class="card-partial-title">Notas</h1>
+                <div class="notas">
+                    <lightning-textarea label="Agregar Nota" name="nota" placeholder="Escribe tus anotaciones" value={notes} onchange={handleNota} oninput={handleNota}></lightning-textarea>
+                </div>
+            </lightning-card>
+        </div>
+
+        <template if:true={isDisplayRechazarButton}>
+          <div class="container" style="margin-top: 30px">
+            <lightning-button
+              variant="brand"
+              class="slds-p-left_x-small"
+              label="Rechazar Entrega"
+              onclick={handleRechazarEntrega}
+            ></lightning-button>
+          </div>
+        </template>
+    </div>
+    </template>
+
+    <div slot="footer">
+        <lightning-button variant="brand" class="slds-p-left_x-small" label="Cerrar" onclick={handleCancel}></lightning-button>
+    </div>
+</c-avonni-dialog>
+</template>

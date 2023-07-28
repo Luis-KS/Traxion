@@ -1,0 +1,46 @@
+{
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "ce91bd9c-718a-4056-8f8b-977354359db4",
+  "label" : "Programas",
+  "regions" : [ {
+    "id" : "66dec73a-2e42-4edd-87ae-28b89e9e35dc",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:programComponentsContainer",
+      "id" : "1507cc0a-964b-4514-b3e9-59c2af958b9b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "461881b0-1eb4-412f-ab56-c79bf9e14524",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f3a3ab01-fbfd-45d5-bb09-c619d63d4595",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Programas"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "4a3ed551-050e-4ea6-ac5a-dca7056deec4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ca86a2c6-b21b-4c68-9a99-4f446b7f4adf",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-programas"
+}

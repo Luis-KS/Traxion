@@ -1,0 +1,18 @@
+{
+  "forgotPasswordRouteId" : "ee378299-9109-42b9-b6fe-86710209412f",
+  "isAvailableToGuests" : false,
+  "isFilteredComponentsView" : false,
+  "isProgressiveRenderingEnabled" : false,
+  "loginAppPageId" : "2343b4c8-1ebc-4fe4-ac6e-902919e88cfd",
+  "mainAppPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "preferredDomain" : "none",
+  "selfRegistrationRouteId" : "0c333ea8-6238-44fe-b852-5791d129ece4",
+  "trustedSitesForScript" : [ {
+    "id" : "e9ddce41-6074-4c53-aa5c-64899bdb0856",
+    "isActive" : true,
+    "trustedSiteName" : "traxion",
+    "trustedSiteUrl" : "https://traxionfarma--ksquaredev.sandbox.my.salesforce.com",
+    "type" : "trustedSitesForScripts"
+  } ],
+  "type" : "site"
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Este correo se recibe cuando algún usuario con rol de CALIDAD actualiza la información del AVISO DE PREVISIONES de las Unidades Médicas.  Esta sólo la reciben los roles SUPERVISOR y CALIDAD, y no contiene ningún archivo, es meramente informativa de que el avisó se cargó.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Carga Exitosa de Aviso de Previsiones para</name>
+    <style>none</style>
+    <subject>Carga exitosa de aviso de previsiones para {{NOMBRE_DE_UNIDAD_MEDICA_Y_ID}}</subject>
+    <textOnly>Estimado cliente.
+
+Me permito enviarle un cordial saludo, Me comunico para informarle que nuestro equipo ha recibido y actualizado la información de su aviso de previsión con número de ingreso {{NUMERO_Y_NOMBRE_DE_INGRESO}} para el surtimiento de medicamentos controlados del grupo I, con lo cual podrá realizar sin inconveniente la solicitud de estos insumos.
+
+
+Atentamente,
+
+{!$Setup.Pie_de_Firma__c.Nombre__c}
+
+{!$Setup.Pie_de_Firma__c.Puesto__c}
+
+Teléfono: {!$Setup.Pie_de_Firma__c.Telefono__c}
+
+Correo electrónico:  {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c}
+{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

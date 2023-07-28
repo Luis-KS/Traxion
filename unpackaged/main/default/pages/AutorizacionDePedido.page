@@ -1,0 +1,94 @@
+<apex:page controller="PreAutorizacionClass" renderAs="pdf">
+   
+    <h4 style="text-align: center;">RESPUESTA DE AUTORIZACIÓN DE PEDIDO NO ORDINARIO</h4>
+
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 70px">
+        <tr>
+            <th style="padding-right: 30px">SOLICITUD DE PEDIDO</th>
+            <th style="padding-right: 30px">TIPO DE PEDIDO</th>
+            <th style="padding-right: 30px">FECHA DE SOLICITUD</th>
+            <th>TIPO DE UNIDAD MÉDICA</th>
+        </tr>
+        
+        <tr>
+            <td style="padding-right: 30px">{!pedido.ID_de_Pedido__c}</td>
+            <td style="padding-right: 30px">{!pedido.Tipo_de_Pedido__c}</td>
+            <td style="padding-right: 30px">{!pedido.CreatedDate}</td>
+            <td>{!umu.Tipo_UMU__c}</td>
+        </tr>
+    </table>
+    
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 35px">
+        <tr>
+            <th style="padding-right: 30px">CLAVE PRESUPUESTAL</th>
+            <th style="padding-right: 30px">NÚMERO DE UNIDAD MÉDICA</th>
+            <th style="padding-right: 30px">NOMBRE DE DE UNIDAD MÉDICA</th>
+            <th>DELEGACIÓN</th>
+        </tr>
+        <tr>
+            <td style="padding-right: 30px">{!umu.Clave_Presupuestal__c}</td>
+            <td style="padding-right: 30px">{!umu.UMU__c}</td>
+            <td style="padding-right: 30px">{!umu.Name}</td>
+            <td>{!umu.Delegacion__c}</td>
+        </tr>
+    </table>
+    
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 35px">
+        <tr>
+            <th style="padding-right: 30px">SOLICITANTE</th>
+            <th style="padding-right: 30px">REVISIÓN DELEGACIÓN</th>
+            <th style="padding-right: 30px">REVISIÓN SICORA</th>
+            <th>FECHA DE AUTROIZACIÓN</th>
+        </tr>
+        <tr>
+            <td style="padding-right: 30px">{!contact.Name}</td>
+            <td style="padding-right: 30px">{!pedido.Aprobado_Por__r.Name}</td>
+            <td style="padding-right: 30px">{!autorizadoPor}</td>
+            <td>{!fechaAutorizacion}</td> 
+        </tr>
+    </table>
+    
+    
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 40px">
+        <tr style="background-color:#D8D335">
+            <td style="padding-left: 5px; padding-right: 5px; width: 120px">Clave</td>
+            <td style="padding-left: 10px; width: 350px">Descripción</td>
+            <td style="padding-left: 10px; text-align: center; padding-left: 5px; padding-right: 5px">Unidad</td>
+            <td style="padding-left: 10px; text-align: center; padding-left: 5px; padding-right: 5px">Piezas Solicitadas</td>
+            <td style="padding-left: 10px; text-align: center; padding-left: 5px; padding-right: 5px">Piezas Autorizadas</td>
+            <td style="padding-left: 10px; text-align: center; padding-left: 5px; padding-right: 5px">Estatus</td>
+            <td style="padding-left: 10px; width: 150px">Motivo</td>
+        </tr> 
+        
+        <apex:repeat value="{!allOlisFromPedidosList}" var="oli">
+            <tr>
+                <td>{!oli.Product__r.Product_Code_ID__c}</td>
+                <td>{!oli.Product__r.Name}</td>
+                <td style="text-align: center; padding-left: 4px; padding-right: 5px">UN</td>
+                <td style="text-align: center; padding-left: 4px; padding-right: 5px">{!oli.Cantidad_Solicitada__c}</td>
+                <td style="text-align: center; padding-left: 4px; padding-right: 5px">{!oli.Cantidad_Autorizada__c}</td>
+                <td style="text-align: center; padding-left: 4px; padding-right: 5px">{!oli.Estatus_Autorizaci_n__c}</td>
+                <td style="text-align: center; padding-left: 4px; padding-right: 5px">{!oli.Motivo_No_Autorizaci_n__c}</td>
+            </tr>   
+        </apex:repeat> 
+    </table>
+    
+    <table style="font-family: sans-serif; font-size: 12px; margin-top: 20px;  border-top: 1px solid black; ">
+        <tr>
+            <td style="font-weight: 600">Total de claves solicitadas</td>
+            <td style="padding-left: 20px; font-weight: 600">{!totalPiezasSolicitadas}</td>
+            <td style="text-align: right; padding-left: 300px; font-weight: 600">Total de piezas solicitadas</td>
+            <td style="padding-left: 20px; font-weight: 600">{!totalCantidadSolicitada}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 600">Total de claves autorizadas</td>
+            <td style="padding-left: 20px; font-weight: 600">{!totalPiezasAutorizadas}</td>
+            <td style="text-align: right; font-weight: 600">Total de piezas autorizadas</td>
+            <td style="padding-left: 20px; font-weight: 600">{!totalCantidadAutorizada}</td>
+        </tr>
+    </table>
+    
+    <p style="font-family: sans-serif; font-size: 12px; font-weight: 600">En estos momentos nuestro equipo está verificando la disponibilidad de inventario en CENADI, en breve enviaremos el
+    detalle de los insumos disponibles.</p>
+    
+</apex:page>

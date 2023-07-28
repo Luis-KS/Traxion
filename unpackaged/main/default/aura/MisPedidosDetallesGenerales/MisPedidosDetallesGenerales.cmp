@@ -1,0 +1,65 @@
+<aura:component>  
+    <!-- SELF ATTRIBUTES --> 
+    <aura:attribute name="data" type="Object" /> 
+    <aura:attribute name="initializationCompleted" type="Boolean" default="false" />
+    <aura:attribute name="detallesPorCategoria" type="List" />
+    <aura:attribute name="rangoDeFechas" type="String" /> 
+    <aura:attribute name="cantidadTotalPiezas" type="String"/>
+    <aura:attribute name="costoTotalPiezas" type="String"/> 
+    <aura:attribute name="cantidadTotalPiezasCertificadas" type="String" />
+    <aura:attribute name="costoTotalPiezasCertificadas" type="String" />  
+    <aura:attribute name="estatusDePedidos" type="String" />  
+
+    <!-- HANDLERS -->
+    <aura:handler event="c:mostrarDetallesGenerales" action="{!c.handleUpdateDetails}"/> 
+
+    <!-- MARKUP -->
+    <div>
+        <div class="slds-size_12-of-12 mc-card slds-p-around_medium">
+            <b>PEDIDOS CONFIRMADOS</b>
+            <lightning:layout horizontalAlign="spread">
+                <div class="slds-float_left">{!v.cantidadTotalPiezas}</div>
+                <div class="slds-float_right">{!v.costoTotalPiezas}</div>
+            </lightning:layout>
+        </div>
+
+        <div class="slds-size_12-of-12 mc-card slds-p-around_medium">
+            <b>PEDIDOS CERTIFICADOS</b>
+            <lightning:layout horizontalAlign="spread">
+                <div class="slds-float_left">{!v.cantidadTotalPiezasCertificadas}</div>
+                <div class="slds-float_right">{!v.costoTotalPiezasCertificadas}</div>
+            </lightning:layout>
+        </div> 
+
+        <hr style="margin-top: 0px;"/>
+
+        <lightning:layout multipleRows="false">
+            <aura:iteration items="{!v.detallesPorCategoria}" var="item"> 
+                <lightning:layoutItem size="12" largeDeviceSize="3">
+                    <lightning:layout multipleRows="true" > 
+                        <lightning:layoutItem size="12" class="slds-align_absolute-center">
+                            <lightning:icon iconName="{!item.icon}" alternativeText="{!item.titulo}" title="{!item.titulo}" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="12">
+                            <div style="text-align:center; padding-top: 10px; text-transform: uppercase; font-weight: bold;">{!item.titulo}</div> 
+                        </lightning:layoutItem>
+                    </lightning:layout> 
+                </lightning:layoutItem> 
+            </aura:iteration> 
+        </lightning:layout>
+
+        <lightning:layout multipleRows="false">
+            <aura:iteration items="{!v.detallesPorCategoria}" var="item"> 
+                <lightning:layoutItem size="12" largeDeviceSize="3">
+                    <lightning:layout multipleRows="true" > 
+                        <lightning:layoutItem size="12">
+                            <div style="text-align:center; padding-top: 3px;">{!item.piezas}</div> 
+                            <div style="text-align:center; padding-top: 3px;">{!item.costo}</div> 
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+            </aura:iteration> 
+        </lightning:layout> 
+    </div>
+
+</aura:component>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Confirmación de disponibilidad en CENADI de las claves que fueron autorizadas por SICORA</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Confirmación de Pedido No Ordinario</name>
+    <style>none</style>
+    <subject>Confirmación de tu solicitud de pedido {!Pedido__c.Tipo_de_Pedido__c} Folio {!Pedido__c.ID_de_Pedido__c}, {!Account.Name} {!Account.Clave_Presupuestal__c}</subject>
+    <textOnly>Estimado cliente.
+
+Me permito enviarte un cordial saludo,
+
+
+Me comunico para informarle que nuestro equipo ha verificado la disponibilidad de insumos en CENADI, hacemos de su conocimiento que entregaremos el 100% de su pedido {!Pedido__c.Tipo_de_Pedido__c} {!Pedido__c.ID_de_Pedido__c}
+
+Anexo encontrará el detalle de los insumos confirmados.
+
+*El surtimiento de los insumos de Grupo 1 están sujetos al aviso de previsiones vigente
+
+
+Atentamente,
+
+{!$Setup.Pie_de_Firma__c.Nombre__c}
+
+{!$Setup.Pie_de_Firma__c.Puesto__c}
+
+Teléfono: {!$Setup.Pie_de_Firma__c.Telefono__c}
+
+Correo electrónico:  {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c}
+{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

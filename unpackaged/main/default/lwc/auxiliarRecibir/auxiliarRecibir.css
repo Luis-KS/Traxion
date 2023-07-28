@@ -1,0 +1,33 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+}
+
+.recibirOrdenes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    margin-top: 10px;
+}
+
+
+/* .direcciones {
+    margin-bottom: 10px;
+} */
+
+.card-container {
+    margin-bottom: 10px;
+}
+
+.card {
+    padding: 10px;
+}
+
+.recibirCajas {
+    overflow-y: scroll;
+    /* border-right: 0.6px solid #c0baba; */
+    max-height: 330px;
+}

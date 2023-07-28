@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clave_Inventario_Compact_Layout</fullName>
+    <fields>Codigo_de_Producto__c</fields>
+    <fields>Producto__c</fields>
+    <fields>Conteo_Actual_Total__c</fields>
+    <fields>Conteo_Anterior_Total__c</fields>
+    <label>Clave Inventario Compact Layout</label>
+</CompactLayout>

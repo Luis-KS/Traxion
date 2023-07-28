@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Estatus de Conteo --></label>
+        <name>Estatus_de_Conteo__c</name>
+        <picklistValues>
+            <masterLabel>Contado</masterLabel>
+            <translation><!-- Contado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Iniciado</masterLabel>
+            <translation><!-- Iniciado --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

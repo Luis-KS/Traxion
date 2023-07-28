@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Usado para entregas parciales.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Notificacion de Entrega Parcial</name>
+    <style>none</style>
+    <subject>ENTREGA CON DESVIACIÓN</subject>
+    <textOnly>Estimado usuario,
+Me permito informarle que la entrega {{NUMERO-DE-ENTREGA}} ha sido registrada como {{TIPO-DE-ENTREGA}}, a continuación te presentamos más información:
+
+Clave presupuestal y Nombre de la Unidad Médica: {{CLAVE-PRESUPUESTAL-Y-NOMBRE-DE-UNIDAD-MEDICA}}
+Delivery: {{NUMERO-DE-DELIVERY}}
+Subalmacén: {{CODIGO-DE-SUBALMACEN}}
+Registrado por: {{NOMBRE-DEL-REGISTRANTE}}
+Folio de desviación: {{NUMERO-DE-FOLIO}}
+Motivo registrado: {{MOTIVO}}
+Número de claves con desviación: {{CANTIDAD-DE-CLAVES-CON-DESVIACION}}
+Número de piezas con desviación: {{CANTIDAD-DE-PIEZAS-CON-DESVIACION}}
+Monto de las piezas con desviación: {{MONTO-DE-LAS-PIEZAS-CON-DESVIACION}}
+
+Fecha de remisión: {{FECHA-DE-REMISION}}
+
+
+
+
+
+
+
+Atentamente,
+
+{!$Setup.Pie_de_Firma__c.Nombre__c}
+{!$Setup.Pie_de_Firma__c.Puesto__c}
+
+Teléfono: {!$Setup.Pie_de_Firma__c.Telefono__c}
+
+Correo electrónico: {!$Setup.Pie_de_Firma__c.Correo_electronico_1}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

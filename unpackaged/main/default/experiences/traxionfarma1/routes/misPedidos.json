@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "325eb4bc-4c7d-4e51-9384-4f4fd20dd14c",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "cec1e64a-0c86-4d36-b6bb-a5c93c90d963",
+  "label" : "Mis Pedidos",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-mis-pedidos",
+  "type" : "route",
+  "urlPrefix" : "mis-pedidos"
+}

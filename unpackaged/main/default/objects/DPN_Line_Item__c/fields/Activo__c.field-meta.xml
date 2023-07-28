@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activo__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>La funcion de este field es poder mostrar la clave al usuario.</description>
+    <externalId>false</externalId>
+    <label>Activo</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Codigo De Transferencia --></label>
+        <name>Codigo_De_Transferencia__c</name>
+    </CustomFieldTranslation>

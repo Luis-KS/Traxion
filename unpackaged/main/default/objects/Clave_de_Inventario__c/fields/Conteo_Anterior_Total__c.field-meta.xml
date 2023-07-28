@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conteo_Anterior_Total__c</fullName>
+    <description>Cantidad anterior total del producto por Insumo.</description>
+    <externalId>false</externalId>
+    <label>Conteo Anterior Total</label>
+    <summarizedField>Lote_de_Inventario__c.Conteo_Anterior__c</summarizedField>
+    <summaryForeignKey>Lote_de_Inventario__c.Clave_de_Inventario__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

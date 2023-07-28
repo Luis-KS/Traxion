@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>Sales_leadersship</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Monitor sales activity, and guide your team to help them meet and exceed sales targets.</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Sales Leadership</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>standard-Lead</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-CollaborationGroup</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>Order__c</tabs>
+    <tabs>Order_Line_Item__c</tabs>
+    <tabs>Subalmacen__c</tabs>
+    <tabs>Programas__c</tabs>
+    <tabs>Contactos_y_Programas__c</tabs>
+    <tabs>DPN__c</tabs>
+    <tabs>Pedido__c</tabs>
+    <tabs>SIAM_stock__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Sales_Leadership_UtilityBar</utilityBar>
+</CustomApplication>

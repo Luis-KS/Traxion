@@ -1,0 +1,42 @@
+.title {
+    color: #0092E3;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.grid-panel {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(2, 4rem); */
+    gap: 1rem;
+}
+
+span {
+    text-transform: uppercase;
+}
+
+.slds-button_icon-inverse {
+    display: none;
+}
+
+p {
+    font-size: 14px;
+}
+
+.data{
+    font-weight: 600;
+    margin: 0;
+    font-size: 14px;
+}
+
+.button {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.align-left {
+    text-align: left;
+}

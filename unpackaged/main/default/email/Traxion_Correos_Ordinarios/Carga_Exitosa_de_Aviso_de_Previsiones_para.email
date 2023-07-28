@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body style="font-family: Arial, sans-serif;">
+<p>Estimado cliente.</p>
+<p>Me permito enviarle un cordial saludo,
+Me comunico para informarle que nuestro equipo ha recibido y actualizado la información de su aviso de previsión con número de ingreso {{NUMERO_Y_NOMBRE_DE_INGRESO}} para el surtimiento de medicamentos controlados del grupo I, con lo cual podrá realizar sin inconveniente la solicitud de estos insumos.</p>
+
+
+
+
+
+	<br>
+	<p>Atentamente,</p>
+	 {!$Setup.Pie_de_Firma__c.Nombre__c} 
+	<p>	 {!$Setup.Pie_de_Firma__c.Puesto__c} </p>
+	<p>Teléfono: 	 <a href="tel:{!$Setup.Pie_de_Firma__c.Telefono__c}">{!$Setup.Pie_de_Firma__c.Telefono__c}</a></p>
+	<p>Correo electrónico:  {!$Setup.Pie_de_Firma__c.Correo_electronico_1__c} <br>
+	{!$Setup.Pie_de_Firma__c.Correo_electronico_2__c}</p>
+</body>
+</html>

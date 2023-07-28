@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Tipo de Insumo --></label>
+        <name>Tipo_de_Insumo__c</name>
+        <picklistValues>
+            <masterLabel>Compra Local</masterLabel>
+            <translation><!-- Compra Local --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ordinario</masterLabel>
+            <translation><!-- Ordinario --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Programa</masterLabel>
+            <translation><!-- Programa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vacunas</masterLabel>
+            <translation><!-- Vacunas --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

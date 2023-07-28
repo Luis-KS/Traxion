@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Codigo_De_Transferencia__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Guarda el codigio que se utiliza para transferir los records de Ordenes.</description>
+    <externalId>false</externalId>
+    <label>Codigo De Transferencia</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

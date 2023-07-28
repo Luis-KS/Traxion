@@ -1,0 +1,102 @@
+<template>
+    <template if:true={showModal}>
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="modal-heading-01"
+          aria-modal="true"
+          aria-describedby="modal-content-id-1"
+          class="slds-modal slds-fade-in-open">
+          
+            <div class="slds-modal__container">
+                <div class="slds-is-relative slds-modal__content slds-p-around_medium align-left" id="modal-content-id-1">
+
+                    <div if:true={isDataLoading}>
+                        <lightning-spinner variant="base" size="medium" alternative-text="Loading..."></lightning-spinner>
+                    </div>
+
+                    <div if:false={isDataLoading} class="container">
+                        <h1 id="modal-heading-02" class="title" tabindex="-1">{title}</h1>
+                        <p>Por favor, revisa tu correo electrónico en breve enviaremos más detalles.</p>
+
+                        <div class="grid-panel">
+                            <template if:false={esPrograma}>
+                                <div class="grid-left-align">
+                                    <span>TIPO DE PEDIDO</span><br>
+                                    <span class="data">{orderType}</span>
+                                </div>
+                            </template>
+                            <div class="grid-left-align">
+                                <span>NÚMERO DE FOLIO</span><br>
+                                <span class="data">{folio}</span>
+                            </div>
+                            <template if:false={esPrograma}>
+                                <div class="grid-left-align">
+                                    <span>UNIDAD MÉDICA</span><br>
+                                    <span class="data">{umu}</span>
+                                </div>
+                                <div class="grid-left-align">
+                                    <span>DELEGACIÓN</span><br>
+                                    <span class="data">{delegation}</span>
+                                </div>
+                            </template>
+                            <div class="grid-left-align">
+                                <span>SOLICITADO POR</span><br>
+                                <span class="data">{owner}</span>
+                            </div>
+                            <div class="grid-left-align">
+                                <span>FECHA DE SOLICITUD</span> <br>
+                                <span class="data">{fechaFormateada}</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <button class="slds-button slds-button_brand slds-m-top_medium button" onclick={handleRegresar}>Regresar al inicio</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>
+
+<!-- <template>
+    <div class="slds-is-relative" >
+        <lightning-modal-body>
+            <h1 id="modal-heading-02" class="title" tabindex="-1">{title}</h1>
+            <p>Por favor, revisa tu correo electrónico en breve enviaremos más detalles.</p>
+
+            <div class="grid-panel">
+                <template if:false={esPrograma}>
+                    <div class="grid-left-align">
+                        <span>TIPO DE PEDIDO</span><br>
+                        <span class="data">{orderType}</span>
+                    </div>
+                </template>
+                <div class="grid-left-align">
+                    <span>NÚMERO DE FOLIO</span><br>
+                    <span class="data">{folio}</span>
+                </div>
+                <template if:false={esPrograma}>
+                    <div class="grid-left-align">
+                        <span>UNIDAD MÉDICA</span><br>
+                        <span class="data">{umu}</span>
+                    </div>
+                    <div class="grid-left-align">
+                        <span>DELEGACIÓN</span><br>
+                        <span class="data">{delegation}</span>
+                    </div>
+                </template>
+                <div class="grid-left-align">
+                    <span>SOLICITADO POR</span><br>
+                    <span class="data">{owner}</span>
+                </div>
+                <div class="grid-left-align">
+                    <span>FECHA DE SOLICITUD</span> <br>
+                    <span class="data">{fechaFormateada}</span>
+                </div>
+            </div>
+
+            <button class="slds-button slds-button_brand slds-m-top_medium button" onclick={handleRegresar}>Regresar al inicio</button>
+        </lightning-modal-body>
+    </div>
+</template> -->

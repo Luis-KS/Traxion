@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activacion_No_Controlados__c</fullName>
+    <description>Verificar que todos los campos del apartado de Licencia Sanitaria estén completos.</description>
+    <externalId>false</externalId>
+    <formula>AND(
+ Aviso_de_Responsable_Sanitario__c != &#39;&#39;,
+ Aviso_de_Prevision__c != &#39;&#39;,
+ Numero_de_Licencia_Sanitaria__c != &#39;&#39;,
+ Razon_Social__c != &#39;&#39;,
+ TEXT(Fecha_de_Vencimiento__c) != &#39;&#39;,
+ Numero_de_Ingreso_de_COFEPRIS__c != &#39;&#39;,
+ Direccion_de_Licencia_Sanitaria__c != &#39;&#39;
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Activación No Controlados</label>
+    <type>Checkbox</type>
+</CustomField>

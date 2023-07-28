@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+        <label><!-- Tipo de Pedido --></label>
+        <name>Tipo_de_Pedido__c</name>
+        <picklistValues>
+            <masterLabel>Emergencia Sanitaria</masterLabel>
+            <translation><!-- Emergencia Sanitaria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Extraordinario</masterLabel>
+            <translation><!-- Extraordinario --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ordinario</masterLabel>
+            <translation><!-- Ordinario --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Programa</masterLabel>
+            <translation><!-- Programa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Replaneación</masterLabel>
+            <translation><!-- Replaneación --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soporte de Vida</masterLabel>
+            <translation><!-- Soporte de Vida --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urgencia Médica</masterLabel>
+            <translation><!-- Urgencia Médica --></translation>
+        </picklistValues>
+    </CustomFieldTranslation>

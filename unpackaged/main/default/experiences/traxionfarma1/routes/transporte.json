@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "f703a40f-06b4-46cb-a73d-6c4cece1de4f",
+  "appPageId" : "103399fc-a87a-4d09-998a-e24425a0f441",
+  "configurationTags" : [ ],
+  "id" : "692e12ba-1720-48c6-bae0-ad08bab51047",
+  "label" : "Transporte",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-transporte",
+  "type" : "route",
+  "urlPrefix" : "transporte"
+}

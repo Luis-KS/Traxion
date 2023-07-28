@@ -1,0 +1,65 @@
+<aura:component>
+
+    <!-- PARENT ATTRIBUTES -->
+    <aura:attribute name="sortedDataTable" type="List" />
+
+
+    <!-- MARKUP -->
+    <aura:iteration items="{!v.sortedDataTable}" var="oli"> 
+        <aura:if isTrue="{!oli.EstatusActivo}">
+            <aura:if isTrue="{!oli.Product__r}">    
+                <lightning:layout multipleRows="true" class="slds-border_top">  
+                    <lightning:layoutItem size="12" class="slds-p-vertical_small slds-p-right_small">
+                        <lightning:layout verticalAlign="stretch" multipleRows="true">   
+                            <lightning:layoutItem size="3" class="slds-p-right_small slds-p-top_small" flexibility="auto">
+                                <strong>{!oli.Product__r.Product_Code_ID__c}</strong> 
+                                <p>{!oli.Product__r.Name}</p> 
+                                <p class="slds-p-top_small" style="font-size: x-small;">{!oli.Product__r.Description__c}</p>
+                            </lightning:layoutItem>  
+
+                            <lightning:layoutItem size="7" class="slds-p-right_small" flexibility="auto">
+                                <lightning:layout multipleRows="true" class="slds-p-top_small"> 
+                                    <lightning:layoutItem size="3" class="slds-p-bottom_x-small"> 
+                                        <strong>DPN</strong> 
+                                        <p>{!oli.L_mite_Mensual_DPN__c}</p> 
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="3" class="slds-p-bottom_x-small"> 
+                                        <strong>VALIDADO</strong> 
+                                        <p>{!oli.Consumido_DPN__c}</p> 
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="3" class="slds-p-bottom_x-small"> 
+                                        <strong>CANTIDAD SOLICITADA</strong> 
+                                        <p>{!oli.Cantidad_Solicitada__c}</p> 
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="3" class="slds-p-bottom_x-small"> 
+                                        <strong>PIEZAS SOLICITADAS</strong> 
+                                        <p>{!oli.Cantidad_de_Piezas__c}</p> 
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="3" class="slds-p-bottom_x-small"> 
+                                        <strong>EN TRÁNSITO</strong> 
+                                        <p>0</p>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="3" class="slds-p-bottom_x-small"> 
+                                        <strong>EXISTENCIA EN UNIDAD</strong> 
+                                        <p>{!oli.Existencia_en_UMU__c}</p> 
+                                    </lightning:layoutItem> 
+                                    <lightning:layoutItem size="3" class="slds-p-bottom_x-small"> 
+                                        <strong>DISPONIBLE EN CENADI</strong>
+                                        <p>{!oli.Disponible_en_CENADI__c}</p> 
+                                    </lightning:layoutItem> 
+                                    <lightning:layoutItem size="3" class="slds-p-bottom_x-small"> 
+                                        <strong>DISPONIBLE A SOLICITAR</strong> 
+                                        <p>{!oli.Dispobible_a_Solicitar__c}</p> 
+                                    </lightning:layoutItem> 
+                                </lightning:layout>
+                            </lightning:layoutItem> 
+                        </lightning:layout>
+                    </lightning:layoutItem> 
+                </lightning:layout> 
+            </aura:if>
+            <aura:set attribute="else">
+            </aura:set>
+        </aura:if> 
+    </aura:iteration> 
+
+</aura:component>

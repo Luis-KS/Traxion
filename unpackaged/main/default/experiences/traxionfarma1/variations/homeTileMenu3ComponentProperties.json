@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "a33a5884-d1e0-4649-be9e-81e1c7f14b7e",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "tileMenuEditor" : "Men_Todos"
+      }
+    },
+    "targetId" : "0a4ed9c4-0ff8-4f9e-ba94-b56221d341ba",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Home_Tile_Menu_3_Component_Properties",
+  "id" : "d91dd23d-8f02-41a1-82b2-0e3ccea228a1",
+  "type" : "experienceVariation"
+}

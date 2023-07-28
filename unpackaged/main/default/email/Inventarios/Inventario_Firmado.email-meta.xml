@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Plantilla para enviar PDF de Inventarios.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Inventario Firmado</name>
+    <style>none</style>
+    <subject>Inventario con estatus {ESTATUS}.</subject>
+    <textOnly>Buen día {INVENTARIO_OWNER}, Te informamos que tienes un inventario firmado. UMU: {UMU} Clave UMU: {CLAVE_UMU} Favor de entrar a verificarlo. Saludos.</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

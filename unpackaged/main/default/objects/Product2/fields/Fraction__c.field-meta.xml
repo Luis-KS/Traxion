@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fraction__c</fullName>
+    <externalId>false</externalId>
+    <label>Fraction</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Controlado 1</fullName>
+                <default>false</default>
+                <label>Controlado 1</label>
+            </value>
+            <value>
+                <fullName>Controlado 2</fullName>
+                <default>false</default>
+                <label>Controlado 2</label>
+            </value>
+            <value>
+                <fullName>Controlado 3</fullName>
+                <default>false</default>
+                <label>Controlado 3</label>
+            </value>
+            <value>
+                <fullName>No Controlado</fullName>
+                <default>false</default>
+                <label>No Controlado</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

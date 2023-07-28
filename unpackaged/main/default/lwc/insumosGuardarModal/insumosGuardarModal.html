@@ -1,0 +1,20 @@
+<!-- c/myModal.html -->
+<template >
+    <div class="slds-is-relative" >
+        <!-- style="width: 40%;display: flex;flex-direction: column;justify-content: center;margin: auto;" -->
+        <div if:true={isDataLoading}>
+            <lightning-spinner variant="base" size="medium" alternative-text="Loading..."></lightning-spinner>
+        </div>
+
+        <lightning-modal-header label="Reescribir Datos Insumos"></lightning-modal-header>
+        <lightning-modal-body>
+            <p>Ya tienes datos guardados, si deseas continuar se reescribiran los datos y esta acción
+               no podra ser revertida.</p>
+            <p>¿Seguro que deseas continuar?</p>
+        </lightning-modal-body>
+        <lightning-modal-footer class="footer">
+            <lightning-button class="slds-button slds-m-right_x-small" label="Cancel" onclick={handleCancel} variant="neutral"></lightning-button>
+            <lightning-button label="OK" onclick={handleOkay} variant="brand"></lightning-button>
+        </lightning-modal-footer>
+    </div>
+</template>

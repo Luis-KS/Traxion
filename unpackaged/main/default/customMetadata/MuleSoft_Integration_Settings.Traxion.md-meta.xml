@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Traxion</label>
+    <protected>false</protected>
+    <values>
+        <field>AccessToken_Url__c</field>
+        <value xsi:type="xsd:string">https://system-oauth-provider-prod.us-w2.cloudhub.io/auth/token</value>
+    </values>
+    <values>
+        <field>Api_Base_Url__c</field>
+        <value xsi:type="xsd:string">https://traxion-albatros-api-prod.us-w2.cloudhub.io</value>
+    </values>
+    <values>
+        <field>ClientId__c</field>
+        <value xsi:type="xsd:string">ALB-CRM-PRD-PVxBwcnruDlHBbmWMgKmftfYwRhj4K6CMOj9X2NRGz8z3HUv3A</value>
+    </values>
+    <values>
+        <field>ClientId_c__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>ClientSecret__c</field>
+        <value xsi:type="xsd:string">yyunb9t0XiDY27pOMFdKG8klb8hcDvBjNVQuQ2PSqsh9FTSGYw</value>
+    </values>
+    <values>
+        <field>Scope__c</field>
+        <value xsi:type="xsd:string">SHIPMENT_WRITE</value>
+    </values>
+</CustomMetadata>
